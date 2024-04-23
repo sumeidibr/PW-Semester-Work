@@ -10,7 +10,6 @@
 
 nav{
     background: #fff;
-    position: fixed;
     width: 100%;
     z-index: 999;
     height: 70px;
@@ -31,7 +30,7 @@ nav .wrapper{
 .wrapper .logo a{
     color: #f2f2f2;
     text-decoration: none;
-    font-size: 27px;
+    font-size: 20px;
     font-weight: 600;
 }
 
@@ -54,7 +53,7 @@ nav .wrapper{
 .nav-links li a{
     color: #7f7474;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
     font-weight: 500;
     padding: 9px 15px;
     transition: all 0.33s ease;
@@ -193,9 +192,99 @@ padding: 0 30px;
     color: #a2691e;
     font-size: 1.7em;
 }
-/* responsiveeeeeeeeeeeeeeeeeeeeeeee*/
 
-@media screen and (max-width: 670px){
+
+/* BOTOES COM ICONES NO MENU*/
+
+
+
+
+/* Estilo para os botões com ícones usando SVG */
+
+
+.Componentes{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    margin-left: 30px;
+}
+.Componentes_2{
+    display: none;
+}
+
+
+.btn_carrinho {
+    background-image: url('shopping-cart-solid.svg');
+    background-repeat: no-repeat;
+    background-size: 20px; 
+    background-position:center;
+    padding: 10px; 
+    width: 70px;
+    border-radius: 30px;
+    border-style: none;
+    border-width: 1.5px;
+    border-color: #666967;
+    background-color: #e48b1700;
+    border-bottom: none;
+    margin: 5px;
+    top: 10px;
+}
+
+.btn_favorito {
+    background-image: url('heart-regular.svg');
+    background-repeat: no-repeat;
+    background-size: 20px; 
+    background-position:center;
+    padding: 10px; 
+    width: 70px;
+    border-radius: 30px;
+    border-style: none;
+    border-color: #666967;
+    background-color: #e48b1700;
+    border-bottom: none;
+    margin: 2px;
+    border-width: 1.5px;
+}
+.btn_login {
+    background-repeat: no-repeat;
+    background-size: 20px; 
+    background-position:center;
+    padding: 10px; 
+    width: 70px;
+    border-radius: 30px;
+    border-style: none;
+    border-color: #666967;
+    background-color: #0c1a01;
+    border-bottom: none;
+    color: white;
+    margin: 2px;
+    border-width: 1.5px;
+}
+
+
+.btn_pesquisa{
+    background-image: url('search-solid.svg');
+    background-repeat: no-repeat;
+    background-size: 15px; 
+    background-position: calc(100% - 20px) center;
+    padding: 10px; 
+    width: 160px;
+    border-radius: 30px;
+    border-style: solid;
+    border-color: #bdbebd;
+    background-color: #e48b1700;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    margin: 5px;
+    border-width: 1.5px;
+}
+
+
+
+/* RESPONSIVIDADE NO MOBILE*/
+
+@media screen and (max-width: 840px){
 
     .wrapper .btn{
         display: block;
@@ -320,8 +409,81 @@ padding: 0 30px;
         font-size: 19px;
 
     }
+
+    .Componentes .btn_pesquisa{
+        display: none;
+    }
+
+    .Componentes_2{
+        display: flex;
+        align-items: center;
+        justify-items: center;
+        margin-bottom: 5px;
+        padding: 20px;
+    }
+
+    
+
+   
+
+    .btn_pesquisa{
+        background-size: 15px; 
+        background-position: calc(100% - 20px) center;
+        padding: 10px; 
+        width: 180px;
+        border-radius: 30px;
+        border-style: solid;
+        border-color: #bdbebd;
+        background-color: #04b35300;
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        margin: 1px;
+        border-width: 1.5px;
+    }
 }
-.wrapper input{
+
+@media screen and (max-width: 470px){
+    .btn_pesquisa{
+        width: 80px;
+    }
+}
+
+@media screen and (max-width: 390px){
+    .Componentes_2  .btn_login{
+        display: none;
+    }
+}
+
+@media screen and (max-width: 290px){
+    .btn_pesquisa{
+       width:  51px;
+    }
+    
+    .Componentes .btn_pesquisa{
+        display: block;
+    }
+
+    .Componentes_2 .btn_pesquisa{
+        display: none;
+    }
+    
+}
+
+/*.wrapper input{
+    display: block;
+}*/
+.wrapper #menu-btn{
+    display: none;
+}
+.wrapper #cancel-btn{
+    display: none;
+}
+
+.wrapper #showDrop{
+    display: none;
+}
+.wrapper #showMega{
     display: none;
 }
 
