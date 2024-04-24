@@ -4,27 +4,47 @@
     box-sizing: border-box;
 }
 
+
+:root{
+    --main--color:#ff7c03 ;
+    --main-light-color:#ff8b1f ;
+    --container-color: #ece9f3;
+    --text-color:#1a1d22 ;
+    --bg-color: #fff;
+}
+
+@keyframes animacao {
+    0%{
+        width: 800px;
+    }
+    50%{
+        width: 830px;
+    }
+    
+}
+
+
 .Container{
     min-height: 50vh;
     width: 100%;
-   background-color: rgb(4, 50, 50);
+   background-color: rgba(4, 50, 45, 0.089);
    display: flex;
    align-items: center;
-   justify-content: space-evenly;
+   justify-content: space-around;
 }
 .home-container{
     width: 500px;
-    text-align: justify;    
+    text-align: justify;   
 }
 .home-container h2{
-    color: rgb(255, 255, 255);
+    color: rgb(6, 43, 2);
     margin: 3px;
-    font-size: 30pt;
+    font-size: 31pt;
 }
 .home-container p{
     margin: 5px;
     line-height: 1.5;
-    color: aliceblue;
+    color: rgb(7, 79, 37);
 }
 .home-container #shop_now{
     margin: 5px;
@@ -36,6 +56,8 @@
     background-repeat: no-repeat;
     background-position:calc(100% - 16px) center;
     background-size: 15px;
+    background-color: #020202;
+    color: white;
 }
 
 .home-container #shop_now:hover{
@@ -44,34 +66,203 @@
     transition: ease .5s;
 }
 
-/*****/
+.home-img-container{
+    transform: rotate(100deg);
+}
+
+/**SECCAO 2***/
 .Advantages-Container{
     display: flex;
-    width: 790px;
-    box-shadow: 1px 1px 1px 1px black;
+    width: 800px;
+    box-shadow: 1px 1px 1px black;
     margin: auto;
     align-items: center;
     border-radius: 30px;
     height: 10vh;
     justify-items: center;
+    animation: animacao 3s infinite;
+    animation-fill-mode: forwards;
+    margin-bottom: 10px;
 }
 .Advantages-Container div{
     display: flex;
     margin: auto;
     align-items: center;
     justify-items: center;
-    background-color: aqua;
 }
 
 .Advantages-Container div p{
    font-style: italic;
    color: rgb(135, 136, 137);
+   display: block;
 }
 
 
 .Advantages-Container img{
     margin: 10px;
-    width: 35px;
+    width: 32px;
+    height: 32px;
+}
+
+/**SECCAO 3**/
+.Container_2{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-around;
+     margin: auto;
+    width: 95%;
+    height: 40vh;
+}
+
+.Container-content{
+    width: 600px;
+    height: 100px;
+    text-align: justify;
+}
+ 
+.Container-content h2{
+    font-size: 22pt;
+    font-style: oblique;
+}
+.Container-content p{
+    font-style: italic;
+    color: rgb(93, 94, 95);
+    line-height: 1.5;
+}
+
+
+.Container-promocional{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-evenly;
+    width: 500px;
+    height: 230px;
+  border-style: 1px solid red;
+    border-radius: 30px;
+    background-color: rgba(69, 54, 11, 0.854);
+    box-shadow: 2px 2px 2px black;
+}
+
+.Container-promocional div:nth-child(1) {
+    margin-left: 16px;
+    width: 200px;
+    text-align: left;
+}
+
+.Container-promocional div:nth-child(2) img{
+    width: 250px;
+}
+
+/**SHOP CONTENT**/
+.shop-container{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    width: 1000px;
+    margin: auto;
+    gap: 1rem;
+}
+
+.shop-container .box{
+    position: relative;
+    padding: 10px;
+    border-radius: 0.5rem;
+    box-shadow: 1px 2px 4px rgba(15, 54,55,0.1);
+    padding-bottom: 50px;
+}
+
+.shop-container .box img{
+    width: 100%;
+    height: 250px;
+    object-fit: contain;
+    object-position: center;
+    border-radius: 0.5rem;
+    background: #ece9f3;
+}
+
+.shop-container .box h2{
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.shop-container .box button{
+    position: absolute;
+    bottom: 0.5rem;
+    right: 1.6rem;
+    padding: 13px;
+    font-style: italic;
+    border-radius: 1rem;
+    background-color: #605f5e;
+    color: #fff;
+    border-style: none;
+    width: 135px;
+    font-size: 1rem;
+    background-image: url(arrow-right-solid.svg);
+    background-repeat: no-repeat;
+    background-size: 18px;
+    background-position: calc(100% - 8px);
+}
+
+.heading{
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.heading span{
+    border-bottom: 3px solid rgb(28, 195, 28);
+}
+
+/*SECCAO 4**/
+
+.Container-extended{
+    display: flex;
+    gap: 2rem;
+    width: 1100px;
+    margin: auto;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.Container-extended div:nth-child(1) {
+    width: 700px;
+    height: 60vh;
+    background-color: red;
+    object-fit: cover;
+    background-image: url(teste9.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.Container-extended div:nth-child(2) {
+    width: 700px;
+    height: 60vh;
+    background-color: red;
+    object-fit: cover;
+    background-image: url(teste8.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.7;
+}
+.Container-extended div:nth-child(2):hover {
+    transition: ease-in .5s;
+    opacity: 1;
+}
+
+
+
+.Container-extended div:nth-child(1) p, .Container-extended div:nth-child(2) p{
+ position: relative;
+ top: 23rem;
+ left: 3rem;
+ font-size: 1.2rem;
+ line-height: 1.5;
+ font-style: italic;
+ color: aliceblue;
+ z-index: 1;
 }
 
 
