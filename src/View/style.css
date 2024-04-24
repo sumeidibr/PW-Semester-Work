@@ -1,0 +1,78 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.Container{
+    min-height: 50vh;
+    width: 100%;
+   background-color: rgb(4, 50, 50);
+   display: flex;
+   align-items: center;
+   justify-content: space-evenly;
+}
+.home-container{
+    width: 500px;
+    text-align: justify;    
+}
+.home-container h2{
+    color: rgb(255, 255, 255);
+    margin: 3px;
+    font-size: 30pt;
+}
+.home-container p{
+    margin: 5px;
+    line-height: 1.5;
+    color: aliceblue;
+}
+.home-container #shop_now{
+    margin: 5px;
+    border-radius: 15px;
+    width: 137px;
+    padding: 10px;
+    border-style: none;
+    background-image: url('arrow-right-solid.svg');
+    background-repeat: no-repeat;
+    background-position:calc(100% - 16px) center;
+    background-size: 15px;
+}
+
+.home-container #shop_now:hover{
+    width: 155px;
+    border-style: none;
+    transition: ease .5s;
+}
+
+/*****/
+.Advantages-Container{
+    display: flex;
+    width: 790px;
+    box-shadow: 1px 1px 1px 1px black;
+    margin: auto;
+    align-items: center;
+    border-radius: 30px;
+    height: 10vh;
+    justify-items: center;
+}
+.Advantages-Container div{
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-items: center;
+    background-color: aqua;
+}
+
+.Advantages-Container div p{
+   font-style: italic;
+   color: rgb(135, 136, 137);
+}
+
+
+.Advantages-Container img{
+    margin: 10px;
+    width: 35px;
+}
+
+
+

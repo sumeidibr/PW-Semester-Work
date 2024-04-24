@@ -464,8 +464,8 @@ padding: 0 30px;
         display: block;
     }
 
-    .Componentes_2 .btn_pesquisa{
-        display: none;
+     .Componentes .btn_pesquisa{
+        display: block;
     }
     
 }
