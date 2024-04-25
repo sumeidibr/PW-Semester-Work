@@ -6,7 +6,7 @@
 
 
 :root{
-    --main--color:#ff7c03 ;
+    --main--color:#2b2928 ;
     --main-light-color:#ff8b1f ;
     --container-color: #ece9f3;
     --text-color:#1a1d22 ;
@@ -179,12 +179,20 @@
     object-fit: contain;
     object-position: center;
     border-radius: 0.5rem;
-    background: #ece9f3;
+    background: #ece9f358;
 }
 
 .shop-container .box h2{
     font-size: 1rem;
     margin-bottom: 0.5rem;
+    color: #4a4b4b;
+}
+
+.shop-container .box span{
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+    color: #4a4b4b;
+    top: 30px;
 }
 
 .shop-container .box button{
@@ -194,16 +202,30 @@
     padding: 13px;
     font-style: italic;
     border-radius: 1rem;
-    background-color: #605f5e;
+    background-color: #4a4b4b;
     color: #fff;
     border-style: none;
     width: 135px;
     font-size: 1rem;
-    background-image: url(arrow-right-solid.svg);
-    background-repeat: no-repeat;
-    background-size: 18px;
-    background-position: calc(100% - 8px);
+    
 }
+
+.shop-container .box a{
+   text-decoration: none;
+    
+}
+
+.shop-container .box .bx{
+    position: absolute;
+    bottom: 1rem;
+    right: 0.8rem;
+    padding: 10px;
+    font-size: 20px;
+    background: var(--main--color);
+    color: var(--bg-color);
+    border-radius: 0.5rem;
+}
+
 
 .heading{
     text-align: center;
@@ -235,6 +257,7 @@
     background-image: url(teste9.png);
     background-repeat: no-repeat;
     background-size: cover;
+    border-radius: 10px;
 }
 
 .Container-extended div:nth-child(2) {
@@ -246,6 +269,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     opacity: 0.7;
+    border-radius: 10px;
 }
 .Container-extended div:nth-child(2):hover {
     transition: ease-in .5s;
