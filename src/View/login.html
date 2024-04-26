@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login/sign in</title>
+
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="menu.css">
+</head>
+<body>
+   
+     <!-- MENU-->
+     <nav>
+        <div class="wrapper">
+            <div class="logo">
+                <a href="Home.html">
+                    <span
+                        style="color:rgb(0, 0, 0);  font-weight: bold; font-size: 25pt;">Crocs<sup style="font-size: 0.5rem;">TM</sup></span>
+                    <img src="logo-1.png" alt="">
+                </a>
+            </div>
+
+            <div class="Componentes_2">
+
+                <input type="search" class="btn_pesquisa" placeholder="Search" style="margin: 5px;">
+                <a href="login.html"><input type="button" class="btn_login" value="Login" style="margin: 5px;"></a>
+            </div>
+
+
+            <input type="radio" name="slide" id="menu-btn">
+            <input type="radio" name="slide" id="cancel-btn">
+            <ul class="nav-links">
+                <label for="cancel-btn" class="btn cancel-btn"><i class='bx bx-x' name=""></i></label>
+                <li><a href="Home.html" class="active">Home</a></li>
+                <li>
+                    <a href="" class="desktop-item">New Arrival</a>
+                    <input type="checkbox" id="showDrop">
+                    
+                    <label for="showDrop" class="mobile-item">New Arrival</label>
+                    <ul class="drop-menu">
+                        <li><a href="Sobre_Nos.html">Men</a></li>
+                        <li><a href="">Women</a></li>
+                        <li><a href="">Kids</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="" class="desktop-item">Categories</a>
+                    <input type="checkbox" id="showMega">
+
+                    <label for="showMega" class="mobile-item">Produtos +</label>
+                    <div class="mega-box">
+                        <div class="content">
+                            <div class="row">
+                                <img src="crocs_logo.webp" alt="">
+                            </div>
+                            <div class="row">
+                                <header></header>
+                                <ul class="mega-links">
+                                    <li><a href="">All in Ones</a></li>
+                                    <li><a href="">Cameras de Vigilancia</a></li>
+                                    <li><a href="ecommerce/computador/computador.html">Computadores</a></li>
+                                    <li><a href="">Ups</a></li>
+                                    <li><a href="">Pastas</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="row">
+                                <header></header>
+                                <ul class="mega-links">
+                                    <li><a href="">Estabilizadores</a></li>
+                                    <li><a href="">Servidores</a></li>
+                                    <li><a href="">Consolas de jogo</a></li>
+                                    <li><a href="">Celulares</a></li>
+                                    <li><a href="">Acessorios</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="row">
+                                <header></header>
+                                <ul class="mega-links">
+                                    <li><a href="">Tablets</a></li>
+                                    <li><a href="">POS AIO</a></li>
+                                    <li><a href="">Scanners</a></li>
+                                    <li><a href="">Caixas de Dinheiro</a></li>
+                                    <li><a href="">Entre Outros</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!---------------------------------------------------------->
+                <li>
+                    <a href="" class="desktop-item">Categories 2</a>
+                    <input type="checkbox" id="showMega">
+
+                    <label for="showMega" class="mobile-item">Testes</label>
+                    <div class="mega-box">
+                        <div class="content">
+                            <div class="row">
+                                <img src="crocs_logo.webp" alt="">
+                            </div>
+                            <div class="row">
+                                <header></header>
+                                <ul class="mega-links">
+                                    <li><a href="">All in Ones</a></li>
+                                    <li><a href="">Cameras de Vigilancia</a></li>
+                                    <li><a href="">Computadores</a></li>
+                                    <li><a href="">Ups</a></li>
+                                    <li><a href="">Pastas</a></li>
+                                </ul>
+                            </div>
+
+                            <div class="row">
+                                <header></header>
+                                <ul class="mega-links">
+                                    <img src="pose1.webp" alt="">
+                                    <li><a href="">Estabilizadores </a></li>
+                                    
+                                   
+                                </ul>
+                            </div>
+
+                            <div class="row">
+                                <header></header>
+                                <ul class="mega-links">
+                                    <img src="pose2.webp" alt="">
+                                    <li><a href="">Tablets</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </li> 
+
+                
+               
+
+                <!-- Mover para dentro da ul -->
+                <div class="Componentes">
+                    <a href=""><input type="button" class="btn_carrinho"></a>
+                    <a href=""><input type="button" class="btn_favorito"></a>
+                    <a href=""><input type="button" class="btn_login" value="Login"></a>
+                    <input type="search" class="btn_pesquisa" placeholder="Search">
+                </div>
+                <!-- Mover para dentro da ul -->
+            </ul>
+            <label for="menu-btn" class="btn menu-btn"><i class='bx bx-menu'></i></label>
+        </div>
+    </nav>
+<div class="form">
+    
+        <div class="login_area">
+           
+            <input type="email" name="email" id="email" required placeholder="     Digite o seu e-mail...">
+           
+            <input type="password" name="password" id="password" placeholder="     Digite a sua palavra-passe...">
+
+            <div class="caixas">
+                <div>
+                    <input type="checkbox" name="" id="check"> <p>lembre de mim</p>
+                </div>
+                <a href="" style="color: rgb(14, 54, 54);">
+                    <p>Esqueceu sua senha?</p>
+                </a>
+            </div>
+
+            <input type="submit" name="submit" value="Logar" id="btn_logar">
+        </div>
+    
+        <div class="sign_in_area">
+            
+           <input type="button" value="Registrar" id="registrar" onclick="Visualizar()">
+
+            <div class="area_registrar" id="area">
+                <input type="text" name="name" id="name"  placeholder="     Digite o seu nome">
+                <input type="email"  name="email" id="email" required placeholder="     Digite o seu email">
+                <input type="password" name="password"  id="password" required placeholder="     Digite a sua palavra-passe">
+                <input type="password" name="password" id="confirm_password" required placeholder="     Confirme a sua palavra-passe">
+                <div class="boxes">
+                    <input type="checkbox" name="check" id="check">
+                    <p>Eu aceito os termos de uso e politica de privacidade.</p>
+                </div>
+                <input type="submit" name="submit" value="Registrar" id="btn_registrar">
+            </div>
+            
+        </div>
+</div>
+
+ 
+<script>
+    let div = document.getElementById("area");
+
+    function Visualizar(){
+       div.style.display = "block";
+    }
+</script>
+</body>
+</html>
