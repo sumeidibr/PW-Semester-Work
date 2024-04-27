@@ -46,7 +46,7 @@
     justify-content: space-around;
 }
 
-.caixas div #check{
+.caixas div #check_remember{
     width: 10%;
 }
 .caixas div p{
@@ -84,6 +84,10 @@
     font-weight: bold;
 }
 
+#btn_registrar{
+    pointer-events: none;
+}
+
 .login_area{
 
     display: flex;
@@ -98,10 +102,23 @@
     flex-direction: column;
     align-items: center;
     justify-items: center;
+    
+}
+.flex_display{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    align-items: center;
+    justify-items: center;
+    background-color: aqua;
+    margin: auto;
 }
 
 .area_registrar{
     display: none;
+}
+#area{
+    
 }
 
 
@@ -135,7 +152,6 @@
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: calc(100% - 275px) center;
-    visibility: hidden;
 }
 
 .form p{

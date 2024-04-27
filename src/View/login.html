@@ -153,12 +153,12 @@
         <div class="login_area">
            
             <input type="email" name="email" id="email" required placeholder="     Digite o seu e-mail...">
-           
+             
             <input type="password" name="password" id="password" placeholder="     Digite a sua palavra-passe...">
 
             <div class="caixas">
                 <div>
-                    <input type="checkbox" name="" id="check"> <p>lembre de mim</p>
+                    <input type="checkbox" name="" id="check_remember"> <p>lembre de mim</p>
                 </div>
                 <a href="" style="color: rgb(14, 54, 54);">
                     <p>Esqueceu sua senha?</p>
@@ -189,10 +189,25 @@
 
  
 <script>
-    let div = document.getElementById("area");
+   let check_termos = document.getElementById("check");
+
+   let btn_registrar = document.getElementById("btn_registrar");
+
+   if(!check_termos.checked){
+btn_registrar.style.pointerEvents = "none";
+   }else{
+    btn_registrar.style.pointerEvents = "auto";
+    alert("Você precisa concordar com os termos antes de prosseguir.")
+   }
+   
+
+
 
     function Visualizar(){
-       div.style.display = "block";
+        let area = document.getElementById("area");
+
+       area.style.display = "block";
+       area.classList.add("flex_display");
     }
 </script>
 </body>
