@@ -86,6 +86,8 @@
 
 #btn_registrar{
     pointer-events: none;
+
+    
 }
 
 .login_area{
@@ -95,6 +97,7 @@
     align-items: center;
     justify-items: center;
     border-right: 1px solid rgb(164, 161, 161);
+    
 }
 
 .sign_in_area{
@@ -103,6 +106,7 @@
     align-items: center;
     justify-items: center;
     
+    
 }
 .flex_display{
     display: flex;
@@ -110,7 +114,6 @@
     max-width: 300px;
     align-items: center;
     justify-items: center;
-    background-color: aqua;
     margin: auto;
 }
 

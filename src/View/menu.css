@@ -124,6 +124,9 @@ padding: 0 30px;
 .content .row{
     width: calc(25% - 40px);
     line-height: 45px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .content .row img{
@@ -134,18 +137,35 @@ padding: 0 30px;
 }
 
 .content .row header{
-    color: #f2f2f2;
+    color: #525050;
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
+    margin-right: 130px;
 }
 
 .content .row .mega-links{
-    border-left: 1px solid rgba(0, 0, 0, 0.335);
     margin-left: -40px;
+    
 }
 
 .content .row .mega-links a{
    color: #605959;
+   font-size: 0.9rem;
+}
+
+
+
+
+.content .row .mega-links button{
+    background-color:#74B708;
+    border-radius: 10px;
+    padding: 7px;
+    width: 100px;
+    color: white;
+    font-style: italic;
+    font-weight: 600;
+    border: none;
+    margin-left: 70px;
 }
 
 .content .row .mega-links a:hover{

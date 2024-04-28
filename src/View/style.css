@@ -25,39 +25,45 @@
 
 
 .Container{
-    min-height: 50vh;
+    min-height: 80vh;
     width: 100%;
    background-color: rgba(4, 50, 45, 0.089);
    display: flex;
    align-items: center;
    justify-content: space-around;
+   background-image: url(background_1.avif);
+   object-fit: cover;
+   width: 100%;
+   background-position: 70%;
 }
 .home-container{
-    width: 500px;
+    width: 600px;
     text-align: justify;   
 }
 .home-container h2{
-    color: rgb(6, 43, 2);
+    color: rgb(75, 119, 70);
     margin: 3px;
-    font-size: 31pt;
+    font-size: 41pt;
 }
 .home-container p{
     margin: 5px;
     line-height: 1.5;
     color: rgb(7, 79, 37);
+    font-size: 1.3rem;
 }
 .home-container #shop_now{
     margin: 5px;
     border-radius: 15px;
-    width: 137px;
+    width: 157px;
     padding: 10px;
     border-style: none;
     background-image: url('arrow-right-solid.svg');
     background-repeat: no-repeat;
     background-position:calc(100% - 16px) center;
     background-size: 15px;
-    background-color: #020202;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(8, 8, 8);
+    font-weight: bold;
 }
 
 .home-container #shop_now:hover{
@@ -141,8 +147,8 @@
     height: 230px;
   border-style: 1px solid red;
     border-radius: 30px;
-    background-color: rgba(69, 54, 11, 0.854);
-    box-shadow: 2px 2px 2px black;
+    background-color: rgba(196, 195, 194, 0.6);
+    box-shadow: 1px 1px 1px black;
 }
 
 .Container-promocional div:nth-child(1) {
