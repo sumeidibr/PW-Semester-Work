@@ -1,0 +1,82 @@
+/* Estilo para o container principal */
+.container_promocao {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container_promocao .container_promocao_registro{
+    width: 60%;
+}
+.container_promocao .container_promocao_atualizar{
+    width: 40%;
+}
+.container_promocao .container_lista_promocoes{
+    width: 45%;
+}
+/* Estilo para cada container interno */
+.container_promocao > div {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Estilo para os títulos dentro dos containers */
+.container_promocao h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para os formulários dentro dos containers */
+.container_promocao form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para os campos de entrada */
+.container_promocao input[type="text"],
+.container_promocao textarea,
+.container_promocao select {
+    width: 98%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para o botão de envio */
+.container_promocao input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo para a tabela */
+.container_promocao table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    
+}
+.container_promocao  .selected-row {
+    background-color: #ffc107; /* Cor de fundo para a linha selecionada */
+}
+
+/* Estilo para as células da tabela */
+.container_promocao td,
+.container_promocao th {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilo para as células do cabeçalho da tabela */
+.container_promocao th {
+    background-color: #f2f2f2;
+}

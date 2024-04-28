@@ -1,0 +1,81 @@
+/* Estilo para o container principal */
+.container_categoria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container_categoria .container_registrar_categoria{
+    width: 85%;
+}
+.container_categoria .container_actualizar_categoria{
+    width: 40%;
+}
+.container_categoria .container_lista_categorias{
+    width: 45%;
+}
+/* Estilo para cada container interno */
+.container_categoria > div {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Estilo para os títulos dentro dos containers */
+.container_categoria h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para os formulários dentro dos containers */
+.container_categoria form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para os campos de entrada */
+.container_categoria input[type="text"],
+.container_categoria textarea,
+.container_categoria select {
+    width: 98%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para o botão de envio */
+.container_categoria input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo para a tabela */
+.container_categoria table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.container_categoria  .selected-row {
+    background-color: #ffc107; /* Cor de fundo para a linha selecionada */
+}
+
+/* Estilo para as células da tabela */
+.container_categoria td,
+.container_categoria th {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilo para as células do cabeçalho da tabela */
+.container_categoria th {
+    background-color: #f2f2f2;
+}
