@@ -21,12 +21,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }else{
         //usuario existe
         $senha_bd = $result[0]['password'];
-
+        $id = $result[0]['iduser'];
         //verificar senha
         if(password_verify($senha,$senha_bd)){
             if($result[0]['tipo_user'] == 'cliente'){
                 //direcionar ao ciente e pegar a seccao 
-                $_SESSION['user'] = $result[0]['primeiro_nome'];
+                $_SESSION['user'] = [
+                    'id' => $result[0]['iduser'],
+                    'nome' => $result[0]['primeiro_nome']
+                ];
                 header("Location: cliente/index.php");
             }else{
                 header("Location: gestor/index.php");
@@ -37,3 +40,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 }
+
+$_SESSION['user'] = [
+    'id' => $result[0]['iduser'],
+    'nome' => $result[0]['primeiro_nome']
+];
+header("Location: cliente/index.php");

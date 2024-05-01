@@ -4,5 +4,5 @@
     }
 ?>
 <div style="background-color: blue; color:azure">
-    <?php echo $_SESSION['user']?> | <a href="?p=logout"> logout</a>
+    <?php echo $_SESSION['user']['nome']?> | <a href="?p=logout"> logout</a>
 </div>

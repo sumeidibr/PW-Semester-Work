@@ -29,63 +29,6 @@
         margin-bottom: 20px;
     }
 
-    .cart-item {
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        margin-bottom: 20px;
-        padding: 20px;
-    }
-
-    .cart-item img {
-        width: 100px;
-        border-radius: 8px;
-        margin-right: 20px;
-    }
-
-    .cart-item-details {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .product-info {
-        flex: 1;
-    }
-
-    .product-info h3 {
-        margin: 0;
-        font-size: 18px;
-    }
-
-    .product-info p {
-        margin: 5px 0;
-        font-size: 16px;
-    }
-
-    .product-total {
-        font-size: 18px;
-        font-weight: bold;
-    }
-
-    .cart-buttons {
-        margin-top: 20px;
-    }
-
-    .cart-buttons button {
-        padding: 10px 20px;
-        margin-right: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        transition: background-color 0.3s;
-    }
-
-    .cart-buttons button:hover {
-        background-color: #0056b3;
-    }
 </style>
 
 <?php
@@ -99,6 +42,7 @@ $result = $obj->EXE_QUERY($sql);
 $sql = 'SELECT * FROM promocao';
 $result_promocao = $obj->EXE_QUERY($sql);
 ?>
+
 
 <div class="carrinho-container">
     <?php foreach ($result as $produto) : ?>
@@ -117,8 +61,7 @@ $result_promocao = $obj->EXE_QUERY($sql);
             $preco = $count > 0 ? $produto['preco'] * $promocao : $produto['preco'];
             ?>
             <p>Preço: <?php echo number_format($preco, 2) ?> MT</p>
-            <a href="?adicionar=<?php echo $produto['idproduto'] ?>">Adicionar ao carrinho</a>
-            <a href="?remover=<?php echo $produto['idproduto'] ?>">Remover ao carrinho</a>
+            <a href="?add_carrinho=<?php echo $produto['idproduto'] ?>">Adicionar ao carrinho</a>
         </div>
     <?php endforeach; ?>
 </div>
@@ -147,7 +90,36 @@ if (isset($_GET['adicionar']) && filter_var($_GET['adicionar'], FILTER_VALIDATE_
                 'quantidade' => 1
             ];
         }
-        echo '<script> alert("O item foi adicionado ao carinho"); </script>';
+    } else {
+        die('Parametro invalido');
+    }
+}
+?>
+<?php
+// Verificando se existe a chave 'adicionar' no array $_GET e se é um número inteiro positivo
+if (isset($_GET['add_carrinho']) && filter_var($_GET['add_carrinho'], FILTER_VALIDATE_INT) !== false && $_GET['add_carrinho'] >= 0) {
+    $idpro = (int)$_GET['add_carrinho'];
+    // Verificando se o produto com o id 'adicionar' existe no array $result
+    $produto_encontrado = false;
+    foreach ($result as $produto) {
+        if ($produto['idproduto'] == $idpro) {
+            $produto_encontrado = true;
+            break;
+        }
+    }
+    if ($produto_encontrado) {
+        if (isset($_SESSION['carrinho'][$idpro])) {
+            echo '<script> alert("Erro Item ja adicionado ao carrinho"); </script>';
+        } else {
+            $_SESSION['carrinho'][$idpro] = [
+                'id' => $idpro,
+                'nome' => $produto['nome'],
+                'preco' => $produto['preco'],
+                'imagem' => $produto['imagem'],
+                'quantidade' => 1
+            ];
+            echo '<script> alert("O item foi adicionado ao carinho"); </script>';
+        }
     } else {
         die('Parametro invalido');
     }
@@ -176,7 +148,6 @@ if (isset($_GET['remover']) && filter_var($_GET['remover'], FILTER_VALIDATE_INT)
         } else {
             echo '<script> alert("Impossivel reduzir sem antes ter"); </script>';
         }
-        echo '<script> alert("O item foi removido do carrinho"); </script>';
     } else {
         die('Parametro invalido');
     }
@@ -184,40 +155,63 @@ if (isset($_GET['remover']) && filter_var($_GET['remover'], FILTER_VALIDATE_INT)
 ?>
 
 
+<?php
+if (isset($_GET['efectuar_pagamento']) && isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
+    $obj->EXE_NON_QUERY('START TRANSACTION');
 
-<h2>Carrinho</h2>
-<div class="carinho_compras">
-    <?php foreach ($_SESSION['carrinho'] as $produto_carinho) : ?>
-        <div class="cart-item">
-            <div class="cart-item-details">
-                <img src="../<?php echo $produto_carinho['imagem']; ?>" alt="Imagem do Produto">
-                <div class="product-info">
-                    <h3><?php echo $produto_carinho['nome']; ?></h3>
-                    <p>Quantidade: <?php echo $produto_carinho['quantidade']; ?></p>
-                    <p>Preço Unitário: $<?php echo $produto_carinho['preco']; ?></p>
-                    <p>Preço Total: $<?php echo $produto_carinho['preco'] * $produto_carinho['quantidade']; ?></p>
-                </div>
-            </div>
-        </div>
-    <?php endforeach; ?>
+    try {
+        // Calcula o total da compra
+        $total = 0;
+        foreach ($_SESSION['carrinho'] as $produto_carinho) {
+            $total += $produto_carinho['preco'] * $produto_carinho['quantidade'];
+        }
 
-    <div class="cart-buttons">
-        <button onclick="efetuarCompra()">Efectuar Compra</button>
-        <button onclick="limparCarrinho()">Limpar Carrinho</button>
-        <button onclick="simularPagamento()">Simular Pagamento</button>
-    </div>
-</div>
+        // Insere os detalhes da compra na tabela 'compra'
+        $query_compra = 'INSERT INTO compra (iduser, data, localizacao_entrega, total) VALUES (:iduser, NOW(), :localizacao_entrega, :total)';
+        $params_compra = array(
+            ':iduser' => $_SESSION['user']['id'],
+            ':localizacao_entrega' => 'Magoanine',
+            ':total' => $total
+        );
+        $obj->EXE_NON_QUERY($query_compra, $params_compra);
+
+        // Recupera o idcompra
+        $idcompra = $obj->EXE_QUERY('SELECT LAST_INSERT_ID() as idcompra')[0]['idcompra'];
+
+        // Insere os produtos associados à compra na tabela 'produto_has_compra'
+        $query_prod_comp = 'INSERT INTO produto_has_compra (idproduto, idcompra, quantidade) VALUES (:idproduto, :idcompra, :quantidade)';
+        foreach ($_SESSION['carrinho'] as $produto_carinho) {
+            $params_prod_comp = array(
+                ':idproduto' => $produto_carinho['id'],
+                ':idcompra' => $idcompra,
+                ':quantidade' => $produto_carinho['quantidade']
+            );
+            $obj->EXE_NON_QUERY($query_prod_comp, $params_prod_comp);
+
+            // Abate o estoque do produto removido
+            $query_abater_estoque = 'UPDATE produto SET estoque = estoque - :quantidade WHERE idproduto = :idproduto';
+            $params_abater_estoque = array(
+                ':quantidade' => $produto_carinho['quantidade'],
+                ':idproduto' => $produto_carinho['id']
+            );
+            $obj->EXE_NON_QUERY($query_abater_estoque, $params_abater_estoque);
+        }
+        // Limpa o carrinho após o pagamento ser efetuado
+        unset($_SESSION['carrinho']);
+
+        
+    } catch (Exception $e) {
+        // Caso ocorra algum erro, desfaz as alterações e exibe uma mensagem de erro
+        echo 'Erro ao processar pagamento: ' . $e->getMessage();
+    }
+}
+?>
+
+
+
+
 
 <script>
-    function efetuarCompra() {
-        // Lógica para efetuar a compra
-        alert('Compra efectuada com sucesso!');
-    }
-    function limparCarrinho() {
-        // Lógica para limpar o carrinho
-        alert("Carrinho limpo com sucesso");
-    } 
-
     function simularPagamento() {
         let total = 0;
         <?php foreach ($_SESSION['carrinho'] as $produto_carinho) : ?>
@@ -225,4 +219,33 @@ if (isset($_GET['remover']) && filter_var($_GET['remover'], FILTER_VALIDATE_INT)
         <?php endforeach; ?>
         alert("Total a pagar: $" + total.toFixed(2));
     }
+</script>
+
+<script>
+    var openModalBtn = document.getElementById('openModalBtn');
+    var modal = document.getElementById('myModal');
+    var closeBtn = document.getElementsByClassName('close')[0];
+    var cadastroForm = document.getElementById('cadastroForm');
+
+    openModalBtn.addEventListener('click', function() {
+        modal.style.display = 'block';
+    });
+
+    closeBtn.addEventListener('click', function(event) {
+        modal.style.display = 'none';
+        event.stopPropagation(); // Impede a propagação do evento para os elementos pai
+    });
+
+    window.addEventListener('click', function(event) {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    cadastroForm.addEventListener('submit', function(event) {
+        event.preventDefault(); // Evita o envio padrão do formulário
+        // Aqui você pode adicionar o código para lidar com o envio do formulário, como enviar os dados para um servidor ou salvar localmente
+        alert('Cliente cadastrado com sucesso!');
+        modal.style.display = 'none';
+    });
 </script>
