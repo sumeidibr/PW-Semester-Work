@@ -1,36 +1,61 @@
 <style>
-    .carrinho-container {
-        display: flex;
-        flex-wrap: wrap;
-        margin-top: 10px;
-        margin-bottom: 20px;
-    }
+    .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-    .produto {
-        width: 25.5%;
-        padding: 0 30px;
-    }
+.card {
+    width: 250px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+}
 
-    .produto img {
-        max-width: 30%;
-    }
+.card:hover {
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+}
 
-    .produto a {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        background-color: #5fb382;
-        text-align: center;
-        text-decoration: none;
-    }
+.card img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+}
 
-    h2 {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
+.info {
+    margin-top: 10px;
+}
+
+.nome {
+    font-weight: bold;
+}
+
+.preco {
+    font-size: 18px;
+    color: #ff5722; /* laranja */
+}
+
+.botao {
+    display: block;
+    width: 90%;
+    padding: 10px;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #ff5722; /* laranja */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.botao:hover {
+    background-color: #f44336; /* laranja mais escuro */
+}
 
 </style>
-
 <?php
 include '../gestor.php';
 $obj = new Gestor();
@@ -44,27 +69,35 @@ $result_promocao = $obj->EXE_QUERY($sql);
 ?>
 
 
-<div class="carrinho-container">
+<div class="container">
     <?php foreach ($result as $produto) : ?>
-        <div class="produto">
-            <img src="<?php echo '../' . $produto['imagem'] ?>" alt="" class="product-img">
-            <p><?php echo $produto['nome'] ?></p>
-            <p>Quantidade: <?php echo $produto['estoque'] ?> </p>
-            <?php
-            $count = 0;
-            foreach ($result_promocao as $prom) {
-                if ($produto['idproduto'] == $prom['id_produto']) {
-                    $promocao = 1.0 + ($prom['desconto'] / 100);
-                    $count++;
+        <div class="card">
+            <img src="<?php echo '../' . $produto['imagem'] ?>" alt="imagem_produto">
+            <div class="info">
+                <p class="nome"><?php echo $produto['nome'] ?></p>
+                <p>Quantidade: <?php echo $produto['estoque'] ?> </p>
+                <p>Descricao: <?php echo $produto['descricao'] ?> </p>
+                <?php
+                $count = 0;
+
+                foreach ($result_promocao as $prom) {
+                /*
+                    if ($produto['idproduto'] == $prom['id_produto']) {
+                        $promocao = 1.0 + ($prom['desconto'] / 100);
+                        $count++;
+                    }
+                    */
                 }
-            }
-            $preco = $count > 0 ? $produto['preco'] * $promocao : $produto['preco'];
-            ?>
-            <p>Preço: <?php echo number_format($preco, 2) ?> MT</p>
-            <a href="?add_carrinho=<?php echo $produto['idproduto'] ?>">Adicionar ao carrinho</a>
+               // $preco = $count > 0 ? $produto['preco'] * $promocao : $produto['preco'];
+               //number_format($preco, 2)
+               ?>
+               <p class="preco">Preço: <?php echo $produto['preco'] ?> MT</p>
+            </div>
+            <a href="?add_carrinho=<?php echo $produto['idproduto'] ?>" class="botao">Add Carrinho</a>
         </div>
     <?php endforeach; ?>
 </div>
+
 
 <?php
 // Verificando se existe a chave 'adicionar' no array $_GET e se é um número inteiro positivo
@@ -206,46 +239,3 @@ if (isset($_GET['efectuar_pagamento']) && isset($_SESSION['carrinho']) && !empty
     }
 }
 ?>
-
-
-
-
-
-<script>
-    function simularPagamento() {
-        let total = 0;
-        <?php foreach ($_SESSION['carrinho'] as $produto_carinho) : ?>
-            total += <?php echo $produto_carinho['preco'] * $produto_carinho['quantidade']; ?>;
-        <?php endforeach; ?>
-        alert("Total a pagar: $" + total.toFixed(2));
-    }
-</script>
-
-<script>
-    var openModalBtn = document.getElementById('openModalBtn');
-    var modal = document.getElementById('myModal');
-    var closeBtn = document.getElementsByClassName('close')[0];
-    var cadastroForm = document.getElementById('cadastroForm');
-
-    openModalBtn.addEventListener('click', function() {
-        modal.style.display = 'block';
-    });
-
-    closeBtn.addEventListener('click', function(event) {
-        modal.style.display = 'none';
-        event.stopPropagation(); // Impede a propagação do evento para os elementos pai
-    });
-
-    window.addEventListener('click', function(event) {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    });
-
-    cadastroForm.addEventListener('submit', function(event) {
-        event.preventDefault(); // Evita o envio padrão do formulário
-        // Aqui você pode adicionar o código para lidar com o envio do formulário, como enviar os dados para um servidor ou salvar localmente
-        alert('Cliente cadastrado com sucesso!');
-        modal.style.display = 'none';
-    });
-</script>

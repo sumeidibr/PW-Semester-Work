@@ -29,6 +29,9 @@ switch($pagina){
     case 'carrinho':
         include 'carrinho.php';
         break;
+    case 'perfil':
+        include 'perfil.php';
+        break;
     case 'sobre':
         include 'sobre.php';
         break;

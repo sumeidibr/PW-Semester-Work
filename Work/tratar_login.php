@@ -28,8 +28,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 //direcionar ao ciente e pegar a seccao 
                 $_SESSION['user'] = [
                     'id' => $result[0]['iduser'],
-                    'nome' => $result[0]['primeiro_nome']
+                    'nome' => $result[0]['primeiro_nome'],
+                    'apelido' => $result[0]['apelido'],
+                    'email' => $result[0]['email'],
+                    'telefone' => $result[0]['telefone']
                 ];
+                
                 header("Location: cliente/index.php");
             }else{
                 header("Location: gestor/index.php");
