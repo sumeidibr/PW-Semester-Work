@@ -26,7 +26,7 @@
             </div><!-- SOCIAL-MIDIA -->
             <!--Formulario Cadastrar -->
             <p class="description description-second">registre-se com seu email</p>
-            <form action="criar_conta.php" method="post" class="form_login">
+            <form action="criar_conta.php" method="post" class="form_login" enctype="multipart/form-data">
                 <label class="label-input icon-modify" for="pnome">
                     <i class="fas fa-user"></i>
                     <input type="text" placeholder="Stelio" name="pnome" required>
@@ -39,11 +39,21 @@
                     <i class="fas fa-envelope"></i>
                     <input type="email" placeholder="Email" name="email" required>
                 </label>
+              
                 <label class="label-input icon-modify" for="senha" required>
                     <i class="fas fa-lock"></i>
                     <input type="password" placeholder="Senha" name="senha" required>
                 </label>
+
+                <label class="label-input icon-modify" for="telefone" required>
+                    <i class="fas fa-lock"></i>
+                    <input type="number" placeholder="842156451" name="telefone" required>
+                </label>
+
                 <input type="hidden" id="tipo" name="tipo_user" value="cliente" required>
+                <label class="label-input icon-modify" for="imagem">
+                    <input type="file" id="imagem" name="imagem">
+                </label>
                 <button class="btn btn-second">registre-se</button>
             </form>
         </div><!-- SECOND-COLUMN -->

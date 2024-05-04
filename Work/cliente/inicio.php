@@ -1,61 +1,9 @@
-<style>
-    .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
+<div class="search">
+    <input type="text" placeholder="Buscar">
+    <button type="submit"><i class="fa fa-search"></i></button>
+</div>
 
-.card {
-    width: 250px;
-    margin: 20px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease;
-}
 
-.card:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-
-.card img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-}
-
-.info {
-    margin-top: 10px;
-}
-
-.nome {
-    font-weight: bold;
-}
-
-.preco {
-    font-size: 18px;
-    color: #ff5722; /* laranja */
-}
-
-.botao {
-    display: block;
-    width: 90%;
-    padding: 10px;
-    margin-top: 10px;
-    text-align: center;
-    background-color: #ff5722; /* laranja */
-    color: #fff;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.botao:hover {
-    background-color: #f44336; /* laranja mais escuro */
-}
-
-</style>
 <?php
 include '../gestor.php';
 $obj = new Gestor();
@@ -71,30 +19,32 @@ $result_promocao = $obj->EXE_QUERY($sql);
 
 <div class="container">
     <?php foreach ($result as $produto) : ?>
-        <div class="card">
-            <img src="<?php echo '../' . $produto['imagem'] ?>" alt="imagem_produto">
-            <div class="info">
-                <p class="nome"><?php echo $produto['nome'] ?></p>
-                <p>Quantidade: <?php echo $produto['estoque'] ?> </p>
-                <p>Descricao: <?php echo $produto['descricao'] ?> </p>
-                <?php
-                $count = 0;
+        <?php if ($produto['estoque'] >= 1) { ?>
+            <div class="card">
+                <img src="<?php echo '../' . $produto['imagem'] ?>" alt="imagem_produto">
+                <div class="info">
+                    <p class="nome"><?php echo $produto['nome'] ?></p>
+                    <p>Quantidade: <?php echo $produto['estoque'] ?> </p>
+                    <p>Descricao: <?php echo $produto['descricao'] ?> </p>
+                    <?php
+                    $count = 0;
 
-                foreach ($result_promocao as $prom) {
-                /*
+                    foreach ($result_promocao as $prom) {
+                        /*
                     if ($produto['idproduto'] == $prom['id_produto']) {
                         $promocao = 1.0 + ($prom['desconto'] / 100);
                         $count++;
                     }
                     */
-                }
-               // $preco = $count > 0 ? $produto['preco'] * $promocao : $produto['preco'];
-               //number_format($preco, 2)
-               ?>
-               <p class="preco">Preço: <?php echo $produto['preco'] ?> MT</p>
+                    }
+                    // $preco = $count > 0 ? $produto['preco'] * $promocao : $produto['preco'];
+                    //number_format($preco, 2)
+                    ?>
+                    <p class="preco">Preço: <?php echo $produto['preco'] ?> MT</p>
+                </div>
+                <a href="?add_carrinho=<?php echo $produto['idproduto'] ?>" class="botao">Add Carrinho</a>
             </div>
-            <a href="?add_carrinho=<?php echo $produto['idproduto'] ?>" class="botao">Add Carrinho</a>
-        </div>
+        <?php } ?>
     <?php endforeach; ?>
 </div>
 
@@ -108,12 +58,17 @@ if (isset($_GET['adicionar']) && filter_var($_GET['adicionar'], FILTER_VALIDATE_
     foreach ($result as $produto) {
         if ($produto['idproduto'] == $idpro) {
             $produto_encontrado = true;
+            $quantidade =  $produto['estoque'];
             break;
         }
     }
     if ($produto_encontrado) {
         if (isset($_SESSION['carrinho'][$idpro])) {
-            $_SESSION['carrinho'][$idpro]['quantidade']++;
+            if ($quantidade <= $_SESSION['carrinho'][$idpro]['quantidade']) {
+                echo '<script> alert("Sem mais unidades desse produto..."); </script>';
+            } else {
+                $_SESSION['carrinho'][$idpro]['quantidade']++;
+            }
         } else {
             $_SESSION['carrinho'][$idpro] = [
                 'id' => $idpro,
@@ -189,6 +144,31 @@ if (isset($_GET['remover']) && filter_var($_GET['remover'], FILTER_VALIDATE_INT)
 
 
 <?php
+// Verificando se existe a chave 'remover' no array $_GET e se é um número inteiro positivo
+if (isset($_GET['deletar_produt']) && filter_var($_GET['deletar_produt'], FILTER_VALIDATE_INT) !== false && $_GET['deletar_produt'] >= 0) {
+    $idpro = (int)$_GET['deletar_produt'];
+    // Verificando se o produto com o id 'remover' existe no array $result
+    $produto_encontrado = false;
+    foreach ($result as $produto) {
+        if ($produto['idproduto'] == $idpro) {
+            $produto_encontrado = true;
+            break;
+        }
+    }
+    if ($produto_encontrado) {
+        if (isset($_SESSION['carrinho'][$idpro])) {
+            if ($_SESSION['carrinho'][$idpro]['quantidade'] >= 1) {
+                unset($_SESSION['carrinho'][$idpro]); // Remove completamente o item do carrinho se a quantidade for 1
+            }
+        } else {
+            echo '<script> alert("Impossivel reduzir sem antes ter"); </script>';
+        }
+    } else {
+        die('Parametro invalido');
+    }
+}
+?>
+<?php
 if (isset($_GET['efectuar_pagamento']) && isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
     $obj->EXE_NON_QUERY('START TRANSACTION');
 
@@ -229,13 +209,14 @@ if (isset($_GET['efectuar_pagamento']) && isset($_SESSION['carrinho']) && !empty
             );
             $obj->EXE_NON_QUERY($query_abater_estoque, $params_abater_estoque);
         }
+
         // Limpa o carrinho após o pagamento ser efetuado
         unset($_SESSION['carrinho']);
-
-        
     } catch (Exception $e) {
         // Caso ocorra algum erro, desfaz as alterações e exibe uma mensagem de erro
         echo 'Erro ao processar pagamento: ' . $e->getMessage();
     }
+} else {
+    die('Parametro invalido');
 }
 ?>

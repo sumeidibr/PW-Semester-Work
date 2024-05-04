@@ -5,8 +5,6 @@ session_start();
 include 'layout/html_header.php';
 include 'layout/nav.php';
 
-include 'layout/user.php';
-
 $pagina = 'inicio';
 // Verificar se existe 
 if (isset($_GET['p'])) {
@@ -32,8 +30,8 @@ switch($pagina){
     case 'perfil':
         include 'perfil.php';
         break;
-    case 'sobre':
-        include 'sobre.php';
+    case 'historico':
+        include 'historico.php';
         break;
     case 'produto':
         include 'produto.php';
@@ -42,6 +40,8 @@ switch($pagina){
         include 'error_page.php';
         break;
     }
+
+//include 'atualizacao_dados.php';
 
 include 'layout/footer.php';
 include 'layout/html_footer.php';

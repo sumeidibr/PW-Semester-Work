@@ -25,13 +25,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //verificar senha
         if(password_verify($senha,$senha_bd)){
             if($result[0]['tipo_user'] == 'cliente'){
-                //direcionar ao ciente e pegar a seccao 
                 $_SESSION['user'] = [
                     'id' => $result[0]['iduser'],
                     'nome' => $result[0]['primeiro_nome'],
                     'apelido' => $result[0]['apelido'],
                     'email' => $result[0]['email'],
-                    'telefone' => $result[0]['telefone']
+                    'telefone' => $result[0]['telefone'],
+                    'imagem' => $result[0]['icon'],
                 ];
                 
                 header("Location: cliente/index.php");
@@ -44,9 +44,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
 }
-
-$_SESSION['user'] = [
-    'id' => $result[0]['iduser'],
-    'nome' => $result[0]['primeiro_nome']
-];
-header("Location: cliente/index.php");

@@ -1,10 +1,14 @@
 <style>
+    .conatainer-perfil {
+        width: 100%;
+    }
+
     h2 {
         text-align: center;
         color: #333;
     }
 
-    form {
+    .conatainer-perfil form {
         max-width: 400px;
         margin: 20px auto;
         background: #fff;
@@ -13,7 +17,7 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    label {
+    .conatainer-perfil label {
         font-weight: bold;
         display: block;
         margin-bottom: 10px;
@@ -48,34 +52,37 @@
     }
 </style>
 
-<?php   var_dump($_SESSION['user']); die(); ?>   
-<h2>Atualização de Dados do Cliente</h2>
-<form action="/atualizar_dados" method="post" enctype="multipart/form-data">
-    <label for="nome">Nome:</label>
-    <input type="text" id="nome" name="nome" required value="<?php echo $_SESSION['user']['nome'] ?>">
 
-    <label for="apelido">Apelido:</label>
-    <input type="text" id="apelido" name="apelido" value="<?php echo $_SESSION['user']['apelido'] ?>>
 
-    <label for="senha_atual">Senha Atual:</label>
-    <input type="password" id="senha_atual" name="senha_atual" required >
+<div class="conatainer-perfil">
 
-    <label for="nova_senha">Nova Senha:</label>
-    <input type="password" id="nova_senha" name="nova_senha" required>
+    <h2>Atualização de Dados do Cliente</h2>
+    <form action="atualizacao_dados.php" method="post" enctype="multipart/form-data">
+        <label for="nome">Nome:</label>
+        <input type="text" id="nome" name="nome" required value="<?php echo $_SESSION['user']['nome'] ?>">
 
-    <label for="confirmar_senha">Confirmar Senha:</label>
-    <input type="password" id="confirmar_senha" name="confirmar_senha" required>
+        <label for="apelido">Apelido:</label>
+        <input type="text" id="apelido" name="apelido" value="<?php echo $_SESSION['user']['apelido'] ?>">
 
-    <label for="email">E-mail:</label>
-    <input type="email" id="email" name="email" required value="<?php echo $_SESSION['user']['email'] ?>>
+        <label for=" senha_atual">Senha Atual:</label>
+        <input type="password" id="senha_atual" name="senha_atual" required>
 
-    <label for="telefone">Telefone:</label>
-    <input type="tel" id="telefone" name="telefone" pattern="[0-9]{10,11}" required value="<?php echo $_SESSION['user']['telefone'] ?>>
+        <label for="nova_senha">Nova Senha:</label>
+        <input type="password" id="nova_senha" name="nova_senha" required>
 
- 
+        <label for="confirmar_senha">Confirmar Senha:</label>
+        <input type="password" id="confirmar_senha" name="confirmar_senha" required>
 
-    <label for="imagem">Imagem:</label>
-    <input type="file" id="imagem" name="imagem">
+        <label for="email">E-mail:</label>
+        <input type="email" id="email" name="email" required value="<?php echo $_SESSION['user']['email'] ?>">
 
-    <input type="submit" value="Atualizar Dados">
-</form>
+        <label for=" imagem">Imagem:</label>
+        <input type="file" id="imagem" name="imagem">
+
+        <label for=" telefone">Telefone:</label>
+        <input type="tel" id="telefone" name="telefone" pattern="[0-9]{9}" required value="<?php echo $_SESSION['user']['telefone'] ?>">
+        
+        <input type="submit" value="Atualizar Dados">
+    </form>
+
+</div>

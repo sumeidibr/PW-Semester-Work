@@ -16,6 +16,8 @@ switch($pagina){
 
     // logout
     case 'logout':
+        session_destroy();
+        Header('Location:  ../index.php');
         break;
     case 'inicio':
         include 'inicio.php';

@@ -30,7 +30,7 @@
             <tbody>
                 <?php foreach ($result as $user) : ?>
                     <tr>
-                        <td><?php echo $user['idUser']?></td>
+                        <td><?php echo $user['iduser']?></td>
                         <td><?php echo $user['primeiro_nome'] ?></td>
                         <td><?php echo $user['apelido'] ?></td>
                         <td><?php echo $user['email']    ?></td>

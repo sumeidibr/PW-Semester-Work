@@ -1,6 +1,41 @@
 <style>
-    .container {
-        width: 80%;
+    .modal {
+    display: none; /* Oculta por padrão */
+    position: fixed; /* Mantém a modal no lugar */
+    z-index: 1; /* Coloca a modal na parte superior */
+    left: 0;
+    top: 0;
+    width: 100%; /* Cobrir toda a janela */
+    height: 100%; /* Cobrir toda a janela */
+    overflow: auto; /* Habilita rolagem se necessário */
+    background-color: rgba(0, 0, 0, 0.4); /* Fundo preto semi-transparente */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% do topo e centralizado horizontalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Largura da modal */
+}
+
+/* Fechar botão (x) */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+    .container-historico {
+        width: 100%;
     }
 
     .table-wrapper {
@@ -47,8 +82,9 @@ $sql = "SELECT * FROM compra WHERE iduser = :userid";
 $result = $obj->EXE_QUERY($sql, $params);
 ?>
 
-<div class="container">
-    <h1>Sobre Cliente</h1>
+<h1>Historico de compras do Cliente Cliente</h1>
+<div class="container-historico">
+  
     <div class="table-wrapper">
         <table class="styled-table">
             <thead>

@@ -17,24 +17,56 @@ nav .container {
     margin-right: 20px; /* Espaçamento entre os itens do menu */
 }
 
-.search {
+/*User  dados   */
+.container-perfil {
+    background-color: transparent;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 10px;
+    width: 220px;
+    /* Aumentei um pouco a largura para acomodar os espaços */
     display: flex;
     align-items: center;
+    justify-content: space-between;
 }
 
-.search input[type="text"] {
-    margin-right: 10px; /* Espaçamento entre o campo de busca e o botão de pesquisa */
+.icon-perfil  {
+    width: 50px;
+    height: 50px;
+    background-color: #007bff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 24px;
+    margin-right: 10px;
+    /* Adicionei margem à direita para separar do próximo elemento */
+}
+.icon-perfil  img{
+width: 50px;
+height: 50px;
+border-radius: 50%;
+
 }
 
-.search button {
-    background-color: #007bff; /* Cor de fundo do botão */
-    color: #fff; /* Cor do texto do botão */
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
+.user-perfil {
+    flex-grow: 1;
+    margin-left: 10px;
+    font-size: 16px;
 }
 
-.search button:hover {
-    background-color: #0056b3; /* Cor de fundo do botão ao passar o mouse */
+.logout-perfil {
+    margin-left: 10px;
+    /* Adicionei margem à esquerda para separar do elemento anterior */
+}
+
+.logout-perfil a {
+    color: #007bff;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.logout-perfil a:hover {
+    text-decoration: underline;
 }
