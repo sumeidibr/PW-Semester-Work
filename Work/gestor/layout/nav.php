@@ -9,6 +9,7 @@
             <a href="index.php?p=produto">Produtos</a>
             <a href="index.php?p=categoria">Categorias</a>
             <a href="index.php?p=promocao">Promocoes</a>
+            <a href="index.php?p=produto_promocao">Produto & Promo</a>
             <a href="index.php?p=cliente">Clientes</a>
         </div>
         <div class="search">

@@ -43,7 +43,7 @@ $result = $obj->EXE_QUERY($sql);
     <div class="container_actualizar_categoria">
         <h1>Actualizar Categoria</h1>
         <form action="metodos\categoria_actualizar.php" method="post">
-            <input type="hidden" id="id" name="nome_categoria">
+            <input type="hidden" id="idcategoria" name="idcategoria">
             <div>
                 <label for="nome_categoria">Nome:</label>
                 <input type="text" id="nome" name="nome_categoria">
@@ -102,7 +102,7 @@ $result = $obj->EXE_QUERY($sql);
 <script>
     // Função para preencher o formulário com as informações do produto
     function preencherFormulario(id, nome, descricao) {
-        document.getElementById('id').value = id;
+        document.getElementById('idcategoria').value = id;
         document.getElementById('nome').value = nome;
         document.getElementById('descricao').value = descricao;
     }

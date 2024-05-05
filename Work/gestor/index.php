@@ -34,6 +34,9 @@ switch($pagina){
     case 'categoria':
         include 'categoria.php';
         break;
+    case 'produto_promocao':
+        include 'produto_promocao.php';
+        break;
     default:
         include 'error_page.php';
         break;

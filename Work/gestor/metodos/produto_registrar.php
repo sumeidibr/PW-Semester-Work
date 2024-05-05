@@ -1,6 +1,8 @@
 <?php
 include '../../gestor.php';
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    
     // Receber dados do formulário
     $nome = $_POST["nome"];
     $descricao = $_POST["descricao"];

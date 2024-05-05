@@ -2,30 +2,20 @@
 include '../../gestor.php';
 $obj = new Gestor();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Extract POST data
-    // $id_produto = $_POST["id_produto"];
-    $id_produto = 10;
+
+    $id =$_POST["id"] ;
     $descricao = $_POST["descricao"];
-    $desconto = $_POST["desconto"];
-    $dataInicio = $_POST["dataInicio"];
-    $dataFim = $_POST["dataFim"];
-    $dataFim = $_POST["dataFim"];
-    $status = $_POST["status"];
-    $idpromocao = $_POST["idpromocao"];
+    $nome = $_POST["nome"];
+
 
     $params = array(
-        ':idpromocao' => $idpromocao,
+        ':id' => $id,
         ':descricao' => $descricao,
-        ':desconto' => $desconto,
-        ':data_inicio' => $dataInicio,
-        ':data_fim' => $dataFim,
-        ':statuspro' => $status,
-        ':id_produto' =>  $id_produto
-
+        ':nome' => $nome
     );
 
 
-    $obj->EXE_NON_QUERY('UPDATE promocao SET descricao = :descricao, desconto = :desconto, data_inicio = :data_inicio, data_fim = :data_fim, status_pro = :statuspro, id_produto = :id_produto WHERE idpromocao = :idpromocao', $params);
+    $obj->EXE_NON_QUERY('UPDATE promocao SET descricao = :descricao, nome = :nome WHERE idpromocao = :id', $params);
     echo 'Atualizado com sucesso';
     Header('Location: ../index.php');
 }

@@ -1,8 +1,3 @@
-<div class="search">
-    <input type="text" placeholder="Buscar">
-    <button type="submit"><i class="fa fa-search"></i></button>
-</div>
-
 
 <?php
 include '../gestor.php';
@@ -11,11 +6,7 @@ $obj = new Gestor();
 $sql = 'SELECT * FROM produto';
 $result = $obj->EXE_QUERY($sql);
 
-// Promocao
-$sql = 'SELECT * FROM promocao';
-$result_promocao = $obj->EXE_QUERY($sql);
 ?>
-
 
 <div class="container">
     <?php foreach ($result as $produto) : ?>
@@ -27,26 +18,34 @@ $result_promocao = $obj->EXE_QUERY($sql);
                     <p>Quantidade: <?php echo $produto['estoque'] ?> </p>
                     <p>Descricao: <?php echo $produto['descricao'] ?> </p>
                     <?php
-                    $count = 0;
 
-                    foreach ($result_promocao as $prom) {
-                        /*
-                    if ($produto['idproduto'] == $prom['id_produto']) {
-                        $promocao = 1.0 + ($prom['desconto'] / 100);
-                        $count++;
+                    $hoje = date('Y-m-d');
+
+                    $sql_promocao = 'SELECT * FROM produto_has_promocao WHERE idProduto = :id_produto AND :hoje BETWEEN Data_Inicio AND Data_Fim';
+                    $params_promocao = array(':id_produto' => $produto['idproduto'], ':hoje' => $hoje);
+
+                    $resultado_promocao = $obj->EXE_QUERY($sql_promocao, $params_promocao);
+                    echo  '<p class="preco">Preço Normal: '.$produto['preco'] .'MT</p>';
+                
+                    if ($resultado_promocao) {
+                       // var_dump($resultado_promocao);
+                        //die();
+                        echo 'PROMOCAO: <br>';
+                        echo 'Desconto: '.$resultado_promocao[0]['desconto']. '% <hr>';
+                        echo '<p class="preco">Preço Com Desconto: ' . ($produto['preco'] - ($produto['preco'] * ($resultado_promocao[0]['desconto'] / 100))) . ' MT</p>';
+                        // O produto está em promoção
+                    } else {
+                        //echo 'nopnop';
+                        // O produto não está em promoção
                     }
-                    */
-                    }
-                    // $preco = $count > 0 ? $produto['preco'] * $promocao : $produto['preco'];
-                    //number_format($preco, 2)
                     ?>
-                    <p class="preco">Preço: <?php echo $produto['preco'] ?> MT</p>
                 </div>
                 <a href="?add_carrinho=<?php echo $produto['idproduto'] ?>" class="botao">Add Carrinho</a>
             </div>
         <?php } ?>
     <?php endforeach; ?>
 </div>
+
 
 
 <?php
@@ -57,41 +56,75 @@ if (isset($_GET['adicionar']) && filter_var($_GET['adicionar'], FILTER_VALIDATE_
     $produto_encontrado = false;
     foreach ($result as $produto) {
         if ($produto['idproduto'] == $idpro) {
+
+            $hoje = date('Y-m-d');
+
+            $sql_promocao = 'SELECT * FROM produto_has_promocao WHERE idProduto = :id_produto AND :hoje BETWEEN Data_Inicio AND Data_Fim';
+            $params_promocao = array(':id_produto' => $produto['idproduto'], ':hoje' => $hoje);
+
+            $resultado_promocao = $obj->EXE_QUERY($sql_promocao, $params_promocao);
+
+            if($resultado_promocao){
+               $desconto =  $resultado_promocao[0]['desconto'];
+            }
+
             $produto_encontrado = true;
             $quantidade =  $produto['estoque'];
             break;
         }
+    }if ($produto_encontrado) {
+    // Verificar se o produto tem promoção e ajustar o preço, se necessário
+    $preco_final = $produto['preco']; // Preço padrão do produto
+    if ($resultado_promocao) {
+        $preco_final = $produto['preco'] - ($produto['preco'] * ($desconto / 100)); // Preço com desconto da promoção
     }
-    if ($produto_encontrado) {
-        if (isset($_SESSION['carrinho'][$idpro])) {
-            if ($quantidade <= $_SESSION['carrinho'][$idpro]['quantidade']) {
-                echo '<script> alert("Sem mais unidades desse produto..."); </script>';
-            } else {
-                $_SESSION['carrinho'][$idpro]['quantidade']++;
-            }
+
+    if (isset($_SESSION['carrinho'][$idpro])) {
+        if ($quantidade <= $_SESSION['carrinho'][$idpro]['quantidade']) {
+            echo '<script> alert("Sem mais unidades desse produto..."); </script>';
         } else {
-            $_SESSION['carrinho'][$idpro] = [
-                'id' => $idpro,
-                'nome' => $produto['nome'],
-                'preco' => $produto['preco'],
-                'imagem' => $produto['imagem'],
-                'quantidade' => 1
-            ];
+            $_SESSION['carrinho'][$idpro]['quantidade']++;
         }
     } else {
-        die('Parametro invalido');
+        $_SESSION['carrinho'][$idpro] = [
+            'id' => $idpro,
+            'nome' => $produto['nome'],
+            'preco' => $preco_final, // Use o preço ajustado aqui
+            'imagem' => $produto['imagem'],
+            'quantidade' => 1
+        ];
     }
+} else {
+    die('Parametro invalido');
+}
+
 }
 ?>
 <?php
-// Verificando se existe a chave 'adicionar' no array $_GET e se é um número inteiro positivo
+// Verificando se existe a chave 'add_carrinho' no array $_GET e se é um número inteiro positivo
 if (isset($_GET['add_carrinho']) && filter_var($_GET['add_carrinho'], FILTER_VALIDATE_INT) !== false && $_GET['add_carrinho'] >= 0) {
     $idpro = (int)$_GET['add_carrinho'];
-    // Verificando se o produto com o id 'adicionar' existe no array $result
+    // Verificando se o produto com o id 'add_carrinho' existe no array $result
     $produto_encontrado = false;
     foreach ($result as $produto) {
         if ($produto['idproduto'] == $idpro) {
             $produto_encontrado = true;
+            
+            // Verificar se o produto tem uma promoção
+            $hoje = date('Y-m-d');
+            $sql_promocao = 'SELECT * FROM produto_has_promocao WHERE idProduto = :id_produto AND :hoje BETWEEN Data_Inicio AND Data_Fim';
+            $params_promocao = array(':id_produto' => $produto['idproduto'], ':hoje' => $hoje);
+            $resultado_promocao = $obj->EXE_QUERY($sql_promocao, $params_promocao);
+
+            if ($resultado_promocao) {
+                // Se houver promoção, ajustar o preço
+                $desconto =  $resultado_promocao[0]['desconto'];
+                $preco_final = $produto['preco'] - ($produto['preco'] * ($desconto / 100));
+            } else {
+                // Se não houver promoção, manter o preço original
+                $preco_final = $produto['preco'];
+            }
+
             break;
         }
     }
@@ -102,7 +135,7 @@ if (isset($_GET['add_carrinho']) && filter_var($_GET['add_carrinho'], FILTER_VAL
             $_SESSION['carrinho'][$idpro] = [
                 'id' => $idpro,
                 'nome' => $produto['nome'],
-                'preco' => $produto['preco'],
+                'preco' => $preco_final, // Use o preço ajustado aqui
                 'imagem' => $produto['imagem'],
                 'quantidade' => 1
             ];
@@ -113,6 +146,7 @@ if (isset($_GET['add_carrinho']) && filter_var($_GET['add_carrinho'], FILTER_VAL
     }
 }
 ?>
+
 
 <?php
 // Verificando se existe a chave 'remover' no array $_GET e se é um número inteiro positivo
@@ -216,7 +250,5 @@ if (isset($_GET['efectuar_pagamento']) && isset($_SESSION['carrinho']) && !empty
         // Caso ocorra algum erro, desfaz as alterações e exibe uma mensagem de erro
         echo 'Erro ao processar pagamento: ' . $e->getMessage();
     }
-} else {
-    die('Parametro invalido');
 }
 ?>
