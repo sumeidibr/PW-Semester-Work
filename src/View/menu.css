@@ -109,16 +109,20 @@ padding: 0 30px;
     opacity: 0;
     visibility: hidden;
     transition: all 0.4s ease;
+    border-radius: 22px;
+    box-shadow: 1px 1px 1px rgb(235, 233, 233);
 }
 
 
 
 .mega-box .content{
-    background-color: #fff;
+    background-color: #ffffff;
     padding: 25px 20x;
     display: flex;
     width: 100%;
     justify-content: space-between;
+    padding-bottom: 200px;
+    
 }
 
 .content .row{

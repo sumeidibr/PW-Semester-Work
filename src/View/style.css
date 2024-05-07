@@ -258,9 +258,8 @@
 .Container-extended div:nth-child(1) {
     width: 700px;
     height: 60vh;
-    background-color: red;
     object-fit: cover;
-    background-image: url(teste9.png);
+    background-image: url(template3.webp);
     background-repeat: no-repeat;
     background-size: cover;
     border-radius: 10px;
@@ -286,7 +285,7 @@
 
 .Container-extended div:nth-child(1) p, .Container-extended div:nth-child(2) p{
  position: relative;
- top: 23rem;
+ top: 20rem;
  left: 3rem;
  font-size: 1.2rem;
  line-height: 1.5;
