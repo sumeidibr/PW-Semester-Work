@@ -1,0 +1,80 @@
+/* Estilo para o container principal */
+.container_produto {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container_produto .container_produto_registro{
+    width: 70%;
+}
+.container_produto .container_produto_atualizar{
+    width: 40%;
+}
+.container_produto container.lista_produtos{
+    width: 45%;
+}
+/* Estilo para cada container interno */
+.container_produto > div {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Estilo para os títulos dentro dos containers */
+.container_produto h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+/* Estilo para os formulários dentro dos containers */
+.container_produto form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para os campos de entrada */
+.container_produto input[type="text"],
+.container_produto textarea,
+.container_produto select {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+/* Estilo para o botão de envio */
+.container_produto input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Estilo para a tabela */
+.container_produto table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.container_produto  .selected-row {
+    background-color: #ffc107; /* Cor de fundo para a linha selecionada */
+}
+/* Estilo para as células da tabela */
+.container_produto td,
+.container_produto th {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+/* Estilo para as células do cabeçalho da tabela */
+.container_produto th {
+    background-color: #f2f2f2;
+}

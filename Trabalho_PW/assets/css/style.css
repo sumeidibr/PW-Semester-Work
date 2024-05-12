@@ -1,0 +1,59 @@
+/* Cabecalho */
+.fundo-cabechalho{
+    background-color: rgb(121, 94, 43);
+    color: white;
+}
+.cabecalho-nav a{
+    text-decoration: none;
+    color: rgb(180, 154, 36);
+    margin-left: 15px;
+    font-size: 1em;
+}
+.cabecalho-nav a:hover{
+    color: rgb(235, 208, 88);
+}
+
+.cabecalho-logo{
+    width: 50px;
+    height: 50px;
+}
+
+
+/* Footer */
+.fundo-rodape{
+    background-color: rgb(121, 94, 43);
+    color: white;
+    font-weight: bold;
+}
+.link-email{
+    text-decoration: none;
+    color: rgb(219, 158, 45);
+}
+.link-email:hover{
+    text-decoration: none;
+    color: rgb(233, 171, 57);
+}
+
+/*Slider */
+
+.slide1{
+    padding: 50px;
+    font-size: 2em;
+    background-color: rgb(238, 56, 32);
+    color: white;
+}
+.slide2{
+    padding: 50px;
+    font-size: 2em;
+    background-color: chocolate;
+    color: white;
+}
+
+.slide3{
+    padding: 50px;
+    font-size: 2em;
+    background-color: rgb(30, 210, 105);
+    color: rgb(0, 0, 0);
+}
+
+

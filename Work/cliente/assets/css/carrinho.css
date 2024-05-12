@@ -1,0 +1,62 @@
+.container-carrinho {
+    border-radius: 10px;
+    text-align: center;
+    /* Centraliza o conteúdo */
+}
+
+h2 {
+    color: #333;
+}
+
+.produto {
+    display: inline-block;
+    /* Permite que os produtos sejam exibidos lado a lado */
+    margin: 0 10px;
+    /* Adiciona um espaço entre os produtos */
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+    text-align: left;
+    /* Alinha o texto à esquerda dentro dos produtos */
+}
+
+.produto img {
+    max-width: 100px;
+    max-height: 100px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.button {
+    margin: 10px;
+    display: inline-block;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 3px;
+}
+
+.button:hover {
+    background-color: #0056b3;
+}
+
+.editar {
+    margin-right: 10px;
+}
+
+.excluir {
+    background-color: #dc3545;
+}
+
+
+.total-carrinho {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    text-align: center;
+    display: inline;
+}
