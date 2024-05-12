@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: gestor/index.php");
             }
         }else{
-            echo 'falso';
+            echo 'falsos';
         }
     }
 
