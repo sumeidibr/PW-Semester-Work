@@ -16,7 +16,6 @@
 .login_area, .sign_in_area{
     width: 50%;
     padding: 30px;
-    transition: ease-in 3s;
 }
 
 
@@ -116,12 +115,10 @@
     align-items: center;
     justify-items: center;
     margin: auto;
-    transition: ease-in 3s;
 }
 
 .area_registrar{
     display: none;
-    transition: ease-in 3s;
 }
 #area{
     
@@ -129,7 +126,7 @@
 
 
 #name{
-    background-image: url();
+    background-image: url(shopping-cart-solid.svg);
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: calc(100% - 275px) center;
@@ -137,7 +134,7 @@
 }
 
 #email{
-    background-image: url();
+    background-image: url(shopping-cart-solid.svg);
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: calc(100% - 275px) center;
@@ -145,7 +142,7 @@
 }
 
 #password{
-    background-image: url();
+    background-image: url(shopping-cart-solid.svg);
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: calc(100% - 275px) center;
@@ -154,7 +151,7 @@
 }
 
 #confirm_password{
-    background-image: url();
+    background-image: url(shopping-cart-solid.svg);
     background-repeat: no-repeat;
     background-size: 20px;
     background-position: calc(100% - 275px) center;
