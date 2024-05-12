@@ -1,0 +1,183 @@
+
+
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: rgb(254, 254, 254);
+    width: 100%;
+}
+
+.card {
+    width: 250px;
+    margin: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.313);
+    transition: box-shadow 0.3s ease;
+    background-color: rgb(255, 255, 255);
+}
+
+.card:hover {
+    box-shadow: 1px 1px 15px rgba(0, 0, 0, 0.45);
+}
+
+.card img {
+    width: 60%;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    margin: auto;
+    display: block;
+    background-color: yellow;
+}
+
+.info {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.nome {
+    font-weight: bold;
+}
+
+.preco {
+    font-size: 15px;
+    color: #ff5722;
+    /* laranja */
+}
+
+.botao {
+    display: block;
+    width: 50%;
+    padding: 9px;
+    margin: auto;
+    margin-top: 10px;
+    text-align: center;
+    background-color: #ff5722;
+    color: #fff;
+    text-decoration: none;
+    border-radius:25px;
+    transition: background-color 0.3s ease;
+}
+
+.botao:hover {
+    background-color: #f44336;
+}
+
+.main{
+    height: 100vh; 
+    width:100%; 
+}
+/**********************************/
+
+
+/**Seccao 1**/
+.seccao_1{
+    display: flex;
+align-items: center;
+justify-items: center;
+height: 500px;
+justify-content: space-evenly;
+gap: 2px;
+background-image: url();
+}
+
+.div_1{
+    width: 600px;
+}
+
+.div_1 h1, p, button{
+    margin: 5px;
+}
+
+.div_1 button{
+    margin: 10px;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    border: none;
+    padding: 10px;
+    width: 120px;
+}
+
+.div_2{
+    width: 400px;
+}
+
+
+
+
+/**Introducao*/
+.conteudo{
+    background: rgb(38, 37, 37);
+    padding: 70px;
+    width: 100%;
+    margin: auto;
+}
+.introducao{
+    justify-content: space-evenly;
+    margin: auto;
+    display: flex;
+    background: rgb(38, 37, 37);
+}
+ .divisao-1 {
+    background-color: rgba(148, 148, 148, 0);
+    color: #fff;
+    margin: 10px; 
+ }
+ .divisao-1 img{
+    display: none;
+ }
+
+
+.divisao-2 {
+    background-color: rgba(121, 121, 121, 0);
+    color: #fff;
+    border-left: 1px solid rgb(255, 255, 255);
+    border-width: 5px;
+}
+
+.divisao-2 h2{
+    margin-left: 10px;
+    max-width: 600px;
+}
+
+
+.parag{
+  margin: auto;
+  max-width: 1400px;
+}
+
+.parag p{
+    text-align: center;
+    font-size: 14pt;
+    line-height: 1.7em;
+    color: #fff;
+    max-width: 1400px;
+}
+
+
+ .botao{
+    position: relative;
+    margin: auto;
+    top: 20px;
+}
+.conteudo .botao > button{
+   padding: 10px;
+   border-radius: 10px;
+   border-style: none;
+   background: #f5831fbe;
+   color: aqua;
+   width: 170px;
+   transition: all 0.4s ease;
+}
+
+.conteudo .botao > button:hover{
+    background: var(--main--color);
+ }
+ /**Fim introducao**/
+
+
+ /***Footer**/
+ 

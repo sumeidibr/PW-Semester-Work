@@ -1,92 +1,18 @@
-<style>
-    .search {
-        margin-top: 10px;
-        display: flex;
-        text-align: center;
-        justify-content: right;
-        margin-right: 15px;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!--Inicio-->
+    <link rel="stylesheet" href="inicio.css">
 
-    .search input[type="text"] {
-        margin-right: 10px;
-        /* Espaçamento entre o campo de busca e o botão de pesquisa */
-    }
+    <link rel="stylesheet" href="seccao_1.css">
+    
 
-    .search button {
-        background-color: #007bff;
-        /* Cor de fundo do botão */
-        color: #fff;
-        /* Cor do texto do botão */
-        border: none;
-        padding: 8px 15px;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .search button:hover {
-        background-color: #0056b3;
-        /* Cor de fundo do botão ao passar o mouse */
-    }
-
-    .container {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .card {
-        width: 250px;
-        margin: 20px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        transition: box-shadow 0.3s ease;
-    }
-
-    .card:hover {
-        box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-    }
-
-    .card img {
-        width: 100%;
-        height: auto;
-        border-radius: 5px;
-    }
-
-    .info {
-        margin-top: 10px;
-    }
-
-    .nome {
-        font-weight: bold;
-    }
-
-    .preco {
-        font-size: 18px;
-        color: #ff5722;
-        /* laranja */
-    }
-
-    .botao {
-        display: block;
-        width: 90%;
-        padding: 10px;
-        margin-top: 10px;
-        text-align: center;
-        background-color: #ff5722;
-        /* laranja */
-        color: #fff;
-        text-decoration: none;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
-
-    .botao:hover {
-        background-color: #f44336;
-        /* laranja mais escuro */
-    }
-</style>
+    
+</head>
+<body>
 <?php
 include 'gestor.php';
 $obj = new Gestor();
@@ -97,7 +23,96 @@ $result = $obj->EXE_QUERY($sql);
 ?>
 
 
-<div style="height: 900px; width:100%; background-color:antiquewhite;">
+<div  class="main">
+<!--- Slide animado para seccao 1 (inicio)-->
+
+<section class="containerproject">
+    <div class="slide-container active">
+        <div class="slide">
+            <div class="contentproject">
+                <h3>Título </h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam natus aliquid autem, ut rem recusandae corrupti consectetur asperiores et. Quidem reprehenderit consectetur unde modi nisi. Harum ratione natus odio doloribus.</p>
+                <a href="" class="btnproj">saiba mais</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <div class="slide">
+            <div class="contentproject">
+                <h3>Conteúdo</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam natus aliquid autem, ut rem recusandae corrupti consectetur asperiores et. Quidem reprehenderit consectetur unde modi nisi. Harum ratione natus odio doloribus.</p>
+                <a href="" class="btnproj">saiba mais</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="slide-container">
+        <div class="slide">
+            <div class="contentproject">
+                <h3>Objectivo</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam natus aliquid autem, ut rem recusandae corrupti consectetur asperiores et. Quidem reprehenderit consectetur unde modi nisi. Harum ratione natus odio doloribus.</p>
+                <a href="img_slide/jackdaw-4415083_1920.jpg" class="btnproj">saiba mais</a>
+            </div>
+        </div>
+    </div>
+
+    <div id="prev" onclick="prev()"> </div>
+    <div id="next" onclick="next()"> </div>
+</section>
+
+
+
+<!--
+<section class="seccao_1">
+    <div class="div_1">
+        <h1 style="font-size: 1.9rem;">A sua Loja Online</h1>
+    <p style="text-align: justify;">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, nulla? Vitae qui, facilis natus, pariatur dolor in fuga doloremque </p>
+    <button>Testando</button>
+    </div>
+
+    <div class="div_2">
+    <p>.
+    </p>
+    </div>
+
+</section>
+
+--->
+
+
+ <!---Introducao-->
+<section class="conteudo">
+      <section class="introducao">
+        <div class="divisao-1">
+            <h2>Cg_Business</h2>
+            <img src="logo-1.png" alt="">
+        </div>
+
+       <div class="divisao-2">
+            <h2><span>MODERNIZE</span> SEUS PROCESSOS <span>COM</span>  COMPUTADORES PARA <span>EMPRESA</span></h2>
+        </div>
+
+    </section>
+        <div class="parag"> 
+            
+            <p>Lorem ipsum dolor  amet consectetur adipisicing elit. Voluptatum possimus, eveniet quas voluptates est quasi aspernatur
+                 <div class="botao">
+                 <button>Contactar</button>
+             </div></p>
+        </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
 
 
     <div class="container">
@@ -133,10 +148,25 @@ $result = $obj->EXE_QUERY($sql);
                         ?>
                     </div>
 
-                    <a href="?p=login" class="botao">Add Carrinho</a>
+                    <a href="?p=login" class="botao">Adicionar</a>
                 </div>
             <?php } ?>
         <?php endforeach; ?>
     </div>
+
 </div>
+
+
+
+<script src="seccao_1.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
 

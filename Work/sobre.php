@@ -1,9 +1,9 @@
     <style>
         .container-sobre {
-            max-width: 800px;
+            max-width: 100%;
             margin: 50px auto;
             padding: 20px;
-            background-color: #fff;
+            background-color: green;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
