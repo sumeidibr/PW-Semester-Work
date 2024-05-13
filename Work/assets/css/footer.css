@@ -1,7 +1,139 @@
-.footer {
-    background-color: #8a1414ce;
-    width: 100%;
-    padding: 20px;
-    bottom: 0;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --text-color: #762727;
+}
+
+.footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    justify-items: center;
+    gap: 1rem;
+    background-color: rgb(1, 22, 22);
+    margin-top: 30px;
+   height: 60vh;
+   padding-top: 25px;
+    
+}
+.footer .logo{
+    margin-bottom: 1rem;
+}
+
+.footer-box{
+    display: flex;
+    flex-direction: column;
+}
+
+.social{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    flex-direction: column;
+    
+}
+.social .newsletter{
+   
+    
+    height: 7vh;
+    justify-content: center;
+    display: grid;margin: 0px 0px 10px 0px;
+}
+
+.social .newsletter form{
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    border-radius: 0.5rem;
+    background-color: rgb(243, 243, 243);
+
+}
+
+.social .newsletter .email-box{
+    width: 250px;
+   
+}
+
+.newsletter form input{
+    border: none;
+    outline: none;
+    background: none;
+    color: rgb(14, 13, 13);
+    font-size: 0.8rem;
+}
+
+.social .newsletter .btn{
+background-color: rgb(10, 87, 14);
+color: white;
+font-weight: bold;
+text-transform: uppercase;
+cursor: progress;
+padding: 8px;
+border-radius: 10px;
+}
+
+.social .media{
+    display: flex;
+    align-items: center;
+}
+
+.social .media a{
+    padding: 10px;
+    
+}
+
+.social .contacts{
+    display: flex;
+    flex-direction: column; text-decoration: none;
+}
+.social a{
+    font-size: 24px;
+    margin-right: 1rem;
+    color: var(--text-color);
+}
+.social a:hover{
+    transform: translateY(-4px);
+    transition: 0.5s;
+}
+
+
+
+.footer-box h3{
+    font-size: 1.1rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #fff;
+    text-decoration: underline;
+
+}
+
+
+.footer-box a, .footer-box p{
+    color: #fff;
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+.footer-box a:hover, .footer-box p:hover{
+    color: green;
+}
+
+.copyright{
+    padding: 25px;
+    text-align: center;
+    background-color: rgb(1, 22, 22);
+}
+
+@media(max-width: 672px){
+    
+    .footer{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220 px, auto));
+    }
+   
 }
 

@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="inicio.css">
 
     <link rel="stylesheet" href="seccao_1.css">
+
+    <link rel="stylesheet" href="marcas.css">
+
+    <link rel="stylesheet" href="featured.css">
     
 
     
@@ -32,7 +36,7 @@ $result = $obj->EXE_QUERY($sql);
             <div class="contentproject">
                 <h3>Título </h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam natus aliquid autem, ut rem recusandae corrupti consectetur asperiores et. Quidem reprehenderit consectetur unde modi nisi. Harum ratione natus odio doloribus.</p>
-                <a href="" class="btnproj">saiba mais</a>
+                <a href="background_1.avif" class="btnproj">saiba mais</a>
             </div>
         </div>
     </div>
@@ -41,8 +45,8 @@ $result = $obj->EXE_QUERY($sql);
         <div class="slide">
             <div class="contentproject">
                 <h3>Conteúdo</h3>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam natus aliquid autem, ut rem recusandae corrupti consectetur asperiores et. Quidem reprehenderit consectetur unde modi nisi. Harum ratione natus odio doloribus.</p>
-                <a href="" class="btnproj">saiba mais</a>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam natus aliquid autem, ut rem recusanssdae corrupti consectetur asperiores et. Quidem reprehenderit consectetur unde modi nisi. Harum ratione natus odio doloribus.</p>
+                <a href="background_1.avif" class="btnproj">saiba mais</a>
             </div>
         </div>
     </div>
@@ -52,7 +56,7 @@ $result = $obj->EXE_QUERY($sql);
             <div class="contentproject">
                 <h3>Objectivo</h3>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam natus aliquid autem, ut rem recusandae corrupti consectetur asperiores et. Quidem reprehenderit consectetur unde modi nisi. Harum ratione natus odio doloribus.</p>
-                <a href="img_slide/jackdaw-4415083_1920.jpg" class="btnproj">saiba mais</a>
+                <a href="" class="btnproj">saiba mais</a>
             </div>
         </div>
     </div>
@@ -60,6 +64,18 @@ $result = $obj->EXE_QUERY($sql);
     <div id="prev" onclick="prev()"> </div>
     <div id="next" onclick="next()"> </div>
 </section>
+
+
+
+
+<div class="marcas">
+    <div><img src="uploads/gucci.png" alt=""></div>
+    <div><img src="uploads/adidas" alt=""></div>
+    <div><img src="uploads/Dior.png" alt=""></div>
+    <div><img src="uploads/puma.png" alt=""></div>
+    <div><img src="uploads/vans.png" alt=""></div>
+</div>
+
 
 
 
@@ -85,20 +101,20 @@ $result = $obj->EXE_QUERY($sql);
 <section class="conteudo">
       <section class="introducao">
         <div class="divisao-1">
-            <h2>Cg_Business</h2>
+            <h2>Tob_Sales</h2>
             <img src="logo-1.png" alt="">
         </div>
 
        <div class="divisao-2">
-            <h2><span>MODERNIZE</span> SEUS PROCESSOS <span>COM</span>  COMPUTADORES PARA <span>EMPRESA</span></h2>
+            <h2 ><span style="color: #1c0802;">Explorando o mundo da moda. <span></span> </span>Seu visual, sua historia, comece <span  style="color: #1c0802;"> a escrever com </span> <span>nossas roupas.</span></h2>
         </div>
 
     </section>
         <div class="parag"> 
             
-            <p>Lorem ipsum dolor  amet consectetur adipisicing elit. Voluptatum possimus, eveniet quas voluptates est quasi aspernatur
-                 <div class="botao">
-                 <button>Contactar</button>
+            <p>Na Tob_Sales, abra as portas para um mundo de moda sem limites. Com uma seleção incomparável de roupas que refletem as últimas tendências e um compromisso inabalável com a qualidade, estamos aqui para ajudá-lo a expressar sua individualidade em cada peça que você veste. 
+                 <div class="botaoo">
+                 <button class="contact_btn">Contactar</button>
              </div></p>
         </div>
 </section>
@@ -114,16 +130,15 @@ $result = $obj->EXE_QUERY($sql);
 
 
 
-
-    <div class="container">
+<h2 style="text-align: center; margin-top: 20px; color:#ff5722 ;"><span style="color: #602f20; border-bottom: 1px solid #602f20; border-width: 4px;">Mais</span> Populares</h2>
+    <div class="container_catalogo">
+    
         <?php foreach ($result as $produto) : ?>
             <?php if ($produto['estoque'] >= 1) { ?>
                 <div class="card">
                     <img src="<?php echo $produto['imagem'] ?>" alt="imagem_produto">
                     <div class="info">
                         <p class="nome"><?php echo $produto['nome'] ?></p>
-                        <p>Quantidade: <?php echo $produto['estoque'] ?> </p>
-                        <p>Descricao: <?php echo $produto['descricao'] ?> </p>
                         <?php
 
                         $hoje = date('Y-m-d');
@@ -132,14 +147,16 @@ $result = $obj->EXE_QUERY($sql);
                         $params_promocao = array(':id_produto' => $produto['idproduto'], ':hoje' => $hoje);
 
                         $resultado_promocao = $obj->EXE_QUERY($sql_promocao, $params_promocao);
-                        echo  '<p class="preco">Preço Normal: ' . $produto['preco'] . 'MT</p>';
+                        echo  '<p class="preco">' . $produto['preco'] . ' Mzn</p>';
 
                         if ($resultado_promocao) {
                             // var_dump($resultado_promocao);
                             //die();
-                            echo 'PROMOCAO: <br>';
-                            echo 'Desconto: ' . $resultado_promocao[0]['desconto'] . '% <hr>';
-                            echo '<p class="preco">Preço Com Desconto: ' . ($produto['preco'] - ($produto['preco'] * ($resultado_promocao[0]['desconto'] / 100))) . ' MT</p>';
+                           // echo 'Promoção: <br>';
+                           echo '<p class="preco">Desconto: ' . ($produto['preco'] - ($produto['preco'] * ($resultado_promocao[0]['desconto'] / 100))) . ' Mzn</p>';
+
+                            echo 'Promoção: ' . $resultado_promocao[0]['desconto'] . '% <hr>';
+                           
                             // O produto está em promoção
                         } else {
                             //echo 'nopnop';
@@ -148,17 +165,75 @@ $result = $obj->EXE_QUERY($sql);
                         ?>
                     </div>
 
-                    <a href="?p=login" class="botao">Adicionar</a>
+                    <a href="?p=login" class="botao">+</a>
                 </div>
             <?php } ?>
         <?php endforeach; ?>
     </div>
+
+
+    <!------- featured-->
+    <section class="featured container" id="featured">
+        <!-- heading
+        <div class="heading">
+            <h2>Featured <span>Items</span></h2>
+        </div>
+       --->
+        <div class="featured-container container">
+                 <!---box 1-->
+            <div class="box">
+                <img src="uploads/product1.png" alt="">
+                <div class="text">
+                    <h2>Nova coleção<br> de camisetas</h2>
+                    <a href="">Nao perca!</a>
+                </div>
+            </div>
+             <!---box 2-->
+             <div class="box">
+                <div class="text">
+                    <h2>20% de desconto<br> no boné</h2>
+                    <a href="">Em breve!</a>
+                </div>
+                <img src="uploads/product6.png" alt="">
+            </div>
+
+        </div>
+    </section>
+
+<!---Marcas-->
+    <section class="client-area">
+    <div class="contentor">
+        
+        <h2> <span>Marcas</span>
+            <p style="text-align: center; color: rgb(125, 82, 3);">__________</p>
+        </h2>
+       
+        <section class="logo-area slider">
+            <div class="slide"><img src="kjkjkjk.png" alt=""></div>
+            <div class="slide"><img src="uploads/vans.png" alt=""></div>
+            <div class="slide"><img src="uploads/puma.png" alt=""></div>
+            <div class="slide"><img src="uploads/Dior.png" alt=""></div>
+            <div class="slide"><img src="uploads/adidas.png" alt=""></div>
+            <div class="slide"><img src="uploads/gucci.png" alt=""></div>  
+            <div class="slide"><img src="uploads/vans.png" alt=""></div>
+            <div class="slide"><img src="uploads/puma.png" alt=""></div>
+            <div class="slide"><img src="uploads/Dior.png" alt=""></div>
+            <div class="slide"><img src="uploads/adidas.png" alt=""></div>
+            <div class="slide"><img src="uploads/gucci.png" alt=""></div>  
+        </section>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>                                                       
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+</section>
+
 
 </div>
 
 
 
 <script src="seccao_1.js"></script>
+<script src="marcas.js"></script>
 </body>
 </html>
 

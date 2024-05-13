@@ -1,0 +1,77 @@
+h2{
+    text-align: center;
+}
+
+h2 span{
+    color: #ff6600;
+}
+
+.client-area{
+    margin-bottom: 50px;
+    padding: 150px 0 0;
+    background: rgb(255, 255, 255);
+    width: 700px;
+    margin: auto;
+}
+
+.slick-slide{
+    margin: 0 20px;
+    
+}
+
+.slick-slide img{
+    width: 100%;
+}
+.slick-list{
+    position: relative;
+    display: block;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+.slick-list:focus{
+    outline: none;
+}
+.slick-slide{
+    display: none;
+    float: left;
+    height: 100%;
+    min-height: 1px;
+}
+
+.slick-slide img{
+    display: block;
+}
+
+.client-area .logo-area.slider .slide img{
+    padding: 20px;
+}
+.slick-initialized .slick-slide{
+    display: block;
+}
+.slick-loading .slick-slide{
+    visibility: hidden;
+}
+
+.client-area .contentor .logo-area.slider .slide img{
+    width: 150px;
+    margin-right: 5px;
+    padding-right: 40px;
+}
+
+@media (max-width: 800px){
+    .client-area{
+        padding: 0;
+    }
+    h2{
+        padding: 70px 0 50px;
+        font-size: 20pt;
+    }
+}
+
+@media (max-width: 455px){
+    .client-area{
+    width: 100%;
+    }
+    
+}
