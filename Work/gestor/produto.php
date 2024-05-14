@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 <?php
 
 include '../gestor.php';
@@ -14,10 +22,10 @@ $result_categorias = $obj->EXE_QUERY($sql_select);
 
 
 
-<div class="container_produto" style="background-color: #e0c6c1;">
+<div class="container_produto">
 
     <div class="container_produto_registro">
-        <h1 style="color: #210803;">Cadastro de Produtos</h1>
+        <h1>Cadastro de Produtos</h1>
         <form action="metodos\produto_registrar.php" method="post" enctype="multipart/form-data">
             <div>
                 <label for="nome">Nome</label>
@@ -60,7 +68,7 @@ $result_categorias = $obj->EXE_QUERY($sql_select);
     </div>
 
     <div class="container_produto_atualizar">
-        <h1 style="color: #210803;">Atualizar Produtos</h1>
+        <h1>Atualizar Produtos</h1>
         <form action="metodos\produto_actualizar.php" method="post" enctype="multipart/form-data">
 
             <div>
@@ -107,7 +115,7 @@ $result_categorias = $obj->EXE_QUERY($sql_select);
     </div>
 
     <div class="container_lista_produtos">
-        <h1 style="color: #210803;">Lista de Produtos</h1>
+        <h1>Lista de Produtos</h1>
         <table class="border" cellspacing="2" cellpadding="7">
             <thead>
                 <tr>
@@ -172,3 +180,11 @@ $result_categorias = $obj->EXE_QUERY($sql_select);
         });
     });
 </script>
+</body>
+</html>
+
+
+
+
+
+

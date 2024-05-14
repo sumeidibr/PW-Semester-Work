@@ -37,6 +37,11 @@
     color: #fd846c;
     font-weight: bold;
 }
+
+ .active{
+    color: #fd846c;
+    font-weight: bold;
+}
 .menu a:hover {
     margin-right: 20px; 
     text-decoration: none;

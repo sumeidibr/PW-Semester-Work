@@ -35,17 +35,27 @@
 }
 
     .container-historico {
-        width: 100%;
+        width: 80%;
+        box-shadow: 1px 1px 5px #fd8400[];
+        padding: 20px;
+        padding: 10px;
+        margin: auto;
     }
 
     .table-wrapper {
         overflow-x: auto;
+       
     }
 
     .styled-table {
-        width: 100%;
+        width: 70%;
         border-collapse: collapse;
         border-spacing: 0;
+        margin: auto;
+    }
+
+    .styled-table tr{
+        
     }
 
     .styled-table th,
@@ -56,9 +66,9 @@
     }
 
     .styled-table th {
-        background-color: #2c3e50;
+        background-color: #fd846c;
         /* cor de fundo do cabeçalho */
-        color: #fff;
+        color: #45251e;
     }
 
     .styled-table tbody tr:nth-of-type(even) {
@@ -82,19 +92,19 @@ $sql = "SELECT * FROM compra WHERE iduser = :userid";
 $result = $obj->EXE_QUERY($sql, $params);
 ?>
 
-<h1>Historico de compras do Cliente Cliente</h1>
+<h1>Historico</h1>
 <div class="container-historico">
   
     <div class="table-wrapper">
         <table class="styled-table">
             <thead>
                 <tr>
-                    <th>idcompra</th>
-                    <th>iduser</th>
-                    <th>data_compra</th>
-                    <th>localizacao_entrega</th>
+                    <th>Id_compra</th>
+                    <th>Id_usuario</th>
+                    <th>Data_compra</th>
+                    <th>Localizacao_entrega</th>
                     <th>Total</th>
-                    <th>status</th>
+                    <th>Status</th>
                     <th>Detalhes</th>
                 </tr>
             </thead>

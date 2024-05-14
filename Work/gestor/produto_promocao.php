@@ -17,7 +17,7 @@ $result_prod_prom = $obj->EXE_QUERY('select * from produto_has_promocao');
         <h1>Associar Promoção a Produto</h1>
         <form action="metodos\produto_promocao_registrar.php" method="post">
             <div>
-                <label for="id_promocao">Selecione a promoção:</label>
+                <label for="id_promocao">Selecione a promoção</label>
                 <select id="id_promocao" name="id_promocao">
                     <?php
                     if ($result_promocao) {
@@ -32,12 +32,12 @@ $result_prod_prom = $obj->EXE_QUERY('select * from produto_has_promocao');
             </div>
 
             <div>
-                <label for="desconto">Desconto:</label>
+                <label for="desconto">Desconto</label>
                 <input type="number" max="70" min="1" id="desconto" name="desconto">
             </div>
 
             <div>
-                <label for="id_produto">Selecione o(s) Produto(s):</label>
+                <label for="id_produto">Selecione o(s) Produto(s)</label>
                 <select id="id_produto" name="id_produto[]" multiple>
                     <?php
                     if ($result) {
@@ -52,22 +52,22 @@ $result_prod_prom = $obj->EXE_QUERY('select * from produto_has_promocao');
             </div>
 
             <div>
-                <label for="dataInicio">Data de Início:</label>
+                <label for="dataInicio">Data Início</label>
                 <input type="date" id="dataInicio" name="dataInicio">
             </div>
 
             <div>
-                <label for="dataFim">Data de Fim:</label>
+                <label for="dataFim">Data  Fim</label>
                 <input type="date" id="dataFim" name="dataFim">
             </div>
 
             <div>
-                <label for="status">Status:</label><br>
+                <label for="status">Status</label><br>
                 <label><input type="radio" name="status" id="status_cd" value="1" >Ativo</label>
                 <label><input type="radio" name="status" id="status_cd" value="0" >Inativo</label>
             </div>
 
-            <input type="submit" value="Associar Produto ao Desconto">
+            <input type="submit" value="Associar">
         </form>
     </div>
 
@@ -76,35 +76,35 @@ $result_prod_prom = $obj->EXE_QUERY('select * from produto_has_promocao');
         <h1>Atualizar Associação</h1>
         <form action="metodos\produto_promocao_actualizar.php" method="post">
             <div>
-                <label for="id">ID:</label>
+                <label for="id">Id</label>
                 <input type="text" id="update_id" name="id" readonly>
             </div>
             <div>
-                <label for="id_produto">ID Produto:</label>
+                <label for="id_produto">Id Produto</label>
                 <input type="text" id="update_id_produto" name="id_produto" readonly>
             </div>
             <div>
-                <label for="id_promocao">ID Promoção:</label>
+                <label for="id_promocao">Id Promoção</label>
                 <input type="text" id="update_id_promocao" name="id_promocao" readonly>
             </div>
             <div>
-                <label for="dataInicio">Data de Início:</label>
+                <label for="dataInicio">Data Início</label>
                 <input type="text" id="update_dataInicio" name="dataInicio" readonly>
             </div>
             <div>
-                <label for="dataFim">Data de Fim:</label>
+                <label for="dataFim">Data  Fim</label>
                 <input type="text" id="update_dataFim" name="dataFim" readonly>
             </div>
             <div>
-                <label for="desconto">Desconto:</label>
+                <label for="desconto">Desconto</label>
                 <input type="text" id="update_desconto" name="desconto">
             </div>
             <div>
-                <label for="update_status">Estado:</label><br>
+                <label for="update_status">Estado</label><br>
                 <label><input type="radio" name="update_status" id="update_status" value="1"> Ativo</label>
                 <label><input type="radio" name="update_status" id="update_status" value="0"> Inativo</label>
             </div>
-            <input type="submit" value="Atualizar Promoção">
+            <input type="submit" value="Atualizar">
         </form>
     </div>
 
