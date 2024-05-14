@@ -1,0 +1,114 @@
+/* Estilo para o container principal */
+body{
+    background-color: #e0c6c1;
+}
+.container_categoria {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: auto;
+    margin-top: 100px;
+    background-color: #e0c6c1;
+}
+
+.container_categoria label{
+    color: rgba(145, 100, 92, 0.742);
+    font-weight: 600;
+
+}
+
+.container_categoria .container_registrar_categoria{
+    width: 20%;
+    background-color: rgb(255, 255, 255);
+    
+    box-shadow: 1px 1px 5px #fdb1a2;
+}
+.container_categoria .container_actualizar_categoria{
+    width: 20%;
+    box-shadow: 1px 1px 5px #fdb1a2;
+}
+.container_categoria .container_lista_categorias{
+    width: 35%;
+    box-shadow: 1px 1px 5px #fdb1a2;
+}
+.container_categoria .container_lista_categorias table{
+    width: 85%;
+}
+/* Estilo para cada container interno */
+.container_categoria > div {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: white;
+}
+
+/* Estilo para os títulos dentro dos containers */
+.container_categoria h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #e0664d;
+}
+
+/* Estilo para os formulários dentro dos containers */
+.container_categoria form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para os campos de entrada */
+.container_categoria input[type="text"],
+.container_categoria textarea,
+.container_categoria select {
+    width: 60%;
+    margin-bottom: 15px;
+    padding: 8px;
+    border:none;
+    border-radius: 8px;
+    background-color: #eae8e8ad;
+    margin-left: 10px;
+    text-align: center;
+}
+
+/* Estilo para o botão de envio */
+.container_categoria input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    background-color: #dc5e45;
+    color: #ffffff;
+    border: none;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 10px;
+    text-align: center;
+    margin: auto;
+}
+
+/* Estilo para a tabela */
+.container_categoria table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.container_categoria  .selected-row {
+    background-color: #fd846c;
+    color: black;
+}
+
+/* Estilo para as células da tabela */
+.container_categoria td,
+.container_categoria th {
+    border: 1px solid #f7f3f3;
+    padding: 8px;
+    text-align: left;
+    
+}
+
+/* Estilo para as células do cabeçalho da tabela */
+.container_categoria th {
+    background-color: #fd846c;
+    height: 20px;
+    border: none;
+    color: #45251e;
+}

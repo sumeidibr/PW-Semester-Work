@@ -1,0 +1,113 @@
+/* Estilo para o container principal */
+
+body{
+    background-color: #e0c6c1;
+}
+.container_promocao {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+   margin-top: 50px;
+   background-color: #e0c6c1;
+}
+
+.container_promocao label{
+    color: rgba(145, 100, 92, 0.742);
+}
+
+.container_promocao .container_promocao_registro{
+    width: 20%;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 1px 1px 5px #fdb1a2;
+}
+.container_promocao .container_promocao_atualizar{
+    width: 20%;
+    box-shadow: 1px 1px 5px #fdb1a2;
+}
+.container_promocao .container_lista_promocoes{
+    width: 45%;
+    box-shadow: 1px 1px 5px #fdb1a2;
+}
+/* Estilo para cada container interno */
+.container_promocao > div {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: white;
+}
+
+/* Estilo para os títulos dentro dos containers */
+.container_promocao h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #e0664d;
+}
+
+/* Estilo para os formulários dentro dos containers */
+.container_promocao form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para os campos de entrada */
+.container_promocao input[type="text"],
+.container_promocao textarea,
+.container_promocao select {
+    width: 60%;
+    margin-bottom: 15px;
+    padding: 8px;
+    border:none;
+    border-radius: 8px;
+    background-color: #eae8e8ad;
+    margin-left: 10px;
+    text-align: center;
+}
+
+/* Estilo para o botão de envio */
+.container_promocao input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    background-color: #dc5e45;
+    color: #ffffff;
+    border: none;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 10px;
+    text-align: center;
+    margin: auto;
+}
+
+/* Estilo para a tabela */
+.container_promocao table {
+    width: 80%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+.container_promocao  .selected-row {
+    background-color: #fd846c;
+    color: black;
+}
+/* Estilo para as células da tabela */
+.container_promocao td,
+.container_promocao th {
+    border: 1px solid #f7f3f3;
+    padding: 8px;
+    text-align: left;
+    
+}
+
+/* Estilo para as células do cabeçalho da tabela */
+.container_promocao th {
+    background-color: #fd846c;
+    height: 20px;
+    border: none;
+    color: #45251e;
+}
+
+
+#imagem_cd{
+    margin: 10px;
+}

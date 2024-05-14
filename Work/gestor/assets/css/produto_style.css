@@ -1,0 +1,117 @@
+/* Estilo para o container principal */
+body{
+    background-color: #e0c6c1;
+}
+.container_produto {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+   
+}
+
+.container_produto label{
+    color: rgba(145, 100, 92, 0.742);
+    font-weight: 600;
+
+}
+
+.container_produto .container_produto_registro{
+    width: 20%;
+    background-color: rgb(255, 255, 255);
+    
+    box-shadow: 1px 1px 5px #fdb1a2;
+    
+}
+.container_produto .container_produto_atualizar{
+    width: 20%;
+    box-shadow: 1px 1px 5px #fdb1a2;
+    
+}
+.container_produto .container.lista_produtos{
+    width: 45%;
+    box-shadow: 1px 1px 5px #fdb1a2;
+}
+/* Estilo para cada container interno */
+.container_produto > div {
+    margin: 20px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    background-color: white;
+}
+
+/* Estilo para os títulos dentro dos containers */
+.container_produto h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #e0664d;
+}
+
+/* Estilo para os formulários dentro dos containers */
+.container_produto form {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Estilo para os campos de entrada */
+.container_produto input[type="text"],
+.container_produto textarea,
+.container_produto select {
+    width: 60%;
+    margin-bottom: 15px;
+    padding: 8px;
+    border:none;
+    border-radius: 8px;
+    background-color: #eae8e8ad;
+    margin-left: 10px;
+    text-align: center;
+}
+
+/* Estilo para o botão de envio */
+.container_produto input[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    background-color: #dc5e45;
+    color: #ffffff;
+    border: none;
+    font-weight: bold;
+    border-radius: 20px;
+    cursor: pointer;
+    margin: 10px;
+    text-align: center;
+    margin: auto;
+}
+
+/* Estilo para a tabela */
+.container_produto table {
+    width: 50%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    
+}
+.container_produto  .selected-row {
+    background-color: #fd846c;
+    color: black;
+}
+/* Estilo para as células da tabela */
+.container_produto td,
+.container_produto th {
+    border: 1px solid #f7f3f3;
+    padding: 8px;
+    text-align: left;
+    
+}
+
+/* Estilo para as células do cabeçalho da tabela */
+.container_produto th {
+    background-color: #fd846c;
+    height: 20px;
+    border: none;
+    color: #45251e;
+}
+
+
+#imagem_cd{
+    margin: 10px;
+}
