@@ -67,13 +67,18 @@
 }
 
 .social .newsletter .btn{
-background-color: rgb(10, 87, 14);
+background-color: #f4411d;
 color: white;
 font-weight: bold;
 text-transform: uppercase;
-cursor: progress;
 padding: 8px;
 border-radius: 10px;
+transition: ease-in .4s;
+}
+
+.social .newsletter .btn:hover{
+    background-color: #1a1919;
+    color: #fff;
 }
 
 .social .media{
@@ -119,7 +124,7 @@ border-radius: 10px;
 }
 
 .footer-box a:hover, .footer-box p:hover{
-    color: green;
+    color: #fb6547;
 }
 
 .copyright{

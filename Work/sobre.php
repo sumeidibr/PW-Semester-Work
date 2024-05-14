@@ -1,14 +1,18 @@
     <style>
         .container-sobre {
-            max-width: 100%;
+            max-width: 70%;
             margin: 50px auto;
             padding: 20px;
-            background-color: green;
+            background-color: #fff;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 3px 2px 10px rgba(0, 0, 0, 0.3);
         }
-        h1, p {
+        h1 {
             margin-bottom: 20px;
+            color: #fb6547;
+        }
+        p{
+            line-height: 1.7rem;
         }
     </style>
 

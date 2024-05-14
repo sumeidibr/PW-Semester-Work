@@ -1,4 +1,4 @@
-<!---
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -12,7 +12,7 @@
   
   <div class="footer-box">
       <a href="" class="logo">
-          <h1>CROCS<sup style="font-size: 0.5rem; ">TM</sup> </h1>
+          <h1>Tob_Sales<sup style="font-size: 0.5rem; ">TM</sup> </h1>
       </a>
       <div class="social">
           <div class="media">
@@ -31,8 +31,8 @@
           </div>
 
         <div class="contacts">
-          <h3>Contacts</h3>
-          <p><b>Email</b>: suporte@crocsmz.co.mz</p> <br>
+          <h3>Contactos</h3>
+          <p><b>Email</b>: suporte@tob_sales.co.mz</p> <br>
           <p><b>Contacto do suporte</b>: +258 821234567</p>
           <p>Seg-Sex: 7:00H - 21:00H</p>
           <p>Sab-Dom: 8:15H - 20:00H</p>
@@ -41,48 +41,33 @@
   </div>
   <div class="footer-box">
       <h3>Pages</h3>
-      <a href="#home">Home</a>
-      <a href="#featured">Featured</a>
-      <a href="#shop">Shop</a>
-      <a href="#new">New</a>
-      <a href="#home">Home</a>
-      <a href="#featured">Featured</a>
-      <a href="#shop">Shop</a>
-      <a href="#new">New</a>
-      
-
-  </div>
+      <a href="#home">Pagina inicial</a>
+      <a href="#featured">Destaques</a>
+      <a href="#shop">Sobre</a>
+      <a href="#new">Categoria</a>
+      <a href="#home">Login</a>
+      </div>
   <div class="footer-box">
       <h3>Legal</h3>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Refund Policy</a>
-      <a href="#">Terms of Use</a>
-      <a href="#">Disclaimer</a>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Refund Policy</a>
-      <a href="#">Terms of Use</a>
-      <a href="#">Disclaimer</a>
-      
-
+      <a href="#">Politica de privacidade</a>
+      <a href="#">Politica de Refundo</a>
+      <a href="#">Termos de uso</a>
+      <a href="#">Reclamações</a>
   </div>
       <div class="footer-box">
-          <h3>Branches</h3>
-          <p>United States</p>
-          <p>Japan</p>
-          <p>Germany</p>
-          <p>Mozambique</p>
-          <p>United States</p>
-          <p>Japan</p>
-          <p>Germany</p>
-          <p>Mozambique</p>
+          <h3>Sucursall</h3>
+          <p>Maputo cifdade</p>
+          <p>Matola</p>
+          <p>Boane</p>
+          <p>Xai-xai</p>
       </div>
 
      
 </section>
 <!--- COpyright-->
-<!---
+
 <div class="copyright">
-  <p style="color: #fff; font-weight: bold;"><strong style="color: #06bd80;">&#169; Crocs Mozambique</strong> 2024 All Right Reserved.</p>
+  <p style="color: #fff; font-weight: bold;"><strong style="color: #fb6547;">&#169; Tob_Sales</strong> 2024 Todos os direitos reservados</p>
 </div>
 </body>
 </html>
