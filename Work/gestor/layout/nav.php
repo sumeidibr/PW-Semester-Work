@@ -11,6 +11,7 @@
             <a href="index.php?p=promocao">Promocoes</a>
             <a href="index.php?p=produto_promocao">Produto & Promo</a>
             <a href="index.php?p=cliente">Clientes</a>
+            <a style="color: red;" href="index.php?p=logout">|&nbsp;logout</a>
         </div>
         <div class="search">
         <input type="text" placeholder="">
