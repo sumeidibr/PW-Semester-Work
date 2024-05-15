@@ -1,4 +1,15 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+     body{
+            background-color: #e0c6c1;
+        }
+
     .modal {
     display: none; /* Oculta por padrão */
     position: fixed; /* Mantém a modal no lugar */
@@ -17,6 +28,8 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Largura da modal */
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px black;
 }
 
 /* Fechar botão (x) */
@@ -36,14 +49,19 @@
 
     .container-historico {
         width: 80%;
-        box-shadow: 1px 1px 5px #fd8400[];
+        box-shadow: 1px 1px 5px #fdb1a2;
         padding: 20px;
         padding: 10px;
         margin: auto;
+        margin-top: 20px;
+        background-color: #fff;
+        border-radius: 10px;
     }
 
     .table-wrapper {
         overflow-x: auto;
+       padding: 20px;
+       border-radius: 10px;
        
     }
 
@@ -51,7 +69,7 @@
         width: 70%;
         border-collapse: collapse;
         border-spacing: 0;
-        margin: auto;
+      
     }
 
     .styled-table tr{
@@ -72,15 +90,32 @@
     }
 
     .styled-table tbody tr:nth-of-type(even) {
-        background-color: #f3f3f3;
+        background-color: rgb(250, 250, 250, 0.7);
         /* cor de fundo de linhas pares */
     }
 
     .styled-table tbody tr:hover {
         background-color: #ececec;
         /* cor de fundo ao passar o mouse */
+
+        
     }
+    .container-historico h1{
+    color: #dc5e45;
+}
+
+.show-details-btn{
+    background-color: #dc5e45;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 4px;
+    font-weight: bold;
+}
+
 </style>
+</head>
+<body>
 <?php
 include '../gestor.php';
 
@@ -92,11 +127,14 @@ $sql = "SELECT * FROM compra WHERE iduser = :userid";
 $result = $obj->EXE_QUERY($sql, $params);
 ?>
 
-<h1>Historico</h1>
+
 <div class="container-historico">
-  
+ 
     <div class="table-wrapper">
+  
         <table class="styled-table">
+            
+        <h1 class="text-align: right; ">Historico</h1>
             <thead>
                 <tr>
                     <th>Id_compra</th>
@@ -121,7 +159,7 @@ $result = $obj->EXE_QUERY($sql, $params);
                         <td>
                             <button class="show-details-btn">Detalhes</button>
                             <div class="modal-data" style="display: none;">
-                                <h1>Detalhes da compra:</h1>
+                                <h1 style="color: #dc5e45;">Detalhes</h1>
                                 <ul>
                                     <?php
                                     $params = array(
@@ -174,3 +212,8 @@ $result = $obj->EXE_QUERY($sql, $params);
         });
     });
 </script>
+
+</body>
+</html>
+
+
