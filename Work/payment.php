@@ -8,7 +8,6 @@ class Payment
 
     function pay($phone_number, $amount, $reference_id)
     {
-
         // Set the api and public key as follows . Copy it from Mpesa Developer Console (https://developer.mpesa.vm.co.mz/) .
         $mpesa = new Mpesa();
         $mpesa->setApiKey('aor6nzx9goh9pbj83h4qcyocie93t4qk');
@@ -17,14 +16,14 @@ class Payment
         $mpesa->setEnv('test'); // 'live' production environment 
         $invoice_id = "FT0001"; // Eg: Invoice number
         $result = $mpesa->c2b($invoice_id, $phone_number, $amount, $reference_id);
-         var_dump($result);
+       //  var_dump($result);
          $status = $result->status;
          return $status;
     }
 }
 
 
-
+/*
 
 
 $payment = new Payment();
@@ -41,3 +40,4 @@ if($result==200 or $result==201){
     echo "<p style='color: red; padding: 10px'>Erro ao efectuar o pagamento!</p>";
 
 }
+*/
