@@ -33,23 +33,30 @@
 
 .right .btn_cart{
     border-radius: 12px;
-    color: rgb(220, 255, 234);
+    color: rgb(255, 255, 255);
     padding: 13px;
     border: none;
     width: 200px;
-    background: rgb(116, 115, 115);
-    background-image: url(shopping-cart-solid.svg);
-    background-repeat: no-repeat;
-    background-size: 20px;
+    background: rgb(24, 24, 24);
     box-shadow: 1px 1px 1px black;
-    background-position: calc(100% - 6px) center;
 }
 
 .right .size{
     margin-bottom: 10px;
+    border-bottom: 1px solid black;
 }
 
 .btn_size{
+    border-radius: 12px;
+    color: rgb(0, 0, 0);
+    padding: 5px;
+    width: 70px;
+    background: rgb(251, 251, 251);
+    font-weight: bold;
+    border-style: 0.3px solid rgb(160, 160, 160);
+    margin-bottom: 15px;
+}
+.btn_gender{
     border-radius: 12px;
     color: rgb(0, 0, 0);
     padding: 5px;
@@ -57,6 +64,11 @@
     background: rgb(251, 251, 251);
     font-weight: bold;
     border-style: 0.3px solid rgb(160, 160, 160);
+    margin-bottom: 15px;
+}
+
+.right .tamanhos{
+    max-width: 500px;
 }
 
 

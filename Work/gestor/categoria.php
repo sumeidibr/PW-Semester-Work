@@ -13,15 +13,15 @@ $result = $obj->EXE_QUERY($sql);
         <h1>Criar Categorias</h1>
         <form action="metodos\categoria_registrar.php" method="post">
             <div>
-                <label for="nome_categoria">Nome:</label>
+                <label for="nome_categoria">Nome</label>
                 <input type="text" id="nome_categoria" name="nome_categoria">
             </div>
             <div>
-                <label for="descricao_categoria">Descrição:</label>
+                <label for="descricao_categoria">Descrição</label>
                 <textarea id="descricao_categoria" name="descricao_categoria"></textarea>
             </div>
             <div>
-                <label for="tipo_cliente">Tipo de Cliente:</label>
+                <label for="tipo_cliente">Tipo de Cliente</label>
                 <select id="tipo_cliente" name="tipo_cliente">
                     <option value="H">Homem</option>
                     <option value="F">Mulher</option>
@@ -45,15 +45,15 @@ $result = $obj->EXE_QUERY($sql);
         <form action="metodos\categoria_actualizar.php" method="post">
             <input type="hidden" id="idcategoria" name="idcategoria">
             <div>
-                <label for="nome_categoria">Nome:</label>
+                <label for="nome_categoria">Nome</label>
                 <input type="text" id="nome" name="nome_categoria">
             </div>
             <div>
-                <label for="descricao_categoria">Descrição:</label>
+                <label for="descricao_categoria">Descrição</label>
                 <textarea id="descricao" name="descricao_categoria"></textarea>
             </div>
             <div>
-                <label for="tipo_cliente">Tipo de Cliente:</label>
+                <label for="tipo_cliente">Tipo de Cliente</label>
                 <select id="tipo_cliente" name="tipo_cliente">
                     <option value="H">Homem</option>
                     <option value="F">Mulher</option>

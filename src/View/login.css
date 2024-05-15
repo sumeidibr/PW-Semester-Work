@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.form{
+    margin-top: 15%;
+
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 2px 2px 2px black;
+}
+
+.login_area, .sign_in_area{
+    width: 50%;
+    padding: 30px;
+}
+
+
+.form input{
+    width: 300px;
+    border-radius: 4px;
+    padding: 10px;
+    margin: 10px;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-color: rgb(51, 51, 49);
+    border-width: 0.1px;
+    font-style: italic;
+}
+
+.caixas{
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.caixas div{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.caixas div #check_remember{
+    width: 10%;
+}
+.caixas div p{
+    width: 90%;
+}
+.boxes{
+    max-width: 310px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-evenly;
+}
+
+.boxes #check {
+    width: 10%;
+}
+
+.boxes p{
+    width: 90%;
+    font-size: 0.8rem;
+}
+
+.caixas p{
+    font-size: 10pt;
+}
+
+.caixas #check{
+    width: 50px;
+}
+
+#btn_logar, #btn_registrar, #registrar{
+    background-color: rgb(38, 42, 42);
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+}
+
+#btn_registrar{
+    pointer-events: none;
+
+    
+}
+
+.login_area{
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    border-right: 1px solid rgb(164, 161, 161);
+    
+}
+
+.sign_in_area{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    
+    
+}
+.flex_display{
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    align-items: center;
+    justify-items: center;
+    margin: auto;
+}
+
+.area_registrar{
+    display: none;
+}
+#area{
+    
+}
+
+
+#name{
+    background-image: url(shopping-cart-solid.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: calc(100% - 275px) center;
+    
+}
+
+#email{
+    background-image: url(shopping-cart-solid.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: calc(100% - 275px) center;
+    
+}
+
+#password{
+    background-image: url(shopping-cart-solid.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: calc(100% - 275px) center;
+
+    
+}
+
+#confirm_password{
+    background-image: url(shopping-cart-solid.svg);
+    background-repeat: no-repeat;
+    background-size: 20px;
+    background-position: calc(100% - 275px) center;
+}
+
+.form p{
+    
+}

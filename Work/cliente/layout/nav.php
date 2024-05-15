@@ -1,9 +1,9 @@
 
 
-<nav>
-    <div class="container">
+<nav class="nav">
+    <div class="container_menu">
         <div class="logo">
-            <a href="index.php?p=inicio">E_COMMERCE</a>
+            <a href="index.php?p=inicio">Tob_<span style="color: #ff5938">Sales</span></a>
         </div>
         <div class="menu">
             <a href="index.php?p=inicio"><i class="fas fa-home"></i> Início</a>
@@ -25,7 +25,7 @@
                 <?php echo $_SESSION['user']['nome'] . ' ' . $_SESSION['user']['apelido'] ?>
             </div>
             <div class="logout-perfil">
-                <a href="?p=logout"> logout</a>
+                <a href="?p=logout"> Log out</a>
             </div>
         </div>
     </div>

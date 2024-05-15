@@ -3,19 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Detail</title>
-    <!---DETALHES DO PRODUTO-->
-    <link rel="stylesheet" href="Product_Detail.css">
+    <title>Login/sign in</title>
 
-       <!--MENU-->
-       <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
-       <link rel="stylesheet" href="menu.css">
-   
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="menu.css">
+    <link rel="stylesheet" href="footer.css">
 </head>
 <body>
+   
      <!-- MENU-->
-    <nav>
+     <nav>
         <div class="wrapper">
             <div class="logo">
                 <a href="Home.html">
@@ -28,7 +25,7 @@
             <div class="Componentes_2">
 
                 <input type="search" class="btn_pesquisa" placeholder="Search" style="margin: 5px;">
-                <a href=""><input type="button" class="btn_login" value="Login" style="margin: 5px;"></a>
+                <a href="login.html"><input type="button" class="btn_login" value="Login" style="margin: 5px;"></a>
             </div>
 
 
@@ -152,86 +149,147 @@
             <label for="menu-btn" class="btn menu-btn"><i class='bx bx-menu'></i></label>
         </div>
     </nav>
+    
+<div class="form">
+        <div class="login_area">
+           <p style="font-size: 1.4rem;"><b>Login into your account</b></p>
+            <input type="email" name="email" id="email" required placeholder="     Digite o seu e-mail...">
+             
+            <input type="password" name="password" id="password" placeholder="     Digite a sua palavra-passe...">
 
-
-
-    <section>
-       <div class="container">
-        <div class="left">
-            <div class="main_image">
-                <img src="rascunho0.webp" alt="" class="slide">
+            <div class="caixas">
+                <div>
+                    <input type="checkbox" name="" id="check_remember"> <p>lembre de mim</p>
+                </div>
+                <a href="" style="color: rgb(14, 54, 54);">
+                    <p>Esqueceu sua senha?</p>
+                </a>
             </div>
-            <div class="option flex">
-                <img src="rascunho0.webp" onclick="img('rascunho0.webp')">
-                <img src="rascunho1.webp" onclick="img('rascunho1.webp')">
-                <img src="rascunho2.webp" onclick="img('rascunho2.webp')">
-                <img src="rascunho3.webp" onclick="img('rascunho3.webp')"> 
-              
+            <input type="submit" name="submit" value="Logar" id="btn_logar">
+        </div>
+    
+        <div class="sign_in_area">
+            <p style="font-size: 1.4rem;"><b>Sign up into your account</b></p>
+            <p style="font-size: 10pt; text-align: justify; margin-top: 2px; max-width: 350px;">Ao se registrar você poderá aproveitar as promoções e ofertas exclusivas para membros</p>
+           <input type="button" value="Registrar" id="registrar" onclick="Visualizar()">
+
+            <div class="area_registrar" id="area">
+                <input type="text" name="name" id="name"  placeholder="     Digite o seu nome">
+                <input type="email"  name="email" id="email" required placeholder="     Digite o seu email">
+                <input type="password" name="password"  id="password" required placeholder="     Digite a sua palavra-passe">
+                <input type="password" name="password" id="confirm_password" required placeholder="     Confirme a sua palavra-passe">
+                <div class="boxes">
+                    <input type="checkbox" name="check" id="check" onclick="verificar_termos()">
+                    <p>Eu aceito os termos de uso e politica de privacidade.</p>
+                </div>
+                <input type="submit" name="submit" value="Registrar" id="btn_registrar">
             </div>
+            
+        </div>
+</div>
+
+ 
+<script>
+   let check_termos = document.getElementById("check");
+
+   let btn_registrar = document.getElementById("btn_registrar");
+
+   
+
+   function verificar_termos() {
+    if(!check_termos.checked){
+btn_registrar.style.pointerEvents = "none";
+   }else{
+    btn_registrar.style.pointerEvents = "auto";
+    alert("Você precisa concordar com os termos antes de prosseguir.")
+   }
+   }
+   
+
+
+
+    function Visualizar(){
+        let area = document.getElementById("area");
+
+       area.style.display = "block";
+       area.classList.add("flex_display");
+    }
+</script>
+
+<section class="footer">
+  
+    <div class="footer-box">
+        <a href="" class="logo">
+            <h1>CROCS<sup style="font-size: 0.5rem; ">TM</sup> </h1>
+        </a>
+        <div class="social">
+            <div class="media">
+                <a href=""><i class='bx bxl-facebook' ></i></a>
+                <a href=""><i class='bx bxl-instagram' ></i></a>
+                <a href=""><i class='bx bxl-whatsapp' ></i></a>
+            </div>
+
+           <p style="text-align: left; text-decoration: underline; font-size: 1.1rem;"><b>Inscreva-se Newsletter</b></p>
+           <p style="width: 330px; font-size: 0.8rem;">Ao se inscrever você concorda com os termos de uso e politica de privacidade.</p>
+            <div class="newsletter">
+                <form action="">
+                    <input type="email" name="" id="" placeholder="Enter your email..." class="email-box" required>
+                    <input type="submit" value="Subscribe" class="btn">
+                </form> 
+            </div>
+
+          <div class="contacts">
+            <h3>Contacts</h3>
+            <p><b>Email</b>: suporte@crocsmz.co.mz</p> <br>
+            <p><b>Contacto do suporte</b>: +258 821234567</p>
+            <p>Seg-Sex: 7:00H - 21:00H</p>
+            <p>Sab-Dom: 8:15H - 20:00H</p>
+          </div> 
+        </div>
+    </div>
+    <div class="footer-box">
+        <h3>Pages</h3>
+        <a href="#home">Home</a>
+        <a href="#featured">Featured</a>
+        <a href="#shop">Shop</a>
+        <a href="#new">New</a>
+        <a href="#home">Home</a>
+        <a href="#featured">Featured</a>
+        <a href="#shop">Shop</a>
+        <a href="#new">New</a>
+        
+
+    </div>
+    <div class="footer-box">
+        <h3>Legal</h3>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Refund Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Disclaimer</a>
+        <a href="#">Privacy Policy</a>
+        <a href="#">Refund Policy</a>
+        <a href="#">Terms of Use</a>
+        <a href="#">Disclaimer</a>
+        
+
+    </div>
+        <div class="footer-box">
+            <h3>Branches</h3>
+            <p>United States</p>
+            <p>Japan</p>
+            <p>Germany</p>
+            <p>Mozambique</p>
+            <p>United States</p>
+            <p>Japan</p>
+            <p>Germany</p>
+            <p>Mozambique</p>
         </div>
 
-        <div class="right">
-<h1>Classics Crocs for Kids</h1>
-
-<div class="size">
-    <p>Cor: Amarelo</p> <br>
-    <p>Preço: 1200,00 Mzn</p> <br>
-    <p style="text-decoration: underline;">Selecione o tamanho:</p> <br>
-    <button class="btn_gender">HOMEM</button>
-    <button class="btn_gender">MULHER</button>
+       
+</section>
+<!--- COpyright-->
+<div class="copyright">
+    <p style="color: #fff; font-weight: bold;"><strong style="color: #06bd80;">&#169; Crocs Mozambique</strong> 2024 All Right Reserved.</p>
 </div>
-<div class="tamanhos">
-    <button class="btn_size">7</button>
-    <button class="btn_size">10</button>
-    <button class="btn_size">15</button>
-    <button class="btn_size">16</button>
-    <button class="btn_size">19</button>
-    <button class="btn_size">23</button>
-    <button class="btn_size">25</button>
-    <button class="btn_size">30</button>
-    <button class="btn_size">31</button>
-    <button class="btn_size">34</button>
-    <button class="btn_size">36</button>
-</div>
-
-<h4>Descrição: </h4>
-<p style="text-align: justify; max-width: 500px;">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Earum dolor dignissimos tempore ut ducimus consectetur, hic officia quae doloribus perspiciatis ipsum dolore sit reprehenderit culpa excepturi aperiam accusantium eum rerum?</p> <br>
-
-<button class="btn_cart"> Adicionar ao carrinho</button>
-
-<!--
-<h5>Color</h5>
-<div class="color flex">
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-<span></span>
-</div>
-
-<h5>number</h5>
-<div class="add flex1">
-<span>-</span>
-<span>1</span>
-<span>+</span>
-</div>
-
-<button>Add to cart</b utton>
-        </div>
---->
-       </div>
-
-    </section>
-
-    <script>
-        function img(src){
-            document.querySelector(".slide").src = src;
-        }
-
-        function change(change){
-            const line = document.querySelector('.home');
-            line.style.background = change;
-        }
-    </script>
 </body>
 </html>

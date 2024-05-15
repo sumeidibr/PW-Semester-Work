@@ -17,12 +17,12 @@ $result_prod_prom = $obj->EXE_QUERY('select * from produto_has_promocao');
         <h1>Registrar Promocoes</h1>
         <form action="metodos\promocao_registrar.php" method="post">
             <div>
-                <label for=" nome">Nome:</label>
-                <input type="text" id="nome_promo" name="nome_promo" "></textarea>
+                <label for=" nome">Nome</label>
+                <input type="text" id="nome_promo" name="nome_promo"></textarea>
             </div>
             <div>
-                <label for=" descricao">Descrição:</label>
-                <textarea id="descricao_promo" name="descricao_promo" "></textarea>
+                <label for=" descricao">Descrição</label>
+                <textarea id="descricao_promo" name="descricao_promo"></textarea>
             </div>
 
             <input type="submit" value="Registrar Promoção">
@@ -37,15 +37,15 @@ $result_prod_prom = $obj->EXE_QUERY('select * from produto_has_promocao');
     <form action="metodos\promocao_actualizar.php" method="post">
 
              <div>
-                <label for=" id">ID:</label>
+                <label for=" id">Id</label>
                 <input type="text" id="id" name="id" readonly>
             </div>
              <div>
-                <label for=" nome">Nome:</label>
-                <input type="text" id="nome" name="nome" ">
+                <label for=" nome">Nome</label>
+                <input type="text" id="nome" name="nome">
             </div>
         <div>
-            <label for="descricao">Descrição:</label>
+            <label for="descricao">Descrição</label>
             <textarea id="descricao" name="descricao" ></textarea>
             </div>
 
@@ -60,7 +60,7 @@ $result_prod_prom = $obj->EXE_QUERY('select * from produto_has_promocao');
                 <tr>
                     <th data-field="id">id</th>
                     <th data-field="nome">nome</th>
-                    <th data-field="descricao">descricao</th>
+                    <th data-field="descricao">Descricao</th>
 
                 </tr>
             </thead>

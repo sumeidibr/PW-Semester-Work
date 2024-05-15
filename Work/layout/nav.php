@@ -20,6 +20,7 @@
             <a href="index.php?p=sobre">Sobre</a>
             <a href="index.php?p=login">Login</a>
         </div>
+        
         <div class="search">
             <input type="text" placeholder="">
             <button type="submit"><i class="fa fa-search"></i></button>

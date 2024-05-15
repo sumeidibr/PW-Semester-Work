@@ -1,4 +1,15 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+     body{
+            background-color: #e0c6c1;
+        }
+
     .modal {
     display: none; /* Oculta por padrão */
     position: fixed; /* Mantém a modal no lugar */
@@ -17,6 +28,8 @@
     padding: 20px;
     border: 1px solid #888;
     width: 80%; /* Largura da modal */
+    border-radius: 15px;
+    box-shadow: 1px 1px 3px black;
 }
 
 /* Fechar botão (x) */
@@ -35,17 +48,32 @@
 }
 
     .container-historico {
-        width: 100%;
+        width: 80%;
+        box-shadow: 1px 1px 5px #fdb1a2;
+        padding: 20px;
+        padding: 10px;
+        margin: auto;
+        margin-top: 20px;
+        background-color: #fff;
+        border-radius: 10px;
     }
 
     .table-wrapper {
         overflow-x: auto;
+       padding: 20px;
+       border-radius: 10px;
+       
     }
 
     .styled-table {
-        width: 100%;
+        width: 70%;
         border-collapse: collapse;
         border-spacing: 0;
+      
+    }
+
+    .styled-table tr{
+        
     }
 
     .styled-table th,
@@ -56,21 +84,38 @@
     }
 
     .styled-table th {
-        background-color: #2c3e50;
+        background-color: #fd846c;
         /* cor de fundo do cabeçalho */
-        color: #fff;
+        color: #45251e;
     }
 
     .styled-table tbody tr:nth-of-type(even) {
-        background-color: #f3f3f3;
+        background-color: rgb(250, 250, 250, 0.7);
         /* cor de fundo de linhas pares */
     }
 
     .styled-table tbody tr:hover {
         background-color: #ececec;
         /* cor de fundo ao passar o mouse */
+
+        
     }
+    .container-historico h1{
+    color: #dc5e45;
+}
+
+.show-details-btn{
+    background-color: #dc5e45;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    padding: 4px;
+    font-weight: bold;
+}
+
 </style>
+</head>
+<body>
 <?php
 include '../gestor.php';
 
@@ -82,19 +127,22 @@ $sql = "SELECT * FROM compra WHERE iduser = :userid";
 $result = $obj->EXE_QUERY($sql, $params);
 ?>
 
-<h1>Historico de compras do Cliente Cliente</h1>
+
 <div class="container-historico">
-  
+ 
     <div class="table-wrapper">
+  
         <table class="styled-table">
+            
+        <h1 class="text-align: right; ">Historico</h1>
             <thead>
                 <tr>
-                    <th>idcompra</th>
-                    <th>iduser</th>
-                    <th>data_compra</th>
-                    <th>localizacao_entrega</th>
+                    <th>Id_compra</th>
+                    <th>Id_usuario</th>
+                    <th>Data_compra</th>
+                    <th>Localizacao_entrega</th>
                     <th>Total</th>
-                    <th>status</th>
+                    <th>Status</th>
                     <th>Detalhes</th>
                 </tr>
             </thead>
@@ -111,7 +159,7 @@ $result = $obj->EXE_QUERY($sql, $params);
                         <td>
                             <button class="show-details-btn">Detalhes</button>
                             <div class="modal-data" style="display: none;">
-                                <h1>Detalhes da compra:</h1>
+                                <h1 style="color: #dc5e45;">Detalhes</h1>
                                 <ul>
                                     <?php
                                     $params = array(
@@ -164,3 +212,8 @@ $result = $obj->EXE_QUERY($sql, $params);
         });
     });
 </script>
+
+</body>
+</html>
+
+

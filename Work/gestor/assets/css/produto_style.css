@@ -1,13 +1,17 @@
 /* Estilo para o container principal */
+body{
+    background-color: #e0c6c1;
+}
 .container_produto {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+   
 }
 
 .container_produto label{
-    color: #210803;
+    color: rgba(145, 100, 92, 0.742);
     font-weight: 600;
 
 }
@@ -16,15 +20,17 @@
     width: 20%;
     background-color: rgb(255, 255, 255);
     
-    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.489);
+    box-shadow: 1px 1px 5px #fdb1a2;
     
 }
 .container_produto .container_produto_atualizar{
     width: 20%;
+    box-shadow: 1px 1px 5px #fdb1a2;
     
 }
 .container_produto .container.lista_produtos{
     width: 45%;
+    box-shadow: 1px 1px 5px #fdb1a2;
 }
 /* Estilo para cada container interno */
 .container_produto > div {
@@ -82,6 +88,7 @@
     width: 50%;
     border-collapse: collapse;
     margin-top: 20px;
+    
 }
 .container_produto  .selected-row {
     background-color: #fd846c;
@@ -98,23 +105,13 @@
 
 /* Estilo para as células do cabeçalho da tabela */
 .container_produto th {
-    background-color: #210803;
+    background-color: #fd846c;
     height: 20px;
     border: none;
-    color: #f37359;
+    color: #45251e;
 }
 
 
 #imagem_cd{
     margin: 10px;
-}
-
-tbody tr{
-
-
-}
-
-tbody td{
-
-height: 2vh;
 }
