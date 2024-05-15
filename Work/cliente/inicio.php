@@ -430,7 +430,6 @@
         } else {
             //  echo "<p style='color: red; padding: 10px'>Nenhum dado foi enviado através do formulário!</p>";
         }
-
         ?>
 <section class="footer">
   
