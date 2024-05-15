@@ -21,23 +21,3 @@ class Payment
          return $status;
     }
 }
-
-
-/*
-
-
-$payment = new Payment();
-
-var_dump($_POST);
- $phone_number = "258".$_POST['celular']; // Prefixed with country code (258)
-$amount = $_POST['valor']; // Payment amount
-$reference_id = $_POST['referencia'];
-
-$result = $payment->pay($phone_number, $amount, $reference_id);
-if($result==200 or $result==201){
-    echo "<p style='color: green; padding: 10px'>Pagamento efectuado com sucesso!</p>";
-}else{
-    echo "<p style='color: red; padding: 10px'>Erro ao efectuar o pagamento!</p>";
-
-}
-*/

@@ -355,10 +355,6 @@
 
 
 
-        <script src="../seccao_1.js"></script>
-        <script src="../marcas.js"></script>
-
-
         <?php
         include '../payment.php';
         if (!empty($_POST)) {
@@ -429,6 +425,10 @@
         }
 
         ?>
+
+        <script src="../seccao_1.js"></script>
+        <script src="../marcas.js"></script>
+
 </body>
 
 </html>
