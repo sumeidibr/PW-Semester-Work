@@ -1,4 +1,3 @@
-
 <?php
 include '../gestor.php';
 
@@ -27,13 +26,13 @@ $result = $obj->EXE_QUERY($sql);
                     $params_promocao = array(':id_produto' => $produto['idproduto'], ':hoje' => $hoje);
 
                     $resultado_promocao = $obj->EXE_QUERY($sql_promocao, $params_promocao);
-                    echo  '<p class="preco">Preço Normal: '.$produto['preco'] .'MT</p>';
-                
+                    echo  '<p class="preco">Preço Normal: ' . $produto['preco'] . 'MT</p>';
+
                     if ($resultado_promocao) {
-                       // var_dump($resultado_promocao);
+                        // var_dump($resultado_promocao);
                         //die();
                         echo 'PROMOCAO: <br>';
-                        echo 'Desconto: '.$resultado_promocao[0]['desconto']. '% <hr>';
+                        echo 'Desconto: ' . $resultado_promocao[0]['desconto'] . '% <hr>';
                         echo '<p class="preco">Preço Com Desconto: ' . ($produto['preco'] - ($produto['preco'] * ($resultado_promocao[0]['desconto'] / 100))) . ' MT</p>';
                         // O produto está em promoção
                     } else {
@@ -66,40 +65,40 @@ if (isset($_GET['adicionar']) && filter_var($_GET['adicionar'], FILTER_VALIDATE_
 
             $resultado_promocao = $obj->EXE_QUERY($sql_promocao, $params_promocao);
 
-            if($resultado_promocao){
-               $desconto =  $resultado_promocao[0]['desconto'];
+            if ($resultado_promocao) {
+                $desconto =  $resultado_promocao[0]['desconto'];
             }
 
             $produto_encontrado = true;
             $quantidade =  $produto['estoque'];
             break;
         }
-    }if ($produto_encontrado) {
-    // Verificar se o produto tem promoção e ajustar o preço, se necessário
-    $preco_final = $produto['preco']; // Preço padrão do produto
-    if ($resultado_promocao) {
-        $preco_final = $produto['preco'] - ($produto['preco'] * ($desconto / 100)); // Preço com desconto da promoção
     }
+    if ($produto_encontrado) {
+        // Verificar se o produto tem promoção e ajustar o preço, se necessário
+        $preco_final = $produto['preco']; // Preço padrão do produto
+        if ($resultado_promocao) {
+            $preco_final = $produto['preco'] - ($produto['preco'] * ($desconto / 100)); // Preço com desconto da promoção
+        }
 
-    if (isset($_SESSION['carrinho'][$idpro])) {
-        if ($quantidade <= $_SESSION['carrinho'][$idpro]['quantidade']) {
-            echo '<script> alert("Sem mais unidades desse produto..."); </script>';
+        if (isset($_SESSION['carrinho'][$idpro])) {
+            if ($quantidade <= $_SESSION['carrinho'][$idpro]['quantidade']) {
+                echo '<script> alert("Sem mais unidades desse produto..."); </script>';
+            } else {
+                $_SESSION['carrinho'][$idpro]['quantidade']++;
+            }
         } else {
-            $_SESSION['carrinho'][$idpro]['quantidade']++;
+            $_SESSION['carrinho'][$idpro] = [
+                'id' => $idpro,
+                'nome' => $produto['nome'],
+                'preco' => $preco_final, // Use o preço ajustado aqui
+                'imagem' => $produto['imagem'],
+                'quantidade' => 1
+            ];
         }
     } else {
-        $_SESSION['carrinho'][$idpro] = [
-            'id' => $idpro,
-            'nome' => $produto['nome'],
-            'preco' => $preco_final, // Use o preço ajustado aqui
-            'imagem' => $produto['imagem'],
-            'quantidade' => 1
-        ];
+        die('Parametro invalido');
     }
-} else {
-    die('Parametro invalido');
-}
-
 }
 ?>
 <?php
@@ -111,7 +110,7 @@ if (isset($_GET['add_carrinho']) && filter_var($_GET['add_carrinho'], FILTER_VAL
     foreach ($result as $produto) {
         if ($produto['idproduto'] == $idpro) {
             $produto_encontrado = true;
-            
+
             // Verificar se o produto tem uma promoção
             $hoje = date('Y-m-d');
             $sql_promocao = 'SELECT * FROM produto_has_promocao WHERE idProduto = :id_produto AND :hoje BETWEEN Data_Inicio AND Data_Fim';
@@ -272,56 +271,6 @@ if (!empty($_POST)) {
         echo '<script> alert("Erro a  efectuar o pagamento try again :( "); </script>';
     }
 } else {
-  //  echo "<p style='color: red; padding: 10px'>Nenhum dado foi enviado através do formulário!</p>";
+    //  echo "<p style='color: red; padding: 10px'>Nenhum dado foi enviado através do formulário!</p>";
 }
-
-/*
-if (isset($_GET['efectuar_pagamento']) && isset($_SESSION['carrinho']) && !empty($_SESSION['carrinho'])) {
-    $obj->EXE_NON_QUERY('START TRANSACTION');
-
-    try {
-        // Calcula o total da compra
-        $total = 0;
-        foreach ($_SESSION['carrinho'] as $produto_carinho) {
-            $total += $produto_carinho['preco'] * $produto_carinho['quantidade'];
-        }
-
-        // Insere os detalhes da compra na tabela 'compra'
-        $query_compra = 'INSERT INTO compra (iduser, data, localizacao_entrega, total) VALUES (:iduser, NOW(), :localizacao_entrega, :total)';
-        $params_compra = array(
-            ':iduser' => $_SESSION['user']['id'],
-            ':localizacao_entrega' => 'Magoanine',
-            ':total' => $total
-        );
-        $obj->EXE_NON_QUERY($query_compra, $params_compra);
-
-        // Recupera o idcompra
-        $idcompra = $obj->EXE_QUERY('SELECT LAST_INSERT_ID() as idcompra')[0]['idcompra'];
-
-        // Insere os produtos associados à compra na tabela 'produto_has_compra'
-        $query_prod_comp = 'INSERT INTO produto_has_compra (idproduto, idcompra, quantidade) VALUES (:idproduto, :idcompra, :quantidade)';
-        foreach ($_SESSION['carrinho'] as $produto_carinho) {
-            $params_prod_comp = array(
-                ':idproduto' => $produto_carinho['id'],
-                ':idcompra' => $idcompra,
-                ':quantidade' => $produto_carinho['quantidade']
-            );
-            $obj->EXE_NON_QUERY($query_prod_comp, $params_prod_comp);
-
-            // Abate o estoque do produto removido
-            $query_abater_estoque = 'UPDATE produto SET estoque = estoque - :quantidade WHERE idproduto = :idproduto';
-            $params_abater_estoque = array(
-                ':quantidade' => $produto_carinho['quantidade'],
-                ':idproduto' => $produto_carinho['id']
-            );
-            $obj->EXE_NON_QUERY($query_abater_estoque, $params_abater_estoque);
-        }
-
-        // Limpa o carrinho após o pagamento ser efetuado
-        unset($_SESSION['carrinho']);
-    } catch (Exception $e) {
-        // Caso ocorra algum erro, desfaz as alterações e exibe uma mensagem de erro
-        echo 'Erro ao processar pagamento: ' . $e->getMessage();
-    }
-}*/
 ?>
