@@ -36,5 +36,5 @@ switch($pagina){
 
 
 include 'layout/html_footer.php';
-include 'layout/footer.php';
+//include 'layout/footer.php';
 ?>

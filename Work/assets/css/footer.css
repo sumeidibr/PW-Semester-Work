@@ -14,7 +14,7 @@
     align-items: center;
     justify-items: center;
     gap: 1rem;
-    background-color: rgb(1, 22, 22);
+    background-color: rgb(31, 28, 28);
     margin-top: 30px;
    height: 60vh;
    padding-top: 25px;
@@ -130,7 +130,7 @@ transition: ease-in .4s;
 .copyright{
     padding: 25px;
     text-align: center;
-    background-color: rgb(1, 22, 22);
+    background-color: rgb(31, 28, 28);
 }
 
 @media(max-width: 672px){
@@ -141,4 +141,5 @@ transition: ease-in .4s;
     }
    
 }
+
 

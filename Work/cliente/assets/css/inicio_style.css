@@ -80,3 +80,30 @@
     height: 100vh; 
     width:100%; 
 }
+
+/*suporte*/
+.suporte{
+    background-color: #ff5722;
+    padding: 10px;
+    width: 60px;
+    border-radius: 40px;
+    position: fixed;
+    float: right;
+    right: 0;
+    bottom: 50px;
+    margin-right: 70px;
+    animation: flash 10s linear infinite;
+    box-shadow: 1px 1px 10px #30150d;
+}
+
+@keyframes flash {
+    0% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.2;
+    }
+    100% {
+      opacity: 1;
+    }
+  }

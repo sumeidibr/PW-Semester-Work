@@ -42,5 +42,7 @@ switch($pagina){
         break;
     }
 
-include 'layout/footer.php';
+//include 'layout/footer.php';
 include 'layout/html_footer.php';
+
+?>

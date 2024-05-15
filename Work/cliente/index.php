@@ -43,5 +43,7 @@ switch($pagina){
 
 //include 'atualizacao_dados.php';
 
-include 'layout/footer.php';
+//include 'layout/footer.php';
 include 'layout/html_footer.php';
+
+?>

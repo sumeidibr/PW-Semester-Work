@@ -1,0 +1,90 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+main{
+    width: 90%;
+    background-color: rgba(255, 255, 255, 0.92);
+    height: 80vh;
+    margin: auto;
+    top: 20px;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px #ff8e77a7;
+    margin-bottom: 70px;
+}
+
+.faturamento{
+    display: flex;
+    justify-content: space-around;
+    width: 600px;
+    height: 200px;
+    border-radius: 10px;
+    position:absolute;
+    top: 30px;
+    left: 20px;
+
+}
+
+.faturamento_diario, .faturamento_mensal, .usuarios{
+   background-color: rgb(255, 255, 255);
+    height: 50%;
+    width: 200px;
+    margin-top: 25px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 5px #fd846c5e;
+    margin: 10px;
+}
+
+
+
+.grafico{
+    display: flex;
+    justify-content: space-between;
+    width: 700px;
+    height: 320px;
+    border-radius: 10px;
+    position:absolute;
+    bottom: 40px;
+    left: 20px;
+    
+}
+.grafico_vendas{
+   background-color: rgb(255, 255, 255);
+    margin-top: 25px;
+    border-radius: 20px;
+    width: 35%;
+    box-shadow: 1px 1px 5px #fd846c5e;
+}
+
+.grafico_faturamento{
+    background-color: rgb(255, 255, 255);
+    margin-top: 25px;
+    border-radius: 20px;
+    width: 60%;
+    box-shadow: 1px 1px 5px #fd846c5e;
+}
+
+
+.relatorio{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 610px;
+    height: 600px;
+    border-radius: 10px;
+    position:absolute;
+    top: -8px;
+    right: 20px;
+    
+}
+.produtos, .clientes{
+    background-color: rgb(255, 255, 255);
+    margin-top: 25px;
+    border-radius: 5px;
+    height: 50%;
+    box-shadow: 1px 1px 5px #fd846c5e;
+}
+
