@@ -10,7 +10,7 @@
         </div><!-- FIRST-COLUMN -->
 
         <div class="second-column">
-            <h2 class="title title-second">criar conta</h2>
+            <h2 class="title title-second">Criar conta</h2>
             <div class="social-midia">
                 <ul class="list-social-midia">
                     <a class="link-social-midia" href="#">
@@ -25,7 +25,7 @@
                 </ul>
             </div><!-- SOCIAL-MIDIA -->
             <!--Formulario Cadastrar -->
-            <p class="description description-second">registre-se com seu email</p>
+            <p class="description description-second">Registre-se com seu email</p>
             <form action="criar_conta.php" method="post" class="form_login" enctype="multipart/form-data">
                 <label class="label-input icon-modify" for="pnome">
                     <i class="fas fa-user"></i>
@@ -85,7 +85,7 @@
                 </ul>
             </div><!-- SOCIAL-MIDIA -->
             <!--Formulario Entrar -->
-            <p class="description description-second">conectar-se com seu email</p>
+            <p class="description description-second">Conectar-se com seu email</p>
             <form action="tratar_login.php" method="post" class="form_login" onsubmit="return validarFormulario()">
                 <label class="label-input icon-modify" for="">
                     <i class="fas fa-envelope"></i>

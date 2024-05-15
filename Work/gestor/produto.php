@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
 <?php
 
 include '../gestor.php';
@@ -20,23 +28,20 @@ $result_categorias = $obj->EXE_QUERY($sql_select);
         <h1>Cadastro de Produtos</h1>
         <form action="metodos\produto_registrar.php" method="post" enctype="multipart/form-data">
             <div>
-                <label for="nome">Nome:</label>
+                <label for="nome">Nome</label>
                 <input type="text" id="nome_cd" name="nome">
             </div>
+           
             <div>
-                <label for="descricao">Descrição:</label>
-                <textarea id="descricao_cd" name="descricao"></textarea>
-            </div>
-            <div>
-                <label for="preco">Preço:</label>
+                <label for="preco">Preço</label>
                 <input type="text" id="preco_cd" name="preco">
             </div>
             <div>
-                <label for="estoque">Estoque:</label>
+                <label for="estoque">Estoque</label>
                 <input type="text" id="estoque_cd" name="estoque">
             </div>
             <div>
-                <label for="categoria">Categoria:</label>
+                <label for="categoria">Categoria</label>
                 <select id="categoria_cd" name="categoria">
                     <?php
                     if ($result_categorias) {
@@ -50,10 +55,15 @@ $result_categorias = $obj->EXE_QUERY($sql_select);
                 </select>
             </div>
             <div>
-                <label for="imagem">Imagem:</label>
+                <label for="descricao">Descrição</label>
+                <textarea id="descricao_cd" name="descricao"></textarea>
+            </div>
+
+            <div>
+                
                 <input type="file" id="imagem_cd" name="imagem">
             </div>
-            <input type="submit" value="Adicionar Produto">
+            <input type="submit" value="Adicionar">
         </form>
     </div>
 
@@ -65,23 +75,20 @@ $result_categorias = $obj->EXE_QUERY($sql_select);
                 <input type="hidden" id="id_produto" name="id_produto">
             </div>
             <div>
-                <label for="nome">Nome:</label>
+                <label for="nome">Nome</label>
                 <input type="text" id="nome" name="nome">
             </div>
+            
             <div>
-                <label for="descricao">Descrição:</label>
-                <textarea id="descricao" name="descricao"></textarea>
-            </div>
-            <div>
-                <label for="preco">Preço:</label>
+                <label for="preco">Preço</label>
                 <input type="text" id="preco" name="preco">
             </div>
             <div>
-                <label for="estoque">Estoque:</label>
+                <label for="estoque">Estoque</label>
                 <input type="text" id="estoque" name="estoque">
             </div>
             <div>
-                <label for="categoria">Categoria:</label>
+                <label for="categoria">Categoria</label>
                 <select id="categoria" name="categoria">
                     <?php
                     if ($result_categorias) {
@@ -95,10 +102,15 @@ $result_categorias = $obj->EXE_QUERY($sql_select);
                 </select>
             </div>
             <div>
-                <label for="imagem">Imagem:</label>
-                <input type="file" id="imagem" name="imagem">
+                <label for="descricao">Descrição:</label>
+                <textarea id="descricao" name="descricao"></textarea>
             </div>
-            <input type="submit" value="Adicionar Produto">
+            <div>
+            
+                <input type="file" id="imagem_cd" name="imagem">
+            </div>
+            
+            <input type="submit" value="Atualizar">
         </form>
     </div>
 
@@ -121,13 +133,14 @@ $result_categorias = $obj->EXE_QUERY($sql_select);
             <tbody>
                 <?php foreach ($resultados_produtos as $produto) : ?>
                     <tr>
-                        <td><?php echo $produto['idproduto']       ?></td>
+                        <td><?php echo $produto['idproduto'] ?></td>
                         <td><?php echo $produto['nome']     ?></td>
                         <td><?php echo $produto['descricao'] ?></td>
                         <td><?php echo $produto['preco']    ?></td>
                         <td><?php echo $produto['estoque']  ?></td>
                         <td><?php echo $produto['categoria'] ?></td>
-                        <td><img src="<?php echo '../'.$produto['imagem'] ?>" alt=""></td>
+                        <td style="height: 100px; width: 100px;">
+    <img src="<?php echo '../'.$produto['imagem'] ?>" alt="" style="max-width: 100%; max-height: 100%;">
                     </tr>
                 <?php endforeach; ?>
             </tbody>
@@ -167,3 +180,11 @@ $result_categorias = $obj->EXE_QUERY($sql_select);
         });
     });
 </script>
+</body>
+</html>
+
+
+
+
+
+

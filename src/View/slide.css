@@ -1,0 +1,63 @@
+.carrosel_1{
+    background-color: rgba(238, 241, 241, 0.808);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+}
+
+.slider{
+    height: 250px;
+    margin: auto;
+    position: relative;
+    width: 90%;
+    display: grid;
+    place-items: center;
+    padding: 30px;
+   overflow: hidden;
+   
+}
+
+.slide-track{
+    display: flex;
+    width: calc(200px * 12);
+    animation: auto_scroll 100s linear infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes auto_scroll {
+    0%{
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(calc(-250px * 6));
+    }
+}
+
+.slide{
+    height: 160px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    perspective: 100px;
+}
+
+.slide p{
+    background-color: rgba(203, 199, 199, 0.55);
+    width: 150px;
+    text-align: center;
+    margin-top: 0px;
+    font-style: italic;
+    border-radius: 0px 0px 15px 15px;
+    color: rgb(121, 120, 120);
+}
+
+img{
+    width: 100%;
+    transition: transform 1s;
+    border-radius: 15px 15px 0px 0px;
+}
+
+img:hover{
+    transform: translateZ(20px);
+}
