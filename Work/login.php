@@ -1,4 +1,3 @@
-
 <div class="container_login">
     <div class="content first-content">
 
@@ -26,28 +25,28 @@
             </div><!-- SOCIAL-MIDIA -->
             <!--Formulario Cadastrar -->
             <p class="description description-second">Registre-se com seu email</p>
-            <form action="criar_conta.php" method="post" class="form_login" enctype="multipart/form-data">
+            <form id="form" action="criar_conta.php" method="post" class="form_login" enctype="multipart/form-data">
                 <label class="label-input icon-modify" for="pnome">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Stelio" name="pnome" required>
+                    <input type="text" id="pnome" placeholder="Stelio" name="pnome" pattern="[A-Za-zÀ-ÖØ-öø-ÿ]{3,}" minlength="3" title="O nome deve conter apenas letras e ter pelo menos 3 caracteres." required>
                 </label>
-                <label class="label-input icon-modify" for="apelido" required>
+                <label class="label-input icon-modify" for="apelido">
                     <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Mondlane" name="apelido" required>
+                    <input type="text" id="apelido" placeholder="Mondlane" name="apelido" pattern="[A-Za-zÀ-ÖØ-öø-ÿ]{3,}" minlength="3" title="O apelido deve conter apenas letras e ter pelo menos 3 caracteres." required>
                 </label>
                 <label class="label-input icon-modify" for="email">
                     <i class="fas fa-envelope"></i>
                     <input type="email" placeholder="Email" name="email" required>
                 </label>
-              
+
                 <label class="label-input icon-modify" for="senha" required>
                     <i class="fas fa-lock"></i>
                     <input type="password" placeholder="Senha" name="senha" required>
                 </label>
 
-                <label class="label-input icon-modify" for="telefone" required>
-                    <i class="fas fa-lock"></i>
-                    <input type="number" placeholder="842156451" name="telefone" required>
+                <label class="label-input icon-modify" for="telefone">
+                    <i class="fas fa-mobile-alt"></i>
+                    <input type="text" id="telefone" placeholder="842156451" name="telefone" pattern="^(84|87|82|85|83|86)[0-9]{7}$" title="O número deve ter 9 dígitos e começar com 84, 87, 82, 85, 83 ou 86." required>
                 </label>
 
                 <input type="hidden" id="tipo" name="tipo_user" value="cliente" required>
@@ -104,3 +103,35 @@
     </div><!-- CONTENT SECOND-CONTENT -->
 
 </div><!-- CONTAINER -->
+
+<script>
+    // Validação adicional com JavaScript para garantir compatibilidade
+    document.getElementById('form').addEventListener('submit', function(event) {
+        const pnome = document.getElementById('pnome').value;
+        const apelido = document.getElementById('apelido').value;
+        const pattern = /^[A-Za-zÀ-ÖØ-öø-ÿ]{3,}$/;
+
+        if (!pattern.test(pnome)) {
+            alert('O nome deve conter apenas letras e ter pelo menos 3 caracteres.');
+            event.preventDefault();
+        }
+
+        if (!pattern.test(apelido)) {
+            alert('O apelido deve conter apenas letras e ter pelo menos 3 caracteres.');
+            event.preventDefault();
+        }
+    });
+</script>
+
+<script>
+    // Validação adicional com JavaScript para garantir compatibilidade
+    document.getElementById('form').addEventListener('submit', function(event) {
+        const telefone = document.getElementById('telefone').value;
+        const pattern = /^(84|87|82|85|83|86)[0-9]{7}$/;
+
+        if (!pattern.test(telefone)) {
+            alert('O número deve ter 9 dígitos e começar com 84, 87, 82, 85, 83 ou 86.');
+            event.preventDefault();
+        }
+    });
+</script>
