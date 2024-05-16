@@ -125,14 +125,14 @@
                             $params_promocao = array(':id_produto' => $produto['idproduto'], ':hoje' => $hoje);
 
                             $resultado_promocao = $obj->EXE_QUERY($sql_promocao, $params_promocao);
-                            echo  '<p class="preco">Preço Normal: ' . $produto['preco'] . ' Mzn</p>';
+                            echo  '<p class="preco"> ' . $produto['preco'] . ' Mzn</p>';
 
                             if ($resultado_promocao) {
                                 // var_dump($resultado_promocao);
                                 //die();
-                                echo 'PROMOCAO: <br>';
+                                echo 'Promoção: <br>';
                                 echo 'Desconto: ' . $resultado_promocao[0]['desconto'] . '% <hr>';
-                                echo '<p class="preco">Preço Com Desconto: ' . ($produto['preco'] - ($produto['preco'] * ($resultado_promocao[0]['desconto'] / 100))) . ' MT</p>';
+                                echo '<p class="preco">Desconto: ' . ($produto['preco'] - ($produto['preco'] * ($resultado_promocao[0]['desconto'] / 100))) . '  Mzn</p>';
                                 // O produto está em promoção
                             } else {
                                 //echo 'nopnop';
