@@ -370,8 +370,9 @@
             //var_dump($_POST);
             $phone_number = "258" . $_POST['celular'];
             $amount = $_POST['valor'];
+            $localizacao = $_POST['local_entrega'];
             $reference_id = $_POST['referencia'];
-
+            
             $result = $payment->pay($phone_number, $amount, $reference_id);
 
             if ($result == 200 or $result == 201) {
@@ -389,7 +390,7 @@
                         $query_compra = 'INSERT INTO compra (iduser, data, localizacao_entrega, total) VALUES (:iduser, NOW(), :localizacao_entrega, :total)';
                         $params_compra = array(
                             ':iduser' => $_SESSION['user']['id'],
-                            ':localizacao_entrega' => 'Magoanine',
+                            ':localizacao_entrega' => $localizacao,
                             ':total' => $total
                         );
                         $obj->EXE_NON_QUERY($query_compra, $params_compra);

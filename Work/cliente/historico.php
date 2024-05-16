@@ -146,7 +146,6 @@ $result = $obj->EXE_QUERY($sql, $params);
                     <th>Data_compra</th>
                     <th>Localizacao_entrega</th>
                     <th>Total</th>
-                    <th>Status</th>
                     <th>Detalhes</th>
                 </tr>
             </thead>
@@ -158,7 +157,6 @@ $result = $obj->EXE_QUERY($sql, $params);
                         <td><?php echo $compra['data'] ?></td>
                         <td><?php echo $compra['localizacao_entrega'] ?></td>
                         <td><?php echo $compra['total'] ?></td>
-                        <td><?php echo $compra['status'] ?></td>
                         <!-- Adicionei uma coluna para o botão Detalhes -->
                         <td>
                             <button class="show-details-btn">Detalhes</button>

@@ -144,8 +144,12 @@
                      <input type="text" id="celular" name="celular" placeholder="Ex:. 842156451" required >
                  </div>
                  <div class="form-group">
-                     <label for="valor">Valor      :</label>
+                     <label for="valor">Valor:</label>
                      <input type="number" id="valor" name="valor" placeholder="Digite o valor" required value="<?php echo $total ?>" readonly>
+                 </div>
+                 <div class="form-group">
+                     <label for="local_entrega">Local Entrega:</label>
+                     <input type="text" id="local_entrega" name="local_entrega" placeholder="EX:. Maputo Magoanine " required >
                  </div>
                  <div class="form-group">
                      <label for="referencia">Referência:</label>
