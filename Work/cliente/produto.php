@@ -46,7 +46,7 @@ if (!empty($_POST)) {
     </div>
 <?php else : ?>
 
-    <?php
+<?php
 $sql = 'SELECT * FROM produto';
 $resultados = $obj->EXE_QUERY($sql);
 
