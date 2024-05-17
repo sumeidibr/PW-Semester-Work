@@ -26,7 +26,7 @@
 
     $obj = new Gestor();
 
-    $sql = 'SELECT * FROM produto';
+    $sql = 'SELECT * FROM produto WHERE estoque >= 1 ORDER BY RAND() LIMIT 4';
     $result = $obj->EXE_QUERY($sql);
 
     ?>
