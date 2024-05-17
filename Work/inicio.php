@@ -13,17 +13,15 @@
 
     <link rel="stylesheet" href="featured.css">
     
- <!--- icons -->
- 
-     <!--- icons -->
-     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    
 </head>
 <body>
 <?php
 include 'gestor.php';
 $obj = new Gestor();
 
-$sql = 'SELECT * FROM produto';
+$sql = 'SELECT * FROM produto WHERE estoque >= 1 ORDER BY RAND() LIMIT 4';
 $result = $obj->EXE_QUERY($sql);
 
 ?>
@@ -71,11 +69,11 @@ $result = $obj->EXE_QUERY($sql);
 
 
 <div class="marcas">
-    <div><img src="uploads/gucci.png" alt=""></div>
-    <div><img src="uploads/adidas" alt=""></div>
-    <div><img src="uploads/Dior.png" alt=""></div>
-    <div><img src="uploads/puma.png" alt=""></div>
-    <div><img src="uploads/vans.png" alt=""></div>
+    <a><img src="uploads/gucci.png" alt=""></a>
+    <a><img src="uploads/adidas" alt=""></a>
+    <a><img src="uploads/Dior.png" alt=""></a>
+    <a><img src="uploads/puma.png" alt=""></a>
+    <a><img src="uploads/vans.png" alt=""></a>
 </div>
 
 
@@ -98,33 +96,27 @@ $result = $obj->EXE_QUERY($sql);
 
 --->
 
-<div class="suporte">
-<a href="https://wa.me/message/XLUMIGURZ5QZK1"><i class='bx bx-support' style="color: white; margin-left: 5px; font-size: 2rem;"  ></i></a>
-</div>
-
- <!---Introducao-->
-<section class="conteudo">
       <section class="introducao">
-        <div class="divisao-1">
+    <!-- <div class="divisao-1">
             <h2>Tob_Sales</h2>
             <img src="logo-1.png" alt="">
-        </div>
+        </div> --->
 
-       <div class="divisao-2">
+      <!-- <div class="divisao-2">
             <h2 ><span style="color: #1c0802;">Explorando o mundo da moda. <span></span> </span>Seu visual, sua historia, comece <span  style="color: #1c0802;"> a escrever com </span> <span>nossas roupas.</span></h2>
-        </div>
+        </div> -->
 
     </section>
-        <div class="parag"> 
+        
+
+
+<div class="parag"> 
             
             <p>Na Tob_Sales, abra as portas para um mundo de moda sem limites. Com uma seleção incomparável de roupas que refletem as últimas tendências e um compromisso inabalável com a qualidade, estamos aqui para ajudá-lo a expressar sua individualidade em cada peça que você veste. 
                  <div class="botaoo">
                  <button class="contact_btn">Contactar</button>
              </div></p>
         </div>
-</section>
-
-
 
 
 
@@ -206,7 +198,7 @@ $result = $obj->EXE_QUERY($sql);
     </section>
 
 <!---Marcas-->
-    <section class="client-area">
+ <section class="client-area">
     <div class="contentor">
         
         <h2> <span>Marcas</span>
@@ -227,11 +219,10 @@ $result = $obj->EXE_QUERY($sql);
             <div class="slide"><img src="uploads/gucci.png" alt=""></div>  
         </section>
     </div>
-    
 
-    
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>                                                       
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
 </section>
-
 
 <section class="footer">
   
@@ -279,26 +270,19 @@ $result = $obj->EXE_QUERY($sql);
       <a href="#">Termos de uso</a>
       <a href="#">Reclamações</a>
   </div>
-      <div class="footer-box">
-          <h3>Sucursall</h3>
-          <p>Maputo cifdade</p>
-          <p>Matola</p>
-          <p>Boane</p>
-          <p>Xai-xai</p>
-      </div>
+     
 
      
 </section>
-<!--- COpyright-->
+<!--- COpyright
 
 <div class="copyright">
   <p style="color: #fff; font-weight: bold;"><strong style="color: #fb6547;">&#169; Tob_Sales</strong> 2024 Todos os direitos reservados</p>
-</div>
+</div> --->
 </div>
 
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>                                                       
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+
 <script src="seccao_1.js"></script>
 <script src="marcas.js"></script>
 </body>

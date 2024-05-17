@@ -74,11 +74,11 @@
 
 
         <div class="marcas">
-            <div><img src="assets/img/gucci.png" alt=""></div>
-            <div><img src="assets/img/adidas.png" alt=""></div>
-            <div><img src="assets/img/Dior.png" alt=""></div>
-            <div><img src="assets/img/puma.png" alt=""></div>
-            <div><img src="assets/img/vans.png" alt=""></div>
+            <a><img src="assets/img/gucci.png" alt=""></a>
+            <a><img src="assets/img/adidas.png" alt=""></a>
+            <a><img src="assets/img/Dior.png" alt=""></a>
+            <a><img src="assets/img/puma.png" alt=""></a>
+            <a><img src="assets/img/vans.png" alt=""></a>
         </div>
 
         <div class="suporte">
@@ -87,7 +87,7 @@
 
         <!---Introducao-->
         <section class="conteudo">
-            <section class="introducao">
+            <!--<section class="introducao">
                 <div class="divisao-1">
                     <h2>Tob_Sales</h2>
                     <img src="logo-1.png" alt="">
@@ -96,7 +96,7 @@
                 <div class="divisao-2">
                     <h2><span style="color: #1c0802;">Explorando o mundo da moda. <span></span> </span>Seu visual, sua historia, comece <span style="color: #1c0802;"> a escrever com </span> <span>nossas roupas.</span></h2>
                 </div>
-
+--->
             </section>
             <div class="parag">
 
@@ -111,6 +111,11 @@
 
         <h2 style="text-align: center; margin-top: 20px; color:#ff5722 ;"><span style="color: #602f20; border-bottom: 1px solid #602f20; border-width: 4px;">Mais</span> Populares</h2>
         <div class="container_catalogo">
+
+    
+
+
+
             <?php foreach ($result as $produto) : ?>
                 <?php if ($produto['estoque'] >= 1) { ?>
                     <div class="card">
@@ -478,21 +483,13 @@
       <a href="#">Termos de uso</a>
       <a href="#">Reclamações</a>
   </div>
-      <div class="footer-box">
-          <h3>Sucursall</h3>
-          <p>Maputo cifdade</p>
-          <p>Matola</p>
-          <p>Boane</p>
-          <p>Xai-xai</p>
-      </div>
+      
 
      
 </section>
 <!--- COpyright-->
 
-<div class="copyright">
-  <p style="color: #fff; font-weight: bold;"><strong style="color: #fb6547;">&#169; Tob_Sales</strong> 2024 Todos os direitos reservados</p>
-</div>
+
     </div>
         <script src="../seccao_1.js"></script>
         <script src="../marcas.js"></script>

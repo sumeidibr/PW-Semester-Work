@@ -5,7 +5,7 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: rgb(51, 50, 48);
+    background-color: #fd846c0c;
     width: 100%;
     margin-top: 40px;
     margin-bottom: 60px;
@@ -32,7 +32,6 @@
     margin-bottom: 20px;
     margin: auto;
     display: block;
-    background-color: yellow;
 }
 
 .info {
@@ -121,38 +120,41 @@ background-image: url();
     align-items: center;
     justify-items: center;
     margin: auto;
-    width: 800px;
-    gap: 5px;
-    justify-content: space-between;
+    width: 600px;
+    height: 100px;
+    gap: 4rem;
+    justify-content: space-evenly;
+    margin-bottom: 10px;
+    text-align: center;
 }
 
-.marcas div{
-    padding: 3px;
-    width: 100px;
+.marcas a{
+    padding: 0px;
+    width: 70px;
     height: 100px;
     display: flex;
+    justify-items: center;
     align-items: center;
+    text-align: center;
+    flex-wrap: wrap;
+ 
 }
 
-.marcas div img{
-    width: 70px;
+.marcas a img{
+    width: 65px;
+   
 }
 
 /**Introducao*/
-.conteudo{
-    background: rgb(254, 254, 254);
-    padding: 70px;
-    width: 100%;
-    margin: auto;
-}
 .introducao{
-    justify-content: space-evenly;
-    margin: auto;
-    display: flex;
-}
- .divisao-1 {
-    margin: 10px; 
+  display: flex;
+  justify-content: space-around;
+  width: 1000px;
+  margin: auto;
+  align-items: center;
+  justify-items: center;
  }
+ 
 
  .divisao-1 h2{
 color: #ff5722;
@@ -163,23 +165,27 @@ color: #ff5722;
     display: none;
  }
 
-
+.divisao-1{
+    
+   
+}
 .divisao-2 {
-    color: #fff;
-    border-left: 1px solid rgb(255, 255, 255);
-    border-width: 5px;
+ 
+
 }
 
 .divisao-2 h2{
-    margin-left: 10px;
-    max-width: 600px;
     color: #ff5722;
+    max-width: 500px;
 }
 
 
 .parag{
+
   margin: auto;
-  max-width: 1400px;
+  margin: 15px;
+  display: flex;
+  flex-direction: column;
 }
 
 .parag p{
@@ -187,7 +193,8 @@ color: #ff5722;
     font-size: 14pt;
     line-height: 1.7em;
     color: #000000;
-    max-width: 1300px;
+    
+    text-align: justify;
 }
 
 
@@ -237,3 +244,43 @@ color: #ff5722;
       opacity: 1;
     }
   }
+
+
+
+  /*RESPONSIVIDADE*/
+
+  
+  @media screen and (max-width: 630px) {
+
+    .marcas{
+        gap: 1rem;
+        width: 400px;
+    }
+
+    
+   .marcas a img{
+    width: 50px;
+   }
+  }
+
+  @media screen and (max-width: 430px) {
+
+    .marcas{
+        gap: 1rem;
+        width: 300px;
+    }
+
+}
+
+@media screen and (max-width: 330px) {
+
+
+    .marcas a img{
+        width: 40px;
+       }
+    .marcas{
+        gap: 1rem;
+        width: 250px;
+    }
+
+}

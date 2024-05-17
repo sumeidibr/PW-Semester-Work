@@ -10,9 +10,10 @@
     margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(17rem, auto));
-    gap: 2.5rem;
+    gap: 3.5rem;
     margin: auto;
-    width: 1100px;
+    width: 900px;
+    padding: 10px;
 }
 .featured-container .box{
     display: flex;
@@ -23,7 +24,7 @@
     border-radius: 0.5rem;
     overflow: hidden;
     box-shadow: 1px 2px 4x rgb(15 54 55 / 10%);
-    width: 450px;
+    width: 350px;
 }
 
 .featured-container .box img{
@@ -45,4 +46,85 @@
 .featured-container .box  .text a{
     font-size: 0.9rem;
     color: var(--text-color);
+}
+
+@media screen and (max-width: 860px){
+    .featured-container{
+        display: flex;
+        flex-direction: column;
+       margin: auto;
+       align-items: center;
+        justify-items: center;
+        gap: 4rem;
+        margin: auto;
+        max-width: 600px;
+       
+    }
+
+    .featured-container .box{
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 768px){
+    .featured-container{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-items: center;
+       margin: auto;
+        gap: 2.5rem;
+        margin: auto;
+        max-width: 500px;
+   
+        padding: 10px;
+    }
+
+
+    .featured-container .box{
+    width: 90%;
+}
+
+}
+
+@media screen and (max-width: 512px){
+    .featured-container{
+       
+        max-width: 400px;
+        
+       
+    }
+
+    .featured-container .box{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 436px){
+    .featured-container{
+       
+        max-width: 370px;
+       
+       
+    }
+
+    .featured-container .box{
+        width: 90%;
+    }
+}
+
+@media screen and (max-width: 390px){
+    .featured-container{
+       
+        max-width: 240px;
+       
+       
+    }
+
+    .featured-container .box{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
 }
