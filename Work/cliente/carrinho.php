@@ -23,8 +23,46 @@
         margin: 15% auto;
         padding: 20px;
         border: 1px solid #888;
-        width: 80%;
+        width: 50%;
         border-radius: 5px;
+
+        display: flex;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+
+    .container-pagamento, .container_pagamento .form {
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .mpesa img{
+        border-radius: 100px;
+        width: 150px;
+    }
+
+    .form input{
+        margin: 5px;
+        border-radius: 10px;
+        border-width: 1px;
+        height: 25px;
+        border-color: #d3d3d3;
+        width: 200px;
+        background-color: rgb(250, 250, 250);
+    }
+
+    .form input[type="submit"]{
+        margin: 5px;
+        border-radius: 10px;
+        border-width: 1px;
+        height: 25px;
+        border-color: #d3d3d3;
+        color: white;
+        width: 140px;
+        font-size: 1rem;
+        font-weight: bold;
+        background-color: red;
     }
 </style>
 
@@ -88,6 +126,11 @@
      return $prefix . $randomString;
      } ?>
      
+
+
+
+
+
      <!-- The Modal -->
      <div id="myModal" class="modal">
      <!-- Modal content -->
@@ -95,13 +138,13 @@
          <span class="close">&times;</span>
          <div class="container-pagamento">
              <h2>Formulário Pagamento</h2>
-             <form action="?efectuar_pagamento" method="post" onsubmit="return validateReference()">
+             <form action="?efectuar_pagamento" method="post" onsubmit="return validateReference()" class="form">
                  <div class="form-group">
-                     <label for="celular">Número de Celular Vodacom Only:</label>
+                     <label for="celular">Celular:</label>
                      <input type="text" id="celular" name="celular" placeholder="Ex:. 842156451" required >
                  </div>
                  <div class="form-group">
-                     <label for="valor">Valor:</label>
+                     <label for="valor">Valor      :</label>
                      <input type="number" id="valor" name="valor" placeholder="Digite o valor" required value="<?php echo $total ?>" readonly>
                  </div>
                  <div class="form-group">
@@ -112,8 +155,12 @@
                          <input type="text" id="referencia" name="referencia" placeholder="Digite a referência" value="<?php echo generateReference(); ?>">
                      <?php endif; ?>
                  </div>
-                 <input type="submit" value="Enviar">
+                 <input type="submit" value="Pagar">
              </form>
+         </div>
+
+         <div class="mpesa">
+            <img src="../uploads/mpesa.png" alt="">
          </div>
      </div>
      </div>
