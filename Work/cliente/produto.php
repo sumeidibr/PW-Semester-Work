@@ -49,13 +49,7 @@ if (!empty($_POST)) {
             <?php endforeach; ?>
         </div>
 
-<<<<<<< HEAD
-<?php
-$sql = 'SELECT * FROM produto';
-$resultados = $obj->EXE_QUERY($sql);
-=======
     <?php else : ?>
->>>>>>> main
 
     
         

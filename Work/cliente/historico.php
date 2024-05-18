@@ -141,12 +141,11 @@ $result = $obj->EXE_QUERY($sql, $params);
         <h1 class="text-align: right; ">Historico</h1>
             <thead>
                 <tr>
-                    <th>Id_compra</th>
-                    <th>Id_usuario</th>
-                    <th>Data_compra</th>
-                    <th>Localizacao_entrega</th>
+                    <th>Id Compra</th>
+                    <th>Data & Hora Compra</th>
+                    <th>Localizacao Entrega</th>
                     <th>Total</th>
-                    <th>Status</th>
+                    <th>Estado Entrega</th>
                     <th>Detalhes</th>
                 </tr>
             </thead>
@@ -154,11 +153,11 @@ $result = $obj->EXE_QUERY($sql, $params);
                 <?php foreach ($result as $compra) : ?>
                     <tr>
                         <td><?php echo $compra['idcompra'] ?></td>
-                        <td><?php echo $compra['iduser'] ?></td>
                         <td><?php echo $compra['data'] ?></td>
                         <td><?php echo $compra['localizacao_entrega'] ?></td>
                         <td><?php echo $compra['total'] ?></td>
-                        <td><?php echo $compra['status'] ?></td>
+                        <td><?php echo 'Recebido'?></td>
+
                         <!-- Adicionei uma coluna para o botão Detalhes -->
                         <td>
                             <button class="show-details-btn">Detalhes</button>

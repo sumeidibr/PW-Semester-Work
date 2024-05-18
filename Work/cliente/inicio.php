@@ -28,6 +28,11 @@
 
     $sql = 'SELECT * FROM produto';
     $result = $obj->EXE_QUERY($sql);
+    // Shuffle the products array
+shuffle($result);
+
+// Slice the array to get a maximum of four products
+$result = array_slice($result, 0, 4);
 
     ?>
 
@@ -111,39 +116,32 @@
 
         <h2 style="text-align: center; margin-top: 20px; color:#ff5722 ;"><span style="color: #602f20; border-bottom: 1px solid #602f20; border-width: 4px;">Mais</span> Populares</h2>
         <div class="container_catalogo">
-            <?php foreach ($result as $produto) : ?>
-                <?php if ($produto['estoque'] >= 1) { ?>
-                    <div class="card">
-                        <img src="<?php echo '../' . $produto['imagem'] ?>" alt="imagem_produto">
-                        <div class="info">
-                            <p class="nome"><?php echo $produto['nome'] ?></p>
-                            <?php
+        <?php foreach ($result as $produto) : ?>
+    <?php if ($produto['estoque'] >= 1) { ?>
+        <div class="card">
+            <img src="<?php echo '../' . $produto['imagem'] ?>" alt="imagem_produto">
+            <div class="info">
+                <p class="nome"><?php echo $produto['nome'] ?></p>
+                <?php
+                $hoje = date('Y-m-d');
 
-                            $hoje = date('Y-m-d');
+                $sql_promocao = 'SELECT * FROM produto_has_promocao WHERE idProduto = :id_produto AND :hoje BETWEEN Data_Inicio AND Data_Fim';
+                $params_promocao = array(':id_produto' => $produto['idproduto'], ':hoje' => $hoje);
 
-                            $sql_promocao = 'SELECT * FROM produto_has_promocao WHERE idProduto = :id_produto AND :hoje BETWEEN Data_Inicio AND Data_Fim';
-                            $params_promocao = array(':id_produto' => $produto['idproduto'], ':hoje' => $hoje);
+                $resultado_promocao = $obj->EXE_QUERY($sql_promocao, $params_promocao);
+                echo '<p class="preco">' . $produto['preco'] . ' Mzn</p>';
 
-                            $resultado_promocao = $obj->EXE_QUERY($sql_promocao, $params_promocao);
-                            echo  '<p class="preco"> ' . $produto['preco'] . ' Mzn</p>';
-
-                            if ($resultado_promocao) {
-                                // var_dump($resultado_promocao);
-                                //die();
-                                echo 'Promoção: <br>';
-                                echo 'Desconto: ' . $resultado_promocao[0]['desconto'] . '% <hr>';
-                                echo '<p class="preco">Desconto: ' . ($produto['preco'] - ($produto['preco'] * ($resultado_promocao[0]['desconto'] / 100))) . '  Mzn</p>';
-                                // O produto está em promoção
-                            } else {
-                                //echo 'nopnop';
-                                // O produto não está em promoção
-                            }
-                            ?>
-                        </div>
-                        <a href="?add_carrinho=<?php echo $produto['idproduto'] ?>" class="botao">Adicionar</a>
-                    </div>
-                <?php } ?>
-            <?php endforeach; ?>
+                if ($resultado_promocao) {
+                    echo 'Promoção: <br>';
+                    echo 'Desconto: ' . $resultado_promocao[0]['desconto'] . '% <hr>';
+                    echo '<p class="preco">Desconto: ' . ($produto['preco'] - ($produto['preco'] * ($resultado_promocao[0]['desconto'] / 100))) . ' Mzn</p>';
+                }
+                ?>
+            </div>
+            <a href="?add_carrinho=<?php echo $produto['idproduto'] ?>" class="botao">Adicionar</a>
+        </div>
+    <?php } ?>
+<?php endforeach; ?>
         </div>
 
 
