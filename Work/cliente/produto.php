@@ -1,3 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body class="body_produto">
 <?php
 include '../gestor.php';
 $obj = new Gestor();
@@ -39,7 +47,7 @@ if (!empty($_POST)) {
                                 echo 'Desconto: ' . $resultado_promocao[0]['desconto'] . '% <hr>';
                                 echo '<p class="preco"> Desconto: ' . ($produto['preco'] - ($produto['preco'] * ($resultado_promocao[0]['desconto'] / 100))) . ' MT</p>';
                             } else {
-                                echo 'O produto não está em promoção';
+                                echo 'Sem promoção';
                             }
                             ?>
                         </div>
@@ -81,13 +89,13 @@ if (!empty($_POST)) {
                             $sql_promocao = 'SELECT * FROM produto_has_promocao WHERE idProduto = :id_produto AND :hoje BETWEEN Data_Inicio AND Data_Fim';
                             $params_promocao = array(':id_produto' => $produto['idproduto'], ':hoje' => $hoje);
                             $resultado_promocao = $obj->EXE_QUERY($sql_promocao, $params_promocao);
-                            echo '<p class="preco">Preço Normal: ' . $produto['preco'] . ' Mzn</p>';
+                            echo '<p class="preco"> ' . $produto['preco'] . ' Mzn</p>';
                             if ($resultado_promocao) {
                                 echo 'PROMOCAO: <br>';
                                 echo 'Desconto: ' . $resultado_promocao[0]['desconto'] . '% <hr>';
-                                echo '<p class="preco">Preço Com Desconto: ' . ($produto['preco'] - ($produto['preco'] * ($resultado_promocao[0]['desconto'] / 100))) . ' MT</p>';
+                                echo '<p class="preco"> Desconto: ' . ($produto['preco'] - ($produto['preco'] * ($resultado_promocao[0]['desconto'] / 100))) . ' MT</p>';
                             } else {
-                                echo 'O produto não está em promoção';
+                                echo 'Sem promoção';
                             }
                             ?>
                         </div>
@@ -103,3 +111,9 @@ if (!empty($_POST)) {
         <?php endif; ?>
   
 </div>
+</body>
+</html>
+
+
+
+

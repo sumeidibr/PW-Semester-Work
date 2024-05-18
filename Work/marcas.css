@@ -10,7 +10,7 @@ h2 span{
     margin-bottom: 50px;
     padding: 150px 0 0;
     background: rgb(255, 255, 255);
-    width: 700px;
+    width: 500px;
     margin: auto;
 }
 
@@ -67,11 +67,19 @@ h2 span{
         padding: 70px 0 50px;
         font-size: 20pt;
     }
+    .slick-slide img{
+        width: 50%;
+    }
 }
 
 @media (max-width: 455px){
     .client-area{
     width: 100%;
     }
+
+    .slick-slide img{
+        width: 30%;
+    }
+
     
 }

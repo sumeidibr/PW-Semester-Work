@@ -1,14 +1,17 @@
 
-
+.body_produto{
+    background-color: #e0c6c1;
+}
 
 .container_catalogo {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    background-color: rgb(51, 50, 48);
+    background-color: rgb(212, 149, 22);
     width: 100%;
     margin-top: 40px;
     margin-bottom: 60px;
+    padding: 10px;
 }
 
 .card {
@@ -47,7 +50,7 @@
 
 .preco {
     font-size: 17px;
-    color: #ff5722;
+    color: #812205;
     /* laranja */
 }
 
@@ -72,7 +75,7 @@
 
 .categorias h2{
     margin-bottom: 20px;
-    color: #fd846c;
+    color: #270b05;
 }
 .categorias a{
     width: 95%;
@@ -107,6 +110,7 @@
 .Loja{
     padding: 10px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
 }
 

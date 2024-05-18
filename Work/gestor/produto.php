@@ -115,7 +115,8 @@ $result_categorias = $obj->EXE_QUERY($sql_select);
     </div>
 
     <div class="container_lista_produtos">
-        <h1>Lista de Produtos</h1>
+    <h1>Lista de Produtos</h1>
+    <div class="table-container">
         <table class="border" cellspacing="2" cellpadding="7">
             <thead>
                 <tr>
@@ -126,26 +127,26 @@ $result_categorias = $obj->EXE_QUERY($sql_select);
                     <th data-field="estoque">estoque</th>
                     <th data-field="categoria">categoria</th>
                     <th data-field="imagem">imagem</th>
-
-
                 </tr>
             </thead>
             <tbody>
                 <?php foreach ($resultados_produtos as $produto) : ?>
                     <tr>
                         <td><?php echo $produto['idproduto'] ?></td>
-                        <td><?php echo $produto['nome']     ?></td>
+                        <td><?php echo $produto['nome'] ?></td>
                         <td><?php echo $produto['descricao'] ?></td>
-                        <td><?php echo $produto['preco']    ?></td>
-                        <td><?php echo $produto['estoque']  ?></td>
+                        <td><?php echo $produto['preco'] ?></td>
+                        <td><?php echo $produto['estoque'] ?></td>
                         <td><?php echo $produto['categoria'] ?></td>
                         <td style="height: 100px; width: 100px;">
-    <img src="<?php echo '../'.$produto['imagem'] ?>" alt="" style="max-width: 100%; max-height: 100%;">
+                            <img src="<?php echo '../'.$produto['imagem'] ?>" alt="" style="max-width: 100%; max-height: 100%;">
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             </tbody>
         </table>
     </div>
+</div>
 
 </div>
 
