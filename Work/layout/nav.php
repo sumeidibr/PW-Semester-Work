@@ -43,8 +43,10 @@
             <a href="index.php?p=login" class="login-btn">Login</a>
         </div>
         <div class="search">
-            <input type="text" placeholder="">
-            <button type="submit"><i class="fa fa-search"></i></button>
+        <form action="?p=produto" method="POST">
+                <input id="pesquisa" name="pesquisa" type="text" placeholder="Buscar" required>
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
         </div>
     </div>
 </nav>
