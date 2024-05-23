@@ -33,7 +33,7 @@ header("Expires: 0"); // Proxies
 
     $obj = new Gestor();
 
-    $sql = 'SELECT * FROM produto WHERE estoque >= 1 ORDER BY RAND() LIMIT 4';
+    $sql = 'SELECT * FROM produto';
     $result = $obj->EXE_QUERY($sql);
 
     ?>
