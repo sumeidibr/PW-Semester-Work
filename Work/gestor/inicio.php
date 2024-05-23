@@ -36,8 +36,27 @@
         c.iduser, c.primeiro_nome, c.tipo_user, c.apelido, c.email,c.telefone
 ) AS subquery where tipo_user = "cliente"
 order by total_compras desc;';
+
         $result = $obj->EXE_QUERY($sqls);
 
+        $result = array_slice($result, 0, 3);
+
+
+        $sql = 'SELECT * FROM (
+            SELECT 
+                p.nome,
+                SUM(co.quantidade) AS total_compras
+            FROM 
+                produto p
+            LEFT JOIN 
+                produto_has_compra co ON p.idproduto = co.idproduto
+            GROUP BY 
+                p.nome
+        ) AS subquery
+        ORDER BY total_compras DESC;';
+                $resultado_produtos = $obj->EXE_QUERY($sql);
+        
+                $resultado_produtos = array_slice($resultado_produtos, 0, 3);
         ?>
 
 
@@ -72,8 +91,27 @@ order by total_compras desc;';
 
         <div class="relatorio">
             <div class="produtos">
-                <p>Tabela de produtos mais vendidos</p>
+                <p>Tabela de produtos mais vendidos Top 3</p>
+                <div class="container_clientes_tabela">
+                    <table class="border" cellspacing="2" cellpadding="7">
+                        <thead>
+                            <tr>
+                                <th data-field="pnome">Nome Produto</th>
+                                <th data-field="quantidade">Quantidade de Vendas</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ( $resultado_produtos as $prod) : ?>
+                                <tr>
+                                    <td><?php echo $prod['nome'] ?></td>
+                                    <td><?php echo $prod['total_compras'] ?></td>
+                                </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
             </div>
+        
 
             <div class="clientes">
                 <p>Tabela dos clientes com 3 dados, nome, numero de compras, e total gasto em compras</p>
@@ -83,7 +121,6 @@ order by total_compras desc;';
                     <table class="border" cellspacing="2" cellpadding="7">
                         <thead>
                             <tr>
-                                <th data-field="id">id</th>
                                 <th data-field="pnome">Nome</th>
                                 <th data-field="quantidade">Quatidade Compras</th>
                                 <th data-field="total">Total Gasto</th>

@@ -14,7 +14,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         ':email' => $email
     );
     $result = $obj->EXE_QUERY('SELECT * FROM user WHERE email= :email',$paramns);
-    var_dump($result);
+    //var_dump($result);
 
     if(count($result)==0){
         return false;
@@ -39,7 +39,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 header("Location: gestor/index.php");
             }
         }else{
-            echo 'falsos';
+            echo '<script>alert("Credenciais inválidas :("); window.location.href = "index.php?p=login";</script>';
+            exit;
+
         }
     }
 

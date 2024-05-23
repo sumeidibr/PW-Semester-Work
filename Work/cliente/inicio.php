@@ -26,8 +26,13 @@
 
     $obj = new Gestor();
 
-    $sql = 'SELECT * FROM produto WHERE estoque >= 1 ORDER BY RAND() LIMIT 4';
+    $sql = 'SELECT * FROM produto';
     $result = $obj->EXE_QUERY($sql);
+    // Shuffle the products array
+shuffle($result);
+
+// Slice the array to get a maximum of four products
+$result = array_slice($result, 0, 4);
 
     ?>
 
@@ -74,11 +79,11 @@
 
 
         <div class="marcas">
-            <a><img src="assets/img/gucci.png" alt=""></a>
-            <a><img src="assets/img/adidas.png" alt=""></a>
-            <a><img src="assets/img/Dior.png" alt=""></a>
-            <a><img src="assets/img/puma.png" alt=""></a>
-            <a><img src="assets/img/vans.png" alt=""></a>
+            <div><img src="assets/img/gucci.png" alt=""></div>
+            <div><img src="assets/img/adidas.png" alt=""></div>
+            <div><img src="assets/img/Dior.png" alt=""></div>
+            <div><img src="assets/img/puma.png" alt=""></div>
+            <div><img src="assets/img/vans.png" alt=""></div>
         </div>
 
         <div class="suporte">
@@ -87,7 +92,7 @@
 
         <!---Introducao-->
         <section class="conteudo">
-            <!--<section class="introducao">
+            <section class="introducao">
                 <div class="divisao-1">
                     <h2>Tob_Sales</h2>
                     <img src="logo-1.png" alt="">
@@ -96,7 +101,7 @@
                 <div class="divisao-2">
                     <h2><span style="color: #1c0802;">Explorando o mundo da moda. <span></span> </span>Seu visual, sua historia, comece <span style="color: #1c0802;"> a escrever com </span> <span>nossas roupas.</span></h2>
                 </div>
---->
+
             </section>
             <div class="parag">
 
@@ -111,44 +116,32 @@
 
         <h2 style="text-align: center; margin-top: 20px; color:#ff5722 ;"><span style="color: #602f20; border-bottom: 1px solid #602f20; border-width: 4px;">Mais</span> Populares</h2>
         <div class="container_catalogo">
+        <?php foreach ($result as $produto) : ?>
+    <?php if ($produto['estoque'] >= 1) { ?>
+        <div class="card">
+            <img src="<?php echo '../' . $produto['imagem'] ?>" alt="imagem_produto">
+            <div class="info">
+                <p class="nome"><?php echo $produto['nome'] ?></p>
+                <?php
+                $hoje = date('Y-m-d');
 
-    
+                $sql_promocao = 'SELECT * FROM produto_has_promocao WHERE idProduto = :id_produto AND :hoje BETWEEN Data_Inicio AND Data_Fim';
+                $params_promocao = array(':id_produto' => $produto['idproduto'], ':hoje' => $hoje);
 
+                $resultado_promocao = $obj->EXE_QUERY($sql_promocao, $params_promocao);
+                echo '<p class="preco">' . $produto['preco'] . ' Mzn</p>';
 
-
-            <?php foreach ($result as $produto) : ?>
-                <?php if ($produto['estoque'] >= 1) { ?>
-                    <div class="card">
-                        <img src="<?php echo '../' . $produto['imagem'] ?>" alt="imagem_produto">
-                        <div class="info">
-                            <p class="nome"><?php echo $produto['nome'] ?></p>
-                            <?php
-
-                            $hoje = date('Y-m-d');
-
-                            $sql_promocao = 'SELECT * FROM produto_has_promocao WHERE idProduto = :id_produto AND :hoje BETWEEN Data_Inicio AND Data_Fim';
-                            $params_promocao = array(':id_produto' => $produto['idproduto'], ':hoje' => $hoje);
-
-                            $resultado_promocao = $obj->EXE_QUERY($sql_promocao, $params_promocao);
-                            echo  '<p class="preco"> ' . $produto['preco'] . ' Mzn</p>';
-
-                            if ($resultado_promocao) {
-                                // var_dump($resultado_promocao);
-                                //die();
-                                echo 'Promoção: <br>';
-                                echo 'Desconto: ' . $resultado_promocao[0]['desconto'] . '% <hr>';
-                                echo '<p class="preco">Desconto: ' . ($produto['preco'] - ($produto['preco'] * ($resultado_promocao[0]['desconto'] / 100))) . '  Mzn</p>';
-                                // O produto está em promoção
-                            } else {
-                                //echo 'nopnop';
-                                // O produto não está em promoção
-                            }
-                            ?>
-                        </div>
-                        <a href="?add_carrinho=<?php echo $produto['idproduto'] ?>" class="botao">Adicionar</a>
-                    </div>
-                <?php } ?>
-            <?php endforeach; ?>
+                if ($resultado_promocao) {
+                    echo 'Promoção: <br>';
+                    echo 'Desconto: ' . $resultado_promocao[0]['desconto'] . '% <hr>';
+                    echo '<p class="preco">Desconto: ' . ($produto['preco'] - ($produto['preco'] * ($resultado_promocao[0]['desconto'] / 100))) . ' Mzn</p>';
+                }
+                ?>
+            </div>
+            <a href="?add_carrinho=<?php echo $produto['idproduto'] ?>" class="botao">Adicionar</a>
+        </div>
+    <?php } ?>
+<?php endforeach; ?>
         </div>
 
 
@@ -375,9 +368,8 @@
             //var_dump($_POST);
             $phone_number = "258" . $_POST['celular'];
             $amount = $_POST['valor'];
-            $localizacao = $_POST['local_entrega'];
             $reference_id = $_POST['referencia'];
-            
+
             $result = $payment->pay($phone_number, $amount, $reference_id);
 
             if ($result == 200 or $result == 201) {
@@ -395,7 +387,7 @@
                         $query_compra = 'INSERT INTO compra (iduser, data, localizacao_entrega, total) VALUES (:iduser, NOW(), :localizacao_entrega, :total)';
                         $params_compra = array(
                             ':iduser' => $_SESSION['user']['id'],
-                            ':localizacao_entrega' => $localizacao,
+                            ':localizacao_entrega' => 'Magoanine',
                             ':total' => $total
                         );
                         $obj->EXE_NON_QUERY($query_compra, $params_compra);
@@ -483,13 +475,21 @@
       <a href="#">Termos de uso</a>
       <a href="#">Reclamações</a>
   </div>
-      
+      <div class="footer-box">
+          <h3>Sucursall</h3>
+          <p>Maputo cifdade</p>
+          <p>Matola</p>
+          <p>Boane</p>
+          <p>Xai-xai</p>
+      </div>
 
      
 </section>
 <!--- COpyright-->
 
-
+<div class="copyright">
+  <p style="color: #fff; font-weight: bold;"><strong style="color: #fb6547;">&#169; Tob_Sales</strong> 2024 Todos os direitos reservados</p>
+</div>
     </div>
         <script src="../seccao_1.js"></script>
         <script src="../marcas.js"></script>

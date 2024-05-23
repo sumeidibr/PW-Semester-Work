@@ -1,7 +1,14 @@
 <?php
 
 session_start();
-
+if (isset($_SESSION['message'])) {
+    $message = $_SESSION['message'];
+    $message_type = $_SESSION['message_type'];
+    echo "<script>alert('$message');</script>";
+    // Limpa a mensagem após exibir
+    unset($_SESSION['message']);
+    unset($_SESSION['message_type']);
+}
 include 'layout/html_header.php';
 include 'layout/nav.php';
 
