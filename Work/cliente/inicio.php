@@ -21,8 +21,8 @@ header("Expires: 0"); // Proxies
 
     <link rel="stylesheet" href="../featured.css">
 
-      <!--- icons -->
-      <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <!--- icons -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body>
@@ -34,7 +34,11 @@ header("Expires: 0"); // Proxies
     $obj = new Gestor();
 
     $sql = 'SELECT * FROM produto';
+
     $result = $obj->EXE_QUERY($sql);
+
+    shuffle($result);
+
 
     ?>
 
@@ -89,7 +93,7 @@ header("Expires: 0"); // Proxies
         </div>
 
         <div class="suporte">
-        <a href="https://wa.me/message/XLUMIGURZ5QZK1"><i class='bx bx-support' style="color: white; margin-left: 5px; font-size: 2rem;"  ></i></a>
+            <a href="https://wa.me/message/XLUMIGURZ5QZK1"><i class='bx bx-support' style="color: white; margin-left: 5px; font-size: 2rem;"></i></a>
         </div>
 
         <!---Introducao-->
@@ -104,27 +108,34 @@ header("Expires: 0"); // Proxies
                     <h2><span style="color: #1c0802;">Explorando o mundo da moda. <span></span> </span>Seu visual, sua historia, comece <span style="color: #1c0802;"> a escrever com </span> <span>nossas roupas.</span></h2>
                 </div>
 --->
-            </section>
-            <div class="parag">
+        </section>
+        <div class="parag">
 
-                <p>Na Tob_Sales, abra as portas para um mundo de moda sem limites. Com uma seleção incomparável de roupas que refletem as últimas tendências e um compromisso inabalável com a qualidade, estamos aqui para ajudá-lo a expressar sua individualidade em cada peça que você veste.
-                <div class="botaoo">
-                    <button class="contact_btn">Contactar</button>
-                </div>
-                </p>
+            <p>Na Tob_Sales, abra as portas para um mundo de moda sem limites. Com uma seleção incomparável de roupas que refletem as últimas tendências e um compromisso inabalável com a qualidade, estamos aqui para ajudá-lo a expressar sua individualidade em cada peça que você veste.
+            <div class="botaoo">
+                <button class="contact_btn">Contactar</button>
             </div>
+            </p>
+        </div>
         </section>
 
 
         <h2 style="text-align: center; margin-top: 20px; color:#ff5722 ;"><span style="color: #602f20; border-bottom: 1px solid #602f20; border-width: 4px;">Mais</span> Populares</h2>
         <div class="container_catalogo">
 
-    
 
 
+
+            <?php $cont = 0; ?>
 
             <?php foreach ($result as $produto) : ?>
                 <?php if ($produto['estoque'] >= 1) { ?>
+
+                    <?php $cont++;
+                    if ($cont > 4) {
+                        break;
+                    }
+                    ?>
                     <div class="card">
                         <img src="<?php echo '../' . $produto['imagem'] ?>" alt="imagem_produto">
                         <div class="info">
@@ -384,7 +395,7 @@ header("Expires: 0"); // Proxies
             $amount = $_POST['valor'];
             $localizacao = $_POST['local_entrega'];
             $reference_id = $_POST['referencia'];
-            
+
             $result = $payment->pay($phone_number, $amount, $reference_id);
 
             if ($result == 200 or $result == 201) {
@@ -444,62 +455,62 @@ header("Expires: 0"); // Proxies
             //  echo "<p style='color: red; padding: 10px'>Nenhum dado foi enviado através do formulário!</p>";
         }
         ?>
-<section class="footer">
-  
-  <div class="footer-box">
-      <a href="" class="logo">
-          <h1>Tob_Sales<sup style="font-size: 0.5rem; ">TM</sup> </h1>
-      </a>
-      <div class="social">
-          <div class="media">
-              <a href=""><i class='bx bxl-facebook' ></i></a>
-              <a href=""><i class='bx bxl-instagram' ></i></a>
-              <a href=""><i class='bx bxl-whatsapp' ></i></a>
-          </div>
+        <section class="footer">
 
-         <p style="text-align: left; text-decoration: underline; font-size: 1.1rem;"><b>Inscreva-se Newsletter</b></p>
-         <p style="width: 330px; font-size: 0.8rem;">Ao se inscrever você concorda com os termos de uso e politica de privacidade.</p>
-          <div class="newsletter">
-              <form action="">
-                  <input type="email" name="" id="" placeholder="Enter your email..." class="email-box" required>
-                  <input type="submit" value="Subscribe" class="btn">
-              </form> 
-          </div>
+            <div class="footer-box">
+                <a href="" class="logo">
+                    <h1>Tob_Sales<sup style="font-size: 0.5rem; ">TM</sup> </h1>
+                </a>
+                <div class="social">
+                    <div class="media">
+                        <a href=""><i class='bx bxl-facebook'></i></a>
+                        <a href=""><i class='bx bxl-instagram'></i></a>
+                        <a href=""><i class='bx bxl-whatsapp'></i></a>
+                    </div>
 
-        <div class="contacts">
-          <h3>Contactos</h3>
-          <p><b>Email</b>: suporte@tob_sales.co.mz</p> <br>
-          <p><b>Contacto do suporte</b>: +258 821234567</p>
-          <p>Seg-Sex: 7:00H - 21:00H</p>
-          <p>Sab-Dom: 8:15H - 20:00H</p>
-        </div> 
-      </div>
-  </div>
-  <div class="footer-box">
-      <h3>Pages</h3>
-      <a href="#home">Pagina inicial</a>
-      <a href="#featured">Destaques</a>
-      <a href="#shop">Sobre</a>
-      <a href="#new">Categoria</a>
-      <a href="#home">Login</a>
-      </div>
-  <div class="footer-box">
-      <h3>Legal</h3>
-      <a href="#">Politica de privacidade</a>
-      <a href="#">Politica de Refundo</a>
-      <a href="#">Termos de uso</a>
-      <a href="#">Reclamações</a>
-  </div>
-      
+                    <p style="text-align: left; text-decoration: underline; font-size: 1.1rem;"><b>Inscreva-se Newsletter</b></p>
+                    <p style="width: 330px; font-size: 0.8rem;">Ao se inscrever você concorda com os termos de uso e politica de privacidade.</p>
+                    <div class="newsletter">
+                        <form action="">
+                            <input type="email" name="" id="" placeholder="Enter your email..." class="email-box" required>
+                            <input type="submit" value="Subscribe" class="btn">
+                        </form>
+                    </div>
 
-     
-</section>
-<!--- COpyright-->
+                    <div class="contacts">
+                        <h3>Contactos</h3>
+                        <p><b>Email</b>: suporte@tob_sales.co.mz</p> <br>
+                        <p><b>Contacto do suporte</b>: +258 821234567</p>
+                        <p>Seg-Sex: 7:00H - 21:00H</p>
+                        <p>Sab-Dom: 8:15H - 20:00H</p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-box">
+                <h3>Pages</h3>
+                <a href="#home">Pagina inicial</a>
+                <a href="#featured">Destaques</a>
+                <a href="#shop">Sobre</a>
+                <a href="#new">Categoria</a>
+                <a href="#home">Login</a>
+            </div>
+            <div class="footer-box">
+                <h3>Legal</h3>
+                <a href="#">Politica de privacidade</a>
+                <a href="#">Politica de Refundo</a>
+                <a href="#">Termos de uso</a>
+                <a href="#">Reclamações</a>
+            </div>
+
+
+
+        </section>
+        <!--- COpyright-->
 
 
     </div>
-        <script src="../seccao_1.js"></script>
-        <script src="../marcas.js"></script>
+    <script src="../seccao_1.js"></script>
+    <script src="../marcas.js"></script>
 
 </body>
 
